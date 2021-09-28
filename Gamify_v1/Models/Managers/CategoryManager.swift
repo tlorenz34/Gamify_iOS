@@ -20,7 +20,7 @@ class CategoryManager{
         }
     }
     
-    
+    // comment
     // Read
     func get(id: String, onSuccess: @escaping (_ category: Category) -> Void) {
         Firestore.firestore().collection("category").document(id).getDocument { document, error in
