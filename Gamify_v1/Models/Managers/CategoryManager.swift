@@ -38,3 +38,10 @@ class CategoryManager{
     
     // Delete
 }
+
+
+// Todos in order
+// 1. Storage of videos
+// 2. Showing / playing a video from Firebase storage
+// 3. Scrolling between two videos
+// 4. API, Algorithm for showing videos, etc....

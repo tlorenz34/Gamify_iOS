@@ -41,6 +41,8 @@
 		B170CDD427039D34006A1C12 /* ContentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD327039D34006A1C12 /* ContentManager.swift */; };
 		B170CDD62703A7C3006A1C12 /* ChallengeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD52703A7C3006A1C12 /* ChallengeManager.swift */; };
 		B170CDD82703A818006A1C12 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD72703A818006A1C12 /* CategoryManager.swift */; };
+		B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD92703E5AA006A1C12 /* VideoViewController.swift */; };
+		B170CDDC2703EA21006A1C12 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDDB2703EA21006A1C12 /* VideosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +89,8 @@
 		B170CDD327039D34006A1C12 /* ContentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentManager.swift; sourceTree = "<group>"; };
 		B170CDD52703A7C3006A1C12 /* ChallengeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeManager.swift; sourceTree = "<group>"; };
 		B170CDD72703A818006A1C12 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
+		B170CDD92703E5AA006A1C12 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		B170CDDB2703EA21006A1C12 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +189,8 @@
 			children = (
 				B170CD6326F8C657006A1C12 /* VideoFeedViewController.swift */,
 				B170CDCF26FD538B006A1C12 /* SignUpViewController.swift */,
+				B170CDD92703E5AA006A1C12 /* VideoViewController.swift */,
+				B170CDDB2703EA21006A1C12 /* VideosViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -392,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B170CDDC2703EA21006A1C12 /* VideosViewController.swift in Sources */,
 				B170CD6426F8C657006A1C12 /* VideoFeedViewController.swift in Sources */,
 				B170CDD427039D34006A1C12 /* ContentManager.swift in Sources */,
 				B170CDC926FD4E41006A1C12 /* Category.swift in Sources */,
@@ -400,6 +407,7 @@
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,
 				B170CDC526FD4CC9006A1C12 /* Content.swift in Sources */,
 				B170CDD026FD538B006A1C12 /* SignUpViewController.swift in Sources */,
+				B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */,
 				B170CD6226F8C657006A1C12 /* SceneDelegate.swift in Sources */,
 				B170CDD82703A818006A1C12 /* CategoryManager.swift in Sources */,
 				B170CD9726F94D63006A1C12 /* SubmissionCell.swift in Sources */,

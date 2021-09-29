@@ -28,9 +28,10 @@ class SignUpViewController: UIViewController {
 //        print(emailTextField.text) // Optional(Thaddeus)
         
         // Optionals, closure
-        UserManager.shared.create(user: User(email: emailTextField.text!), onSuccess: { errorMessage in
-            print(errorMessage)
-        })
+//        UserManager.shared.create(user: User(email: emailTextField.text!), onSuccess: { errorMessage in
+//            print(errorMessage)
+//        })
+        performSegue(withIdentifier: "toMainFeed", sender: nil)
     }
     
 //    func handleSuccess(errorMessage: String?) -> Void{
