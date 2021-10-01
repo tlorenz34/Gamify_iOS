@@ -43,6 +43,7 @@
 		B170CDD82703A818006A1C12 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD72703A818006A1C12 /* CategoryManager.swift */; };
 		B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD92703E5AA006A1C12 /* VideoViewController.swift */; };
 		B170CDDC2703EA21006A1C12 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDDB2703EA21006A1C12 /* VideosViewController.swift */; };
+		B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A7F5BF27068EFB00720839 /* ContentDual.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,7 @@
 		B170CDD72703A818006A1C12 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		B170CDD92703E5AA006A1C12 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		B170CDDB2703EA21006A1C12 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		B1A7F5BF27068EFB00720839 /* ContentDual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDual.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +212,7 @@
 			children = (
 				B170CDC226FD4C04006A1C12 /* User.swift */,
 				B170CDC426FD4CC9006A1C12 /* Content.swift */,
+				B1A7F5BF27068EFB00720839 /* ContentDual.swift */,
 				B170CDC626FD4D51006A1C12 /* Challenge.swift */,
 				B170CDC826FD4E41006A1C12 /* Category.swift */,
 				B170CDBC26FA287E006A1C12 /* Managers */,
@@ -405,6 +408,7 @@
 				B170CDD62703A7C3006A1C12 /* ChallengeManager.swift in Sources */,
 				B170CDC726FD4D51006A1C12 /* Challenge.swift in Sources */,
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,
+				B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */,
 				B170CDC526FD4CC9006A1C12 /* Content.swift in Sources */,
 				B170CDD026FD538B006A1C12 /* SignUpViewController.swift in Sources */,
 				B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */,

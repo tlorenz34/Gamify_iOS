@@ -10,23 +10,19 @@ import AVFoundation
 
 class VideoViewController: UIViewController {
 
-    var url: String!
+    var content: Content?
     
-    var player: AVPlayer!
+    var delegate: VideosViewControllerDelegate?
     
+    var player: AVPlayer?
+    
+    var videoView = UIView()
+    
+    // 2
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let videoView = UIView()
         videoView.frame = view.frame
-        
-        let videoURL = URL(string: url)
-        player = AVPlayer(url: videoURL!)
-        
-        let playerLayer = AVPlayerLayer(player: player)
-        playerLayer.frame = view.bounds
-        playerLayer.videoGravity = .resizeAspectFill
-        videoView.layer.addSublayer(playerLayer)
         
         view.addSubview(videoView)
         view.sendSubviewToBack(videoView)
@@ -34,15 +30,28 @@ class VideoViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func load(content: Content){
+        self.content = content
+        
+        let videoURL = URL(string: content.url!)
+        player = AVPlayer(url: videoURL!)
+        
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.frame = view.bounds
+        playerLayer.videoGravity = .resizeAspectFill
+        videoView.layer.addSublayer(playerLayer)
+        
+        player?.play()
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        player.play()
+        player?.play()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        player.pause()
+        player?.pause()
     }
     
 
