@@ -18,8 +18,8 @@ protocol VideosViewControllerDelegate {
     func winnerDidSelect(content: Content)
 }
 
-class VideosViewController: UIPageViewController {
-    
+class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
+
     // 1
     var vcs = [
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController,
@@ -30,10 +30,18 @@ class VideosViewController: UIPageViewController {
     
     var currentDualIndex = 0
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+
+
+        // vc -> single VideoViewController
+        // delegate -> VideosViewController (this current file)
         for vc in vcs{
+            
+            vc.delegate = self
             
         }
         
@@ -43,15 +51,34 @@ class VideosViewController: UIPageViewController {
                 self.vcs[0].load(content: dual.content1)
                 self.vcs[1].load(content: dual.content2)
             }
+            
+            self.duals = duals
            
         }
         
         setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
-
-
         dataSource = self
-        // Do any additional setup after loading the view.
     }
+    private func setupPageControl() {
+        
+        let appearance = UIPageControl.appearance()
+        appearance.pageIndicatorTintColor = UIColor.gray
+        appearance.currentPageIndicatorTintColor = UIColor.white
+        appearance.backgroundColor = UIColor.darkGray
+        }
+
+    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
+      {
+        setupPageControl()
+        return vcs.count.self
+      }
+
+      func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
+      {
+        return currentDualIndex
+      }
+
+    
     
 
 }
@@ -74,7 +101,7 @@ extension VideosViewController: UIPageViewControllerDataSource{
            guard vcs.count > previousIndex else {
                return nil
            }
-               
+        
            return vcs[previousIndex]
     }
     
@@ -92,9 +119,11 @@ extension VideosViewController: UIPageViewControllerDataSource{
            guard vcs.count > nextIndex else {
                return nil
            }
+        
            
            return vcs[nextIndex]
     }
+    
     
     
 }
@@ -105,7 +134,6 @@ extension VideosViewController : VideosViewControllerDelegate{
         
         currentDualIndex += 1
         if currentDualIndex < duals.count{
-            
             let dual = duals[currentDualIndex]
             self.vcs[0].load(content: dual.content1)
             self.vcs[1].load(content: dual.content2)
@@ -115,3 +143,33 @@ extension VideosViewController : VideosViewControllerDelegate{
        
     }
 }
+
+/**
+ ___________________
+ |  |           |   |
+ |  |           | <------ VideoViewController (Content 2x)
+ |  |           |   |           - delegate
+ |  |           |   |
+ |  |           |   | <----- VideosViewController (Container 1x)
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |         X |   |
+ |  _____________   |
+________________________
+ ___________________
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  |           |   |
+ |  _____________   |
+ 
+ 
+ 
+ 
+ 
+ */

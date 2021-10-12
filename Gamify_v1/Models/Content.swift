@@ -10,7 +10,7 @@ import Foundation
 struct Content: Codable{
     
 //    let userID: String
-//    
+    
 //    let username: String
 //    
 //    let userHeadshotURL: String
