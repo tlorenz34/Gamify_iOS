@@ -16,6 +16,8 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var joinButton: UIButton!
     
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    var audioPlayer = AVAudioPlayer()
 
     
     var content: Content?
@@ -69,6 +71,7 @@ class VideoViewController: UIViewController {
             self?.player?.play()
             self?.player?.seek(to: CMTime.zero)
 
+
         }
        // player?.play()
     
@@ -81,13 +84,18 @@ class VideoViewController: UIViewController {
     
     @IBAction func voteButtonTapped(_ sender: UIButton) {
     
+        let ANIMATION_DURATION = 1.2
+        
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
         impactMed.impactOccurred()
         let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 120, postion: sender.center)
-        pulse.animationDuration = 1.2
+        pulse.animationDuration = ANIMATION_DURATION
         pulse.backgroundColor =  #colorLiteral(red: 0, green: 0.7842717171, blue: 0.5222512484, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
-        delegate?.winnerDidSelect(content: content!)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_DURATION) {
+            self.delegate?.winnerDidSelect(content: self.content!)
+        }
         
     }
     

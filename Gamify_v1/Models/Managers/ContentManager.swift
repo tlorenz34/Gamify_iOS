@@ -16,8 +16,15 @@ class ContentManager{
     
     let db = Firestore.firestore()
     
+    static let CONTENT_LIMIT = 50
+    
+    func getDocumentId() -> String{
+        return db.collection(COLLECTION_CONTENT).document().documentID
+    }
+    
     // Create
     func create(content: Content, onSuccess: @escaping (_ errorMessage: String?) -> Void){
+        
         let data = try! FirestoreEncoder().encode(content)
         db.collection(COLLECTION_CONTENT)
             .addDocument(data: data){ err in
@@ -41,61 +48,63 @@ class ContentManager{
 
     }
     
+    
+    // Given array of content, return an array of duals
+    func convertContentToDuals(content: [Content]) -> [ContentDual]{
+        var duals = [ContentDual]()
+        
+        var latestDual = ContentDual()
+        
+        for c in content {
+            if latestDual.content1 == nil{
+                latestDual.content1 = c
+            } else if latestDual.content2 == nil{
+                latestDual.content2 = c
+                duals.append(latestDual)
+            } else{
+                latestDual = ContentDual()
+                latestDual.content1 = c
+            }
+        }
+        return duals
+    }
+    
     // map / reduce --> functional programming
     // Firestore document -> native swift structure --> View Controller
     
-    func list(onSuccess: @escaping (_ duals: [ContentDual]) -> Void){
-        db.collection(COLLECTION_CONTENT)
-            .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    
-                    let content = querySnapshot!.documents.map{
-                        try! FirestoreDecoder().decode(Content.self, from: $0.data()!)
-                    }
-                    
-                    var duals = [ContentDual]()
-                    
-                    var latestDual = ContentDual()
-                    
-                    for c in content {
-                        if latestDual.content1 == nil{
-                            latestDual.content1 = c
-                        } else if latestDual.content2 == nil{
-                            latestDual.content2 = c
-                            duals.append(latestDual)
-                        } else{
-                            latestDual = ContentDual()
-                            latestDual.content1 = c
-                        }
-                    }
-                    
-                    
-                    // Concurrency / threads
-                    // Main Thread - responding to user events, updating user interface
-                    // Background Thread - waiting for a network request to come back, saving to a file system, long running operations
-                    
-                    // A thread can only run one line of code a a time
-                    
-                    // Main Thread
-                    // A
-                    // B - 20 seconds
-                    // C
-                    
-                    // Rules
-                    // 1. Long running process should ALWAYS be in a background thread
-                    // 2. User interface updates should be in main thread
-                    
-                    // We don't really know if it's in a background or main thread
-                    
-                    // Grand Central Dispatch
-                    
-                    DispatchQueue.main.async {
-                        onSuccess(duals)
-                    }
+    func list(after contentId: String?, onSuccess: @escaping (_ duals: [ContentDual]) -> Void){
+        
+        let process: FIRQuerySnapshotBlock = { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                let content = querySnapshot!.documents.map{
+                    try! FirestoreDecoder().decode(Content.self, from: $0.data()!)
                 }
+                let duals = self.convertContentToDuals(content: content)
+                
+                DispatchQueue.main.async {
+                    onSuccess(duals)
+                }
+            }
         }
+        
+        if let contentId = contentId{
+            db.collection(COLLECTION_CONTENT)
+                .document(contentId)
+                .getDocument { snapshot, err in
+                    self.db.collection(COLLECTION_CONTENT)
+                        .start(afterDocument: snapshot!)
+                        .limit(to: ContentManager.CONTENT_LIMIT)
+                        .getDocuments(completion: process)
+                }
+        } else{
+            db.collection(COLLECTION_CONTENT)
+                .limit(to: ContentManager.CONTENT_LIMIT)
+                .getDocuments(completion: process)
+        }
+        
 
     }
     
@@ -103,3 +112,24 @@ class ContentManager{
     
     // Delete
 }
+
+
+
+// Concurrency / threads
+// Main Thread - responding to user events, updating user interface
+// Background Thread - waiting for a network request to come back, saving to a file system, long running operations
+
+// A thread can only run one line of code a a time
+
+// Main Thread
+// A
+// B - 20 seconds
+// C
+
+// Rules
+// 1. Long running process should ALWAYS be in a background thread
+// 2. User interface updates should be in main thread
+
+// We don't really know if it's in a background or main thread
+
+// Grand Central Dispatch

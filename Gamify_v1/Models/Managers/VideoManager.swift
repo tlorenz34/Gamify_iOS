@@ -46,7 +46,8 @@ class VideoManager{
                         return
                     }
                     
-                    let content = Content(url: uploadedVideoUrl.absoluteString)
+                    let content = Content(id: ContentManager.shared.getDocumentId(),
+                                          url: uploadedVideoUrl.absoluteString)
                     ContentManager.shared.create(content: content, onSuccess: onSuccess)
                 }
             }

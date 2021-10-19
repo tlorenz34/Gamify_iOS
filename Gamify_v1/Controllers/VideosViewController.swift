@@ -19,6 +19,8 @@ protocol VideosViewControllerDelegate {
 }
 
 class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
+    
+
 
     // 1
     var vcs = [
@@ -26,59 +28,100 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "VideoViewController") as VideoViewController
     ]
     
-    var duals = [ContentDual]()
+    
+    var originalDuals = [ContentDual]()
+    
+    var randomDuals = [ContentDual]()
     
     var currentDualIndex = 0
     
-
+    var containerDelegate: VideosContainerViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-
+        self.delegate = self
 
         // vc -> single VideoViewController
         // delegate -> VideosViewController (this current file)
-        for vc in vcs{
-            
+        for (index, vc) in vcs.enumerated(){
+            vc.view.tag = index
             vc.delegate = self
-            
         }
         
-        ContentManager.shared.list { duals in
-            // 3
-            if let dual = duals.first{
-                self.vcs[0].load(content: dual.content1)
-                self.vcs[1].load(content: dual.content2)
-            }
-            
-            self.duals = duals
-           
-        }
         
-        setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
+        refreshDualsFromDb()
+        
+        self.scrollToPage(index: 0)
         dataSource = self
     }
-    private func setupPageControl() {
-        
-        let appearance = UIPageControl.appearance()
-        appearance.pageIndicatorTintColor = UIColor.gray
-        appearance.currentPageIndicatorTintColor = UIColor.white
-        appearance.backgroundColor = UIColor.darkGray
-        }
-
-    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
-      {
-        setupPageControl()
-        return vcs.count.self
-      }
-
-      func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
-      {
-        return currentDualIndex
-      }
-
     
+    func scrollToPage(index: Int){
+        setViewControllers([vcs[index]], direction: .forward, animated: false, completion: nil)
+    }
+    
+    
+    // Shows the next dual (pair of videos)
+    func displayNextDual(){
+        currentDualIndex += 1
+        if currentDualIndex < randomDuals.count{
+            let dual = randomDuals[currentDualIndex]
+            self.loadDual(dual)
+        }
+        
+        refreshDualsFromDb()
+    }
+    
+    func loadDual(_ dual: ContentDual){
+        self.vcs[0].load(content: dual.content1)
+        self.vcs[1].load(content: dual.content2)
+        
+        setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
+        
+        self.containerDelegate?.updatedPageIndex(index: 0)
+    }
+    
+    // Loads from database feed of duals
+    func refreshDualsFromDb(){
+        // Don't load data if we haven't reached the end
+        if currentDualIndex < originalDuals.count && !originalDuals.isEmpty{
+            return
+        }
+        
+        ContentManager.shared.list(after: originalDuals.last?.content2.id) { duals in
+            self.currentDualIndex = 0
+            
+            self.originalDuals = duals
+            
+            self.randomDuals = duals
+            self.randomDuals.shuffle()
+            
+            // 3
+            if let dual = self.randomDuals.first{
+                self.loadDual(dual)
+            }
+            
+            
+        }
+    }
+    
+//
+//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
+//      {
+//        setupPageControl()
+//        return vcs.count.self
+//      }
+//
+//      func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
+//      {
+//        return currentDualIndex
+//      }
+
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed, let vc = pageViewController.viewControllers?.first{
+            containerDelegate?.updatedPageIndex(index: vc.view.tag)
+        }
+    }
     
 
 }
@@ -131,16 +174,7 @@ extension VideosViewController: UIPageViewControllerDataSource{
 
 extension VideosViewController : VideosViewControllerDelegate{
     func winnerDidSelect(content: Content) {
-        
-        currentDualIndex += 1
-        if currentDualIndex < duals.count{
-            let dual = duals[currentDualIndex]
-            self.vcs[0].load(content: dual.content1)
-            self.vcs[1].load(content: dual.content2)
-            
-            setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
-        }
-       
+        displayNextDual()
     }
 }
 
@@ -165,7 +199,7 @@ ________________________
  |  |           |   |
  |  |           |   |
  |  |           |   |
- |  |           |   |
+ |  |        X   |   |
  |  _____________   |
  
  

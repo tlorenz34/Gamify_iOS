@@ -51,7 +51,7 @@ class UploadVideoViewController: UIViewController {
     }
     
     @IBAction func tappedBack(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toMain", sender: nil)
+        performSegue(withIdentifier: "backToMainFeed", sender: nil)
     }
 }
 
