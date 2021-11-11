@@ -15,7 +15,11 @@ class VideoViewController: UIViewController {
     
     @IBOutlet weak var joinButton: UIButton!
     
+    @IBOutlet weak var aboutButton: UIButton!
+    
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var audioPlayer = AVAudioPlayer()
 
@@ -26,7 +30,12 @@ class VideoViewController: UIViewController {
     
     var player: AVPlayer?
     
+    var playerLooper: AVPlayerLooper?
+    
     var videoView = UIView()
+    
+
+    var toggleState = 0
     
     // 2
     override func viewDidLoad() {
@@ -40,24 +49,34 @@ class VideoViewController: UIViewController {
         voteButton.layer.cornerRadius = (voteButton.frame.height/2)
         voteButton.clipsToBounds = true
         
+        joinButton.layer.cornerRadius = joinButton.frame.height / 2
 
-
+        loadingIndicator.startAnimating()
         
+
         // Do any additional setup after loading the view.
     }
+//    override func viewWillDisappear(_ animated: Bool) {
+//        player?.isMuted = true
+//    }
+
+
+
     
     func load(content: Content){
         self.content = content
-        
-        let videoURL = URL(string: content.url!)
-        player = AVPlayer(url: videoURL!)
-        
+        let playerItem = AVPlayerItem(url: URL(string: content.url!)!)
+        self.player = AVQueuePlayer(items: [playerItem])
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = view.bounds
         playerLayer.videoGravity = .resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
+        playerLooper = AVPlayerLooper(player: player! as! AVQueuePlayer, templateItem: playerItem)
+        loadingIndicator.stopAnimating()
+        loadingIndicator.isHidden = true
+        player?.replaceCurrentItem(with: playerItem)
+        
 
-        player?.play()
     }
     
     @IBAction func tappedJoinButton(_ sender: UIButton) {
@@ -65,22 +84,22 @@ class VideoViewController: UIViewController {
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: .main) { [weak self] _ in
-            self?.player?.play()
-            self?.player?.seek(to: CMTime.zero)
-
-
-        }
-       // player?.play()
-    
+    @IBAction func tappedAboutButton(_ sender: Any) {
+        performSegue(withIdentifier: "toLeaderboard", sender: nil)
+        
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        player?.seek(to: CMTime.zero)
+    @IBAction func unwindToOne(_ sender: UIStoryboardSegue){}
+    
+    
+    func pauseVideo(){
+        player?.pause()
     }
+    
+    func resumeVideo(){
+        player?.play()
+    }
+    
     
     @IBAction func voteButtonTapped(_ sender: UIButton) {
     
@@ -88,16 +107,18 @@ class VideoViewController: UIViewController {
         
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
         impactMed.impactOccurred()
-        let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 120, postion: sender.center)
+        let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 1000, postion: sender.center)
         pulse.animationDuration = ANIMATION_DURATION
-        pulse.backgroundColor =  #colorLiteral(red: 0, green: 0.7842717171, blue: 0.5222512484, alpha: 1)
+        pulse.backgroundColor =  #colorLiteral(red: 0.4823529412, green: 0.3803921569, blue: 1, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
-        
+        self.player?.isMuted = true
         DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_DURATION) {
             self.delegate?.winnerDidSelect(content: self.content!)
         }
         
     }
+        
+      
     
 
 

@@ -7,21 +7,58 @@
 
 import UIKit
 import Firebase
+import Foundation
+
+
+extension Notification.Name {
+    static let signOutNotification = Notification.Name("signOutNotification")
+    static let signedInNotification = Notification.Name("signedInNotification")
+}
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var handler: AuthStateDidChangeListenerHandle!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
+        
+        handler = Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user{
+                UserManager.shared.loadCurrentUser(userId: user.uid)
+//                NotificationCenter.default.post(name: .signedInNotification, object: nil)
+//            } else{
+//                NotificationCenter.default.post(name: .signOutNotification, object: nil)
+            }
+            
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+        }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(signOutAction(_:)), name: .signOutNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(signedInAction(_:)), name: .signedInNotification, object: nil)
+        
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        
         return true
     }
 
+    @objc func signOutAction(_ notification: Notification) {
+       
+        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+    }
+    
+    @objc func signedInAction(_ notification: Notification) {
+        
+        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+       
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
+        
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 

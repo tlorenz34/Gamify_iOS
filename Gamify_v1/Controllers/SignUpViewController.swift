@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignUpViewController: UIViewController {
     
@@ -13,17 +14,31 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var usernameTextField: UITextField!
+    
+    var handle: AuthStateDidChangeListenerHandle?
+
+    @IBOutlet weak var loginButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
        // emailTextField.becomeFirstResponder()
         self.setupHideKeyboardOnTap()
-
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        usernameTextField.delegate = self
         
     }
     
+
+
+    
+    
  
     @IBAction func createAccount(_ sender: Any) {
+        // Validation
+        
         let identity = Identity(email: emailTextField.text!, password: passwordTextField.text!)
         
         IdentityManager.shared.signup(with: identity) { err, uid in
@@ -36,7 +51,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let user = User(id: uid, email: identity.email)
+            let user = User(id: uid, email: identity.email, username: self.usernameTextField.text!)
             UserManager.shared.create(user: user) { errorMessage in
                 if let errorMessage = errorMessage{
                     print(errorMessage)
@@ -49,6 +64,11 @@ class SignUpViewController: UIViewController {
         
     }
     
+    @IBAction func tappedLogin(_ sender: UIButton) {
+        performSegue(withIdentifier: "toLogin", sender: nil)
+    }
+    @IBAction func unwindToSignUp(_ sender: UIStoryboardSegue){}
+
     
     
 
@@ -67,21 +87,13 @@ extension UIViewController {
         return tap
     }
 }
+extension SignUpViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder() // dismiss keyboard
+        return true
+    }
+}
 
 
 
-// Generic
-//        let numbers: Array<Int> = [1,2,3]
-//        numbers[0]
-//        var name: Optional<String> = ""
-//        name!
-//        print(emailTextField.text) // Optional(Thaddeus)
 
-// Optionals, closure
-//        UserManager.shared.create(user: User(email: emailTextField.text!), onSuccess: { errorMessage in
-//            print(errorMessage)
-//        })
-
-//    func handleSuccess(errorMessage: String?) -> Void{
-//
-//    }

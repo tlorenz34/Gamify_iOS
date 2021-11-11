@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1298F62273AC20200E8DB70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1298F61273AC20200E8DB70 /* LoginViewController.swift */; };
+		B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B13685C5273CE7A500C8718A /* GoogleService-Info.plist */; };
 		B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD5F26F8C657006A1C12 /* AppDelegate.swift */; };
 		B170CD6226F8C657006A1C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD6126F8C657006A1C12 /* SceneDelegate.swift */; };
 		B170CD6426F8C657006A1C12 /* VideoFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD6326F8C657006A1C12 /* VideoFeedViewController.swift */; };
@@ -17,7 +19,6 @@
 		B170CD8226F8C659006A1C12 /* Gamify_v1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD8126F8C659006A1C12 /* Gamify_v1UITests.swift */; };
 		B170CD9726F94D63006A1C12 /* SubmissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD9526F94D63006A1C12 /* SubmissionCell.swift */; };
 		B170CD9826F94D63006A1C12 /* SubmissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B170CD9626F94D63006A1C12 /* SubmissionCell.xib */; };
-		B170CDA026FA22F9006A1C12 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B170CD9F26FA22F9006A1C12 /* GoogleService-Info.plist */; };
 		B170CDA326FA23AF006A1C12 /* FirebaseInstallations in Frameworks */ = {isa = PBXBuildFile; productRef = B170CDA226FA23AF006A1C12 /* FirebaseInstallations */; };
 		B170CDA526FA23AF006A1C12 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = B170CDA426FA23AF006A1C12 /* FirebaseMessaging */; };
 		B170CDA726FA23AF006A1C12 /* FirebaseDynamicLinks in Frameworks */ = {isa = PBXBuildFile; productRef = B170CDA626FA23AF006A1C12 /* FirebaseDynamicLinks */; };
@@ -43,6 +44,7 @@
 		B170CDD82703A818006A1C12 /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD72703A818006A1C12 /* CategoryManager.swift */; };
 		B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD92703E5AA006A1C12 /* VideoViewController.swift */; };
 		B170CDDC2703EA21006A1C12 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDDB2703EA21006A1C12 /* VideosViewController.swift */; };
+		B19E16622738843000983812 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E16612738843000983812 /* SplashViewController.swift */; };
 		B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A7F5BF27068EFB00720839 /* ContentDual.swift */; };
 		B1A89AAD2715D6F9000B7F11 /* LeaderboardCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AAC2715D6F9000B7F11 /* LeaderboardCellTableViewCell.swift */; };
 		B1A89AAF2715D836000B7F11 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */; };
@@ -52,6 +54,7 @@
 		B1BB2791270D2ABC00E97916 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB2790270D2ABC00E97916 /* ImageManager.swift */; };
 		B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB2792270D2B2100E97916 /* VideoManager.swift */; };
 		B1BB2795270DE52900E97916 /* PulseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB2794270DE52800E97916 /* PulseAnimation.swift */; };
+		B1D05B712731AC620064798D /* LeaderBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D05B702731AC620064798D /* LeaderBoardCell.swift */; };
 		B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5B150271907490042FF9A /* IdentityManager.swift */; };
 		B1F5B1532719083E0042FF9A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5B1522719083E0042FF9A /* Identity.swift */; };
 /* End PBXBuildFile section */
@@ -74,6 +77,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1298F61273AC20200E8DB70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B13685C5273CE7A500C8718A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B170CD5C26F8C657006A1C12 /* Gamify_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gamify_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B170CD5F26F8C657006A1C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B170CD6126F8C657006A1C12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +95,6 @@
 		B170CD8326F8C659006A1C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B170CD9526F94D63006A1C12 /* SubmissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionCell.swift; sourceTree = "<group>"; };
 		B170CD9626F94D63006A1C12 /* SubmissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmissionCell.xib; sourceTree = "<group>"; };
-		B170CD9F26FA22F9006A1C12 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B170CDC226FD4C04006A1C12 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B170CDC426FD4CC9006A1C12 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B170CDC626FD4D51006A1C12 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		B170CDD72703A818006A1C12 /* CategoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		B170CDD92703E5AA006A1C12 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		B170CDDB2703EA21006A1C12 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
+		B181912E273C8DD9002B2E38 /* Gamify_v1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gamify_v1.entitlements; sourceTree = "<group>"; };
+		B19E16612738843000983812 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		B1A7F5BF27068EFB00720839 /* ContentDual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDual.swift; sourceTree = "<group>"; };
 		B1A89AAC2715D6F9000B7F11 /* LeaderboardCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardCellTableViewCell.swift; sourceTree = "<group>"; };
 		B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		B1BB2790270D2ABC00E97916 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		B1BB2792270D2B2100E97916 /* VideoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoManager.swift; sourceTree = "<group>"; };
 		B1BB2794270DE52800E97916 /* PulseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PulseAnimation.swift; sourceTree = "<group>"; };
+		B1D05B702731AC620064798D /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
 		B1F5B150271907490042FF9A /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		B1F5B1522719083E0042FF9A /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,13 +184,14 @@
 		B170CD5E26F8C657006A1C12 /* Gamify_v1 */ = {
 			isa = PBXGroup;
 			children = (
+				B181912E273C8DD9002B2E38 /* Gamify_v1.entitlements */,
 				B170CD9B26FA1CE7006A1C12 /* Models */,
 				B170CD9A26FA1CDF006A1C12 /* Views */,
 				B170CD9926FA1CD5006A1C12 /* Controllers */,
 				B170CDC126FD4BA1006A1C12 /* Supporting Files */,
 				B170CD6826F8C659006A1C12 /* Assets.xcassets */,
+				B13685C5273CE7A500C8718A /* GoogleService-Info.plist */,
 				B170CD6D26F8C659006A1C12 /* Info.plist */,
-				B170CD9F26FA22F9006A1C12 /* GoogleService-Info.plist */,
 			);
 			path = Gamify_v1;
 			sourceTree = "<group>";
@@ -216,6 +224,8 @@
 				B170CDD92703E5AA006A1C12 /* VideoViewController.swift */,
 				B1BB278C270D268400E97916 /* UploadVideoViewController.swift */,
 				B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */,
+				B19E16612738843000983812 /* SplashViewController.swift */,
+				B1298F61273AC20200E8DB70 /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -228,6 +238,7 @@
 				B1BB2794270DE52800E97916 /* PulseAnimation.swift */,
 				B170CD9C26FA20AE006A1C12 /* Submissions */,
 				B1A89AAC2715D6F9000B7F11 /* LeaderboardCellTableViewCell.swift */,
+				B1D05B702731AC620064798D /* LeaderBoardCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -412,7 +423,7 @@
 			files = (
 				B170CD6C26F8C659006A1C12 /* LaunchScreen.storyboard in Resources */,
 				B170CD6926F8C659006A1C12 /* Assets.xcassets in Resources */,
-				B170CDA026FA22F9006A1C12 /* GoogleService-Info.plist in Resources */,
+				B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */,
 				B170CD6726F8C657006A1C12 /* Main.storyboard in Resources */,
 				B170CD9826F94D63006A1C12 /* SubmissionCell.xib in Resources */,
 			);
@@ -444,6 +455,7 @@
 				B170CD6426F8C657006A1C12 /* VideoFeedViewController.swift in Sources */,
 				B170CDD427039D34006A1C12 /* ContentManager.swift in Sources */,
 				B1BB278F270D274300E97916 /* StorageManager.swift in Sources */,
+				B1298F62273AC20200E8DB70 /* LoginViewController.swift in Sources */,
 				B170CDC926FD4E41006A1C12 /* Category.swift in Sources */,
 				B170CDD62703A7C3006A1C12 /* ChallengeManager.swift in Sources */,
 				B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */,
@@ -458,6 +470,8 @@
 				B170CD6226F8C657006A1C12 /* SceneDelegate.swift in Sources */,
 				B170CDD82703A818006A1C12 /* CategoryManager.swift in Sources */,
 				B1BB2795270DE52900E97916 /* PulseAnimation.swift in Sources */,
+				B19E16622738843000983812 /* SplashViewController.swift in Sources */,
+				B1D05B712731AC620064798D /* LeaderBoardCell.swift in Sources */,
 				B1F5B1532719083E0042FF9A /* Identity.swift in Sources */,
 				B170CD9726F94D63006A1C12 /* SubmissionCell.swift in Sources */,
 				B170CDCB26FD4ED6006A1C12 /* UserManager.swift in Sources */,
@@ -640,14 +654,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gamify_v1/Gamify_v1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEVELOPMENT_TEAM = SFS3QU5SC2;
 				INFOPLIST_FILE = Gamify_v1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamifysocialmedia.GamifySocialMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -660,14 +676,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Gamify_v1/Gamify_v1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.7;
+				CURRENT_PROJECT_VERSION = 2.5;
 				DEVELOPMENT_TEAM = SFS3QU5SC2;
 				INFOPLIST_FILE = Gamify_v1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gamifysocialmedia.GamifySocialMedia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

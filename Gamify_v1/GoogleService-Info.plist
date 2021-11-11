@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>372700588298-o7mcoh5otsim6815ks3jj87puguoaq6g.apps.googleusercontent.com</string>
+	<string>372700588298-2d6qmtvr9tm3tu5on7i4p2ri03jnpabt.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.372700588298-o7mcoh5otsim6815ks3jj87puguoaq6g</string>
+	<string>com.googleusercontent.apps.372700588298-2d6qmtvr9tm3tu5on7i4p2ri03jnpabt</string>
 	<key>API_KEY</key>
 	<string>AIzaSyCMiVhWryFPgZ1wuRU9CTm-v2pfaReSpPw</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ladv.Gamify-v1</string>
+	<string>com.gamifysocialmedia.GamifySocialMedia</string>
 	<key>PROJECT_ID</key>
 	<string>gamify-150f4</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:372700588298:ios:8d15097a0d6e791387b2f3</string>
+	<string>1:372700588298:ios:775610d03c85c6d187b2f3</string>
 </dict>
 </plist>

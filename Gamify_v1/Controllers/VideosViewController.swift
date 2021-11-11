@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import Foundation
 /**
  [
     [v1, v2],
@@ -16,10 +16,10 @@ import UIKit
 
 protocol VideosViewControllerDelegate {
     func winnerDidSelect(content: Content)
+
 }
 
 class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
-    
 
 
     // 1
@@ -37,6 +37,11 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     
     var containerDelegate: VideosContainerViewControllerDelegate?
     
+    var currentPageIndex = 0
+    
+    let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -49,13 +54,24 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             vc.delegate = self
         }
         
-        
+        DispatchQueue.main.async {
+            self.refreshDualsFromDb()
+        }
         refreshDualsFromDb()
         
-        self.scrollToPage(index: 0)
+        self.scrollToPage(index: currentPageIndex)
         dataSource = self
+        
+        for v in view.subviews {
+          if let scrollView = v as? UIScrollView {
+            scrollView.delegate = self
+          }
+        }
+        
+        
     }
-    
+
+
     func scrollToPage(index: Int){
         setViewControllers([vcs[index]], direction: .forward, animated: false, completion: nil)
     }
@@ -63,27 +79,34 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     
     // Shows the next dual (pair of videos)
     func displayNextDual(){
+        
+        
         currentDualIndex += 1
         if currentDualIndex < randomDuals.count{
             let dual = randomDuals[currentDualIndex]
             self.loadDual(dual)
+            
         }
         
         refreshDualsFromDb()
     }
     
     func loadDual(_ dual: ContentDual){
+        
         self.vcs[0].load(content: dual.content1)
         self.vcs[1].load(content: dual.content2)
         
         setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
         
-        self.containerDelegate?.updatedPageIndex(index: 0)
+        self.currentPageIndex = 0
+        self.vcs[currentPageIndex].resumeVideo()
+        self.containerDelegate?.updatedPageIndex(index: currentPageIndex)
     }
     
     // Loads from database feed of duals
     func refreshDualsFromDb(){
         // Don't load data if we haven't reached the end
+        
         if currentDualIndex < originalDuals.count && !originalDuals.isEmpty{
             return
         }
@@ -98,6 +121,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             
             // 3
             if let dual = self.randomDuals.first{
+                
                 self.loadDual(dual)
             }
             
@@ -105,23 +129,16 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         }
     }
     
-//
-//    func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int
-//      {
-//        setupPageControl()
-//        return vcs.count.self
-//      }
-//
-//      func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int
-//      {
-//        return currentDualIndex
-//      }
+
 
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed, let vc = pageViewController.viewControllers?.first{
-            containerDelegate?.updatedPageIndex(index: vc.view.tag)
+            self.currentPageIndex = vc.view.tag
+            containerDelegate?.updatedPageIndex(index: currentPageIndex)
+            self.vcs[currentPageIndex].resumeVideo()
         }
     }
+
     
 
 }
@@ -167,16 +184,43 @@ extension VideosViewController: UIPageViewControllerDataSource{
            return vcs[nextIndex]
     }
     
-    
-    
 }
 
 
 extension VideosViewController : VideosViewControllerDelegate{
+
+
     func winnerDidSelect(content: Content) {
-        displayNextDual()
+        
+        if UserManager.shared.currentUser == nil{
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        } else{
+
+            displayNextDual()
+            
+            ContentManager.shared.addVote(contentId: content.id)
+        }
     }
+        
+       
+
 }
+            
+
+extension VideosViewController: UIScrollViewDelegate{
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        print("\(#function)")
+        
+        for vc in vcs{
+            vc.pauseVideo()
+        }
+        
+    }
+   
+}
+        
+    
+
 
 /**
  ___________________
@@ -207,3 +251,4 @@ ________________________
  
  
  */
+

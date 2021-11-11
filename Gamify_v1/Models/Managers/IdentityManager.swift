@@ -24,6 +24,7 @@ class IdentityManager{
     
 
     func signup(with identity: Identity, onComplete: @escaping (Error?, String?) -> Void) {
+    
        
         Auth.auth().createUser(withEmail: identity.email, password: identity.password) { (result, error) in
             if let error = error {
@@ -49,6 +50,7 @@ class IdentityManager{
             onComplete(error)
         }
     }
+    
     
 
     func logout(){

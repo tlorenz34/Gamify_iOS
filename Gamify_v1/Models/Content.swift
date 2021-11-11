@@ -11,10 +11,12 @@ struct Content: Codable{
     
     let id: String
     
-//    let userID: String
+    let userId: String
     
-//    let username: String
-//    
+    let username: String
+
+    let voteCount: Int
+    
 //    let userHeadshotURL: String
 //    
 //    let challengeId: String
@@ -29,7 +31,7 @@ struct Content: Codable{
 //
 //    let categoryId: String
 //
-//    let likeCount: Int
+    //let likeCount: Int
 //
 //    let createdAt: Date
 //

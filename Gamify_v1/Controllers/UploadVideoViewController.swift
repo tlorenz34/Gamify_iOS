@@ -46,13 +46,9 @@ class UploadVideoViewController: UIViewController {
     
     @IBAction func tappedUpload(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
-        
-        
     }
     
-    @IBAction func tappedBack(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "backToMainFeed", sender: nil)
-    }
+
 }
 
 
@@ -71,9 +67,11 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
                 print(errorMessage)
                 picker.dismiss(animated: true, completion: nil)
                 
-                self.chooseVideoButton.setTitle("You're all set!", for: .normal)
+                self.chooseVideoButton.setTitle("Ready to upload.", for: .normal)
                 self.chooseVideoButton.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: .normal)
-                
+                self.uploadButton.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 16) ]
+                self.uploadButton.setTitleTextAttributes(attributes, for: .normal)
             }
         }
         

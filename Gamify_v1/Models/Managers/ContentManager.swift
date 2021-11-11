@@ -11,17 +11,19 @@ import CodableFirebase
 
 let COLLECTION_CONTENT = "content"
 
-class ContentManager{
+class ContentManager {
+    
     static let shared = ContentManager()
     
     let db = Firestore.firestore()
     
     static let CONTENT_LIMIT = 50
     
+    // Generates a random but valid document id
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID
     }
-    
+        
     // Create
     func create(content: Content, onSuccess: @escaping (_ errorMessage: String?) -> Void){
         
@@ -66,8 +68,59 @@ class ContentManager{
                 latestDual.content1 = c
             }
         }
+        
+        // Complete the dual with 1 content with a random one
+        if latestDual.content2 == nil, content.count > 1{
+            
+            repeat {
+                let random = content.randomElement()!
+                if random.id != latestDual.content1.id{
+                    latestDual.content2 = random
+                }
+                
+            } while latestDual.content2 == nil
+            
+            duals.append(latestDual)
+        }
+           
+           
+        
         return duals
     }
+    
+    
+    func listTopContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
+        db.collection(COLLECTION_CONTENT)
+            .limit(to: 10)
+            .order(by: "voteCount", descending: true)
+            .getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                
+                let content = querySnapshot!.documents.map{
+                    try! FirestoreDecoder().decode(Content.self, from: $0.data())
+                }
+             
+                DispatchQueue.main.async {
+                    onSuccess(content)
+                }
+            }
+        }
+    }
+    
+    func addVote(contentId: String) {
+        print("addVote called")
+        
+        db.collection(COLLECTION_CONTENT).document(contentId).updateData([
+            "voteCount": FieldValue.increment(Int64(1))
+        ]){ err in
+            if let err = err{
+                print(err)
+            }
+        }
+    }
+    
     
     // map / reduce --> functional programming
     // Firestore document -> native swift structure --> View Controller
@@ -80,7 +133,7 @@ class ContentManager{
             } else {
                 
                 let content = querySnapshot!.documents.map{
-                    try! FirestoreDecoder().decode(Content.self, from: $0.data()!)
+                    try! FirestoreDecoder().decode(Content.self, from: $0.data())
                 }
                 let duals = self.convertContentToDuals(content: content)
                 
@@ -119,7 +172,7 @@ class ContentManager{
 // Main Thread - responding to user events, updating user interface
 // Background Thread - waiting for a network request to come back, saving to a file system, long running operations
 
-// A thread can only run one line of code a a time
+// A thread can only run one line of code a a ime
 
 // Main Thread
 // A
