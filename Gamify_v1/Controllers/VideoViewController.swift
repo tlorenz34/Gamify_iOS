@@ -85,6 +85,9 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func tappedAboutButton(_ sender: Any) {
+    
+        player?.pause()
+        player?.isMuted = true
         performSegue(withIdentifier: "toLeaderboard", sender: nil)
         
     }

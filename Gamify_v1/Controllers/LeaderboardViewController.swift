@@ -60,13 +60,13 @@ class LeaderboardViewController: UIViewController {
         refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
             
             try! Auth.auth().signOut()
-        
-            if let storyboard = self.storyboard {
-                        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpViewController")
+    
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "SignUpViewController")
                         self.present(vc, animated: false, completion: nil)
                         vc.modalPresentationStyle = .fullScreen
+        
 
-                    }
+                    
         }))
 
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

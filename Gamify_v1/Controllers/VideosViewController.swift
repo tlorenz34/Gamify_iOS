@@ -7,6 +7,7 @@
 
 import UIKit
 import Foundation
+import AVFoundation
 /**
  [
     [v1, v2],
@@ -67,6 +68,8 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             scrollView.delegate = self
           }
         }
+        
+
         
         
     }

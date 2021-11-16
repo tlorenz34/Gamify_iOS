@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import Foundation
+import AVFoundation
 
 
 extension Notification.Name {
@@ -19,6 +20,7 @@ extension Notification.Name {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var handler: AuthStateDidChangeListenerHandle!
+
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()

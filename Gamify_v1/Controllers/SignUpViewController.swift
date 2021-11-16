@@ -16,10 +16,17 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     
+    @IBOutlet weak var checkBtn: UIButton!
+    
     var handle: AuthStateDidChangeListenerHandle?
 
+    @IBOutlet weak var termsConditionsLabel: UILabel!
+    
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var termsAndConditionsButton: UIButton!
+    
+    var termAccepted = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,15 +36,33 @@ class SignUpViewController: UIViewController {
         passwordTextField.delegate = self
         usernameTextField.delegate = self
         
+        checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        
     }
     
-
-
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
     
  
     @IBAction func createAccount(_ sender: Any) {
         // Validation
+        
+        //alert user if term not accepted
+        guard termAccepted == true else {
+            alert(title: "Terms & Conditions", message: "Please check and accept our Terms & Conditions to continue.")
+            return
+        }
+        
+        
+        // alert username has not been set
+        if let username = usernameTextField.text {
+            if username.count == 0 {
+                alert(title: "Username", message: "Make sure you choose a username before continuing!")
+                return
+            }
+        }
         
         let identity = Identity(email: emailTextField.text!, password: passwordTextField.text!)
         
@@ -68,11 +93,40 @@ class SignUpViewController: UIViewController {
         performSegue(withIdentifier: "toLogin", sender: nil)
     }
     @IBAction func unwindToSignUp(_ sender: UIStoryboardSegue){}
-
+    
+    
+    @IBAction func acceptTerm(_ sender: UIButton) {
+        
+        termAccepted = !termAccepted
+        if (!termAccepted) {
+            checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        } else {
+            checkBtn.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+        }
+    }
+    
+    @IBAction func tappedTerms(_ sender: UIButton) {
+        performSegue(withIdentifier: "toTermsConditions", sender: nil)
+    }
+    
+    
+    // HELPERS
+    
+    func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }
+        alertController.addAction(dismissAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     
 
 }
+
+// Extensions
 extension UIViewController {
     /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
     func setupHideKeyboardOnTap() {

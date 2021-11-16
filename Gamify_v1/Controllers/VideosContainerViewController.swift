@@ -31,9 +31,10 @@ class VideosContainerViewController: UIViewController {
         
         button2.backgroundColor = .gray
         
+    
         
     }
-    
+ 
     @IBAction func tappedButton(_ sender: UIButton) {
         updatedPageIndex(index: sender.tag)
         videosViewController?.scrollToPage(index: sender.tag)
