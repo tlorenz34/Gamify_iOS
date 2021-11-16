@@ -16,8 +16,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
     
-    @IBOutlet weak var checkBtn: UIButton!
     
+    @IBOutlet weak var checkButton: UIButton!
     var handle: AuthStateDidChangeListenerHandle?
 
     @IBOutlet weak var termsConditionsLabel: UILabel!
@@ -36,7 +36,7 @@ class SignUpViewController: UIViewController {
         passwordTextField.delegate = self
         usernameTextField.delegate = self
         
-        checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+        checkButton.setImage(UIImage(systemName: "square"), for: .normal)
         
     }
     
@@ -95,15 +95,15 @@ class SignUpViewController: UIViewController {
     @IBAction func unwindToSignUp(_ sender: UIStoryboardSegue){}
     
     
-    @IBAction func acceptTerm(_ sender: UIButton) {
-        
+    @IBAction func acceptedTerms(_ sender: UIButton) {
         termAccepted = !termAccepted
         if (!termAccepted) {
-            checkBtn.setImage(UIImage(systemName: "square"), for: .normal)
+            checkButton.setImage(UIImage(systemName: "square"), for: .normal)
         } else {
-            checkBtn.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
+            checkButton.setImage(UIImage(systemName: "checkmark.square"), for: .normal)
         }
     }
+    
     
     @IBAction func tappedTerms(_ sender: UIButton) {
         performSegue(withIdentifier: "toTermsConditions", sender: nil)
