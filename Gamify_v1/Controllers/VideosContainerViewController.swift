@@ -21,7 +21,9 @@ class VideosContainerViewController: UIViewController {
     
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var menuBarView: UIView!
     
+    @IBOutlet weak var createGameButton: UIButton!
     var videosViewController: VideosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +42,9 @@ class VideosContainerViewController: UIViewController {
         videosViewController?.scrollToPage(index: sender.tag)
     }
     
+    @IBAction func tappedCreateButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "toGameMode", sender: self)
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

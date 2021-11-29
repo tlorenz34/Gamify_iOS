@@ -66,13 +66,39 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IZ-S6-RK7">
+                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-z7-XSM" userLabel="CreateGame">
+                                        <rect key="frame" x="186.5" y="19.5" width="41.5" height="31"/>
+                                        <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedCreateButton:" destination="aFe-SD-uFA" eventType="touchUpInside" id="vQ8-7g-ng5"/>
+                                            <action selector="tappedTestButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="OHp-l2-Odt"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mGa-z7-XSM" firstAttribute="centerY" secondItem="2IZ-S6-RK7" secondAttribute="centerY" id="T9J-2A-tjE"/>
+                                    <constraint firstItem="mGa-z7-XSM" firstAttribute="centerX" secondItem="2IZ-S6-RK7" secondAttribute="centerX" id="Y72-su-LvN"/>
+                                    <constraint firstAttribute="height" constant="70" id="mVO-It-2Oy"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Mjv-gr-UPE"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="A7k-Ah-gPo" firstAttribute="trailing" secondItem="Mjv-gr-UPE" secondAttribute="trailing" id="0hf-Jc-8wU"/>
                             <constraint firstItem="A7k-Ah-gPo" firstAttribute="top" secondItem="Ugr-gZ-Mlq" secondAttribute="top" id="4Xk-53-tKd"/>
+                            <constraint firstItem="2IZ-S6-RK7" firstAttribute="trailing" secondItem="Mjv-gr-UPE" secondAttribute="trailing" id="BhI-oW-Vvo"/>
+                            <constraint firstAttribute="bottom" secondItem="2IZ-S6-RK7" secondAttribute="bottom" id="QrN-dk-k9p"/>
                             <constraint firstAttribute="bottom" secondItem="A7k-Ah-gPo" secondAttribute="bottom" id="UvS-9E-A86"/>
+                            <constraint firstItem="2IZ-S6-RK7" firstAttribute="leading" secondItem="Mjv-gr-UPE" secondAttribute="leading" id="eBf-Hc-ZET"/>
                             <constraint firstItem="A7k-Ah-gPo" firstAttribute="leading" secondItem="Mjv-gr-UPE" secondAttribute="leading" id="gc4-nV-g67"/>
                             <constraint firstItem="i0S-od-5fq" firstAttribute="centerX" secondItem="Ugr-gZ-Mlq" secondAttribute="centerX" id="hr5-9u-qpN"/>
                             <constraint firstItem="i0S-od-5fq" firstAttribute="top" secondItem="Mjv-gr-UPE" secondAttribute="top" constant="15" id="zWG-KW-T5G"/>
@@ -83,6 +109,8 @@
                         <outlet property="button1" destination="1cH-X2-0Do" id="yQC-OQ-7SI"/>
                         <outlet property="button2" destination="JFi-8d-nZa" id="cfQ-uo-kTQ"/>
                         <outlet property="containerView" destination="A7k-Ah-gPo" id="F6A-jm-8G3"/>
+                        <outlet property="menuBarView" destination="2IZ-S6-RK7" id="oqX-lF-n0R"/>
+                        <segue destination="kwS-Rb-Rys" kind="show" identifier="toGameMode" id="1mX-xE-uO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb5-G0-EW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -90,14 +118,14 @@
             <point key="canvasLocation" x="932" y="52"/>
         </scene>
         <!--GameModeViewController-->
-        <scene sceneID="iVT-b3-lGT">
+        <scene sceneID="jXG-kV-RSw">
             <objects>
-                <viewControllerPlaceholder storyboardName="GameMode" referencedIdentifier="GameModeViewController" id="od1-bz-qQu" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="PHR-48-azX"/>
+                <viewControllerPlaceholder storyboardName="GameMode" referencedIdentifier="GameModeViewController" id="kwS-Rb-Rys" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3ui-IL-o8X"/>
                 </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Vc-FW-VMR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jn6-YF-k7c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2735" y="-378"/>
+            <point key="canvasLocation" x="933" y="475"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="jgI-bA-scE">
@@ -107,46 +135,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-YO-D2X">
-                                <rect key="frame" x="43" y="693" width="60" height="60"/>
-                                <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="THE-iS-2on"/>
-                                    <constraint firstAttribute="width" secondItem="IAE-YO-D2X" secondAttribute="height" multiplier="1:1" id="ggU-GV-0FP"/>
-                                </constraints>
-                                <state key="normal" title="Vote">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="voteButtonTapped:" destination="vMj-oX-O8g" eventType="touchUpInside" id="YKi-jR-ZlQ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-Rd-mh2">
-                                <rect key="frame" x="47" y="791" width="320" height="47"/>
-                                <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="0q7-PE-Pt4"/>
-                                    <constraint firstAttribute="width" constant="320" id="tK9-i6-hYp"/>
-                                </constraints>
-                                <state key="normal" title="Join">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="tappedJoinButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="kCW-li-D41"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejj-Yt-FZK">
-                                <rect key="frame" x="344" y="698" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="BLw-KS-8rX"/>
-                                    <constraint firstAttribute="height" constant="50" id="Zww-90-Ek9"/>
-                                </constraints>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info.circle" catalog="system"/>
-                                <connections>
-                                    <action selector="tappedAboutButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="T7E-7T-SeT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="yJu-EK-0eq">
+                                <rect key="frame" x="41.5" y="656" width="331" height="129"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="211" translatesAutoresizingMaskIntoConstraints="NO" id="lma-rw-6cO">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAE-YO-D2X">
+                                                <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="60" id="KiP-tL-1gA"/>
+                                                    <constraint firstAttribute="width" secondItem="IAE-YO-D2X" secondAttribute="height" multiplier="1:1" id="ggU-GV-0FP"/>
+                                                </constraints>
+                                                <state key="normal" title="Vote">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="voteButtonTapped:" destination="vMj-oX-O8g" eventType="touchUpInside" id="YKi-jR-ZlQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejj-Yt-FZK">
+                                                <rect key="frame" x="271" y="0.0" width="60" height="60"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Ejj-Yt-FZK" secondAttribute="height" multiplier="1:1" id="fU8-Yq-mGf"/>
+                                                </constraints>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" image="info.circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="tappedAboutButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="T7E-7T-SeT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANF-Rd-mh2">
+                                        <rect key="frame" x="40.5" y="82" width="250" height="47"/>
+                                        <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="47" id="0q7-PE-Pt4"/>
+                                            <constraint firstAttribute="width" constant="250" id="egF-A5-Bqe"/>
+                                        </constraints>
+                                        <state key="normal" title="Join">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="tappedJoinButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="kCW-li-D41"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="4zm-Ab-eBv">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
                             </activityIndicatorView>
@@ -164,30 +201,16 @@
                                     <action selector="tappedMoreButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="1MZ-BP-4Ci"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-z7-XSM">
-                                <rect key="frame" x="173.5" y="432.5" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="tappedTestButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="OHp-l2-Odt"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="See-Qw-kO8"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="See-Qw-kO8" firstAttribute="trailing" secondItem="Ejj-Yt-FZK" secondAttribute="trailing" constant="20" id="12P-FO-NUR"/>
-                            <constraint firstItem="Ejj-Yt-FZK" firstAttribute="centerY" secondItem="IAE-YO-D2X" secondAttribute="centerY" id="27J-i0-Ehc"/>
-                            <constraint firstItem="mGa-z7-XSM" firstAttribute="centerX" secondItem="pIu-XV-O5L" secondAttribute="centerX" id="4HF-PU-6zY"/>
                             <constraint firstItem="LYY-Bm-xJZ" firstAttribute="top" secondItem="See-Qw-kO8" secondAttribute="top" constant="10" id="73I-IU-WTr"/>
+                            <constraint firstItem="yJu-EK-0eq" firstAttribute="centerX" secondItem="pIu-XV-O5L" secondAttribute="centerX" id="84n-T4-u6D"/>
                             <constraint firstItem="4zm-Ab-eBv" firstAttribute="centerY" secondItem="pIu-XV-O5L" secondAttribute="centerY" id="9ME-Ai-Bbg"/>
                             <constraint firstItem="4zm-Ab-eBv" firstAttribute="centerX" secondItem="pIu-XV-O5L" secondAttribute="centerX" id="AXK-m7-Oju"/>
-                            <constraint firstItem="ANF-Rd-mh2" firstAttribute="centerX" secondItem="pIu-XV-O5L" secondAttribute="centerX" id="Aah-g6-DQE"/>
-                            <constraint firstItem="See-Qw-kO8" firstAttribute="bottom" secondItem="ANF-Rd-mh2" secondAttribute="bottom" constant="24" id="G7R-nw-FVB"/>
-                            <constraint firstItem="See-Qw-kO8" firstAttribute="bottom" secondItem="IAE-YO-D2X" secondAttribute="bottom" constant="109" id="TxJ-bO-jQW"/>
+                            <constraint firstItem="See-Qw-kO8" firstAttribute="bottom" secondItem="yJu-EK-0eq" secondAttribute="bottom" constant="77" id="JoL-5l-x5B"/>
                             <constraint firstItem="See-Qw-kO8" firstAttribute="trailing" secondItem="LYY-Bm-xJZ" secondAttribute="trailing" constant="34" id="tAr-yF-6cf"/>
-                            <constraint firstItem="mGa-z7-XSM" firstAttribute="centerY" secondItem="pIu-XV-O5L" secondAttribute="centerY" id="u9Z-8i-I06"/>
-                            <constraint firstItem="IAE-YO-D2X" firstAttribute="leading" secondItem="See-Qw-kO8" secondAttribute="leading" constant="43" id="vJd-AL-MD2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -199,12 +222,11 @@
                         <outlet property="voteButton" destination="IAE-YO-D2X" id="T5b-Zx-rlS"/>
                         <segue destination="aQl-qy-2JC" kind="show" identifier="toUpload" id="U6K-dT-KTL"/>
                         <segue destination="Q9p-k6-lXU" kind="show" identifier="toLeaderboard" id="CnF-Te-XmY"/>
-                        <segue destination="od1-bz-qQu" kind="show" identifier="toGameModeVC" id="j0R-bT-GF6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xy-8h-08a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="52"/>
+            <point key="canvasLocation" x="2753.6231884057975" y="51.5625"/>
         </scene>
         <!--Leaderboard View Controller-->
         <scene sceneID="lxf-jk-QyM">
@@ -804,6 +826,7 @@
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

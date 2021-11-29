@@ -20,7 +20,7 @@ class GameModePageViewController: UIPageViewController {
     
     var currentIndex = 0
     
-    var pageTitle = ["Game Mode: Best Video", "Game Mode: Best Text"]
+    var pageTitle = ["Game Mode: Best Video", "Game Mode: Best Text (coming soon)"]
     var pageImages = [UIImage(systemName: "video.fill")?.withTintColor(.white), UIImage(systemName: "text.bubble.fill")?.withTintColor(.white)]
     var pageDescriptionText = ["Submit a video based on the prompt and earn points and badges by trying to stay on the leaderboard. There is no time limit.", "Submit your best one-liner based on the prompt and earn points and badges by trying to stay on the leaderboard. There is no time limit."]
     var backgroundColor : [UIColor] = [.black, .black, .black]
