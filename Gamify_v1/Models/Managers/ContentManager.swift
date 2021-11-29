@@ -22,6 +22,7 @@ class ContentManager {
     // Generates a random but valid document id
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID
+        
     }
         
     // Create
@@ -29,9 +30,13 @@ class ContentManager {
         
         let data = try! FirestoreEncoder().encode(content)
         db.collection(COLLECTION_CONTENT)
-            .addDocument(data: data){ err in
+            .document(content.id)
+            .setData(data){ err in
+            Crashlytics.crashlytics().log("Function: create content - ContentManager")
+
             onSuccess(err?.localizedDescription)
         }
+
     }
     
     
@@ -40,6 +45,7 @@ class ContentManager {
         db.collection(COLLECTION_CONTENT)
             .document(id)
             .getDocument { document, error in
+                
                 if let document = document {
                     let content = try! FirestoreDecoder().decode(Content.self, from: document.data()!)
                     onSuccess(content)
@@ -47,6 +53,7 @@ class ContentManager {
                 print("Document does not exist")
             }
         }
+
 
     }
     
@@ -83,7 +90,7 @@ class ContentManager {
             duals.append(latestDual)
         }
            
-           
+
         
         return duals
     }
@@ -107,6 +114,7 @@ class ContentManager {
                 }
             }
         }
+
     }
     
     func addVote(contentId: String) {
@@ -116,6 +124,8 @@ class ContentManager {
             "voteCount": FieldValue.increment(Int64(1))
         ]){ err in
             if let err = err{
+                Crashlytics.crashlytics().log("Function: addVote - ContentManager")
+
                 print(err)
             }
         }
@@ -148,16 +158,17 @@ class ContentManager {
                 .document(contentId)
                 .getDocument { snapshot, err in
                     self.db.collection(COLLECTION_CONTENT)
+                        .whereField("userId", notIn: UserManager.shared.currentUser?.blockUserIds ?? [""])
                         .start(afterDocument: snapshot!)
                         .limit(to: ContentManager.CONTENT_LIMIT)
                         .getDocuments(completion: process)
                 }
         } else{
             db.collection(COLLECTION_CONTENT)
+                .whereField("userId", notIn: UserManager.shared.currentUser?.blockUserIds ?? [""])
                 .limit(to: ContentManager.CONTENT_LIMIT)
                 .getDocuments(completion: process)
         }
-        
 
     }
     

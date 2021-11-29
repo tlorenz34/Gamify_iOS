@@ -38,20 +38,20 @@ class LeaderboardViewController: UIViewController {
       
     }
     
+    // Share game
+    
     @IBAction func tappedShare(_ sender: UIBarButtonItem) {
         
-        let url = "https://apps.apple.com/us/app/gamify-compete-vote-join/id1590780699"
+        let url = "https://testflight.apple.com/join/mcloUhHb"
         
-        let ac = UIActivityViewController(activityItems: ["Download Gamify and join the funniest video challenge. Vote on your favorite submissions to determine the winner.", url], applicationActivities: nil)
+        let ac = UIActivityViewController(activityItems: ["Download Gamify and join the funniest video game. Vote on your favorite submissions to determine the winner.", url], applicationActivities: nil)
        // ac.excludedActivityTypes = [.postToFacebook]
         
         self.present(ac, animated: true)
     }
     
-    // SETTINGS
-    
-    
-    
+    // SETTINGS and LOG OUT
+
     
     @IBAction func tappedSettings(_ sender: UIButton) {
         present(refreshAlert, animated: true, completion: nil)
@@ -59,12 +59,17 @@ class LeaderboardViewController: UIViewController {
         
         refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
             
-            try! Auth.auth().signOut()
+            try! Auth.auth().signOut() 
     
-            let vc = self.storyboard!.instantiateViewController(withIdentifier: "SignUpViewController")
-                        self.present(vc, animated: false, completion: nil)
-                        vc.modalPresentationStyle = .fullScreen
+//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "SignUpViewController")
+//                        self.present(vc, animated: true, completion: nil)
+//                        vc.modalPresentationStyle = .fullScreen
         
+            if let storyboard = self.storyboard {
+                        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+                        self.present(vc, animated: false, completion: nil)
+                    }
+            
 
                     
         }))
@@ -73,11 +78,6 @@ class LeaderboardViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }))
     }
-    
-    
-    
-
-
     
 
 }

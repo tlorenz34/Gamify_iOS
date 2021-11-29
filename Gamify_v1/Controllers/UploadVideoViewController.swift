@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import Foundation
+import Firebase
 
 class UploadVideoViewController: UIViewController {
 
@@ -40,11 +41,14 @@ class UploadVideoViewController: UIViewController {
         picker.sourceType = .photoLibrary
         picker.delegate = self
         picker.mediaTypes = ["public.movie"]
+        Crashlytics.crashlytics().log("Button: cameraRollButtonTapped - UploadVideoViewController")
 
         present(picker, animated: true, completion: nil)
     }
     
     @IBAction func tappedUpload(_ sender: UIBarButtonItem) {
+        Crashlytics.crashlytics().log("Button: tappedUpload - UploadVideoViewController")
+
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -74,6 +78,8 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
                 self.uploadButton.setTitleTextAttributes(attributes, for: .normal)
             }
         }
+        Crashlytics.crashlytics().log("UIImagePickerController: imagePickerController - UploadVideoViewController")
+
         
     }
 }

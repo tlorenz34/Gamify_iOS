@@ -14,6 +14,8 @@ struct User: Codable{
     let email: String
    
     let username: String
+    
+    var blockUserIds: [String]?
 //    
 //    let birthdate: Date
 //    

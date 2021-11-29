@@ -36,7 +36,7 @@ class VideoManager{
             
             // upload thumbnail
             ImageManager.shared.uploadThumbnailToStorage(image: thumbnail) { thumbnailUrl in
-                guard let thumbnailUrl = thumbnailUrl else {
+                guard thumbnailUrl != nil else {
                     return
                 }
 
@@ -52,7 +52,9 @@ class VideoManager{
                             userId: UserManager.shared.currentUser.id,
                             username: UserManager.shared.currentUser.username,
                             voteCount: 0,
-                            url: uploadedVideoUrl.absoluteString)
+                            url: uploadedVideoUrl.absoluteString,
+                            type: "video")
+                    
                     
                     ContentManager.shared.create(content: content, onSuccess: onSuccess)
                 }

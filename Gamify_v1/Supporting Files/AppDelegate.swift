@@ -20,6 +20,8 @@ extension Notification.Name {
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var handler: AuthStateDidChangeListenerHandle!
+    var audioPlayer : AVAudioPlayer? = nil
+
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

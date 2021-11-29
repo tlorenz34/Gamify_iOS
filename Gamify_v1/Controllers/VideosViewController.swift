@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import AVFoundation
+import Firebase
 /**
  [
     [v1, v2],
@@ -92,6 +93,8 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         }
         
         refreshDualsFromDb()
+        Crashlytics.crashlytics().log("Function: displayNextDual - VideosViewController")
+
     }
     
     func loadDual(_ dual: ContentDual){
@@ -104,6 +107,8 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         self.currentPageIndex = 0
         self.vcs[currentPageIndex].resumeVideo()
         self.containerDelegate?.updatedPageIndex(index: currentPageIndex)
+        Crashlytics.crashlytics().log("Function: loadDual - VideosViewController")
+
     }
     
     // Loads from database feed of duals
@@ -130,6 +135,8 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             
             
         }
+        Crashlytics.crashlytics().log("Function: refreshDualsFromDb - VideosViewController")
+
     }
     
 
@@ -140,6 +147,8 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             containerDelegate?.updatedPageIndex(index: currentPageIndex)
             self.vcs[currentPageIndex].resumeVideo()
         }
+        Crashlytics.crashlytics().log("Function: pageViewController - VideosViewController")
+
     }
 
     
@@ -152,16 +161,21 @@ extension VideosViewController: UIPageViewControllerDataSource{
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! VideoViewController) else {
+            Crashlytics.crashlytics().log("vcs.firstIndex: VideosViewController")
+
                    return nil
                }
            
            let previousIndex = viewControllerIndex - 1
            
            guard previousIndex >= 0 else {
+               Crashlytics.crashlytics().log(">= 0: previousIndex - VideosViewController")
+
                return nil
            }
            
            guard vcs.count > previousIndex else {
+               Crashlytics.crashlytics().log("vcs.count > previousIndex: VideosViewController")
                return nil
            }
         

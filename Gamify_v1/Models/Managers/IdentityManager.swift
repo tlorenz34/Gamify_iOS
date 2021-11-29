@@ -19,6 +19,7 @@ class IdentityManager{
     
 
     var isLoggedIn: Bool {
+        
         return UserDefaults.standard.bool(forKey: KEY_IS_LOGGED_IN)
     }
     
@@ -29,6 +30,7 @@ class IdentityManager{
         Auth.auth().createUser(withEmail: identity.email, password: identity.password) { (result, error) in
             if let error = error {
                 onComplete(error, nil)
+                Crashlytics.crashlytics().log("Func: signUp - IdentityManager")
                 return
             }
             
@@ -38,6 +40,7 @@ class IdentityManager{
 
             onComplete(nil, result!.user.uid)
         }
+
     }
     
 

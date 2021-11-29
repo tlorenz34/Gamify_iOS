@@ -27,7 +27,7 @@ struct Content: Codable{
     
 //    let text: String?
 //
-//    let type: String
+    let type: String
 //
 //    let categoryId: String
 //

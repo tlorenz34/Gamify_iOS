@@ -7,9 +7,10 @@
 
 import Foundation
 
-struct Challenge: Codable{
+struct GameMode: Codable{
     
     let name: String
+    
     
 //    let difficulty: Int
 //    

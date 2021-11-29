@@ -76,7 +76,7 @@ class SignUpViewController: UIViewController {
                 return
             }
             
-            let user = User(id: uid, email: identity.email, username: self.usernameTextField.text!)
+            let user = User(id: uid, email: identity.email, username: self.usernameTextField.text!, blockUserIds: [])
             UserManager.shared.create(user: user) { errorMessage in
                 if let errorMessage = errorMessage{
                     print(errorMessage)
