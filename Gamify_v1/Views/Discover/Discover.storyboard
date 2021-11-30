@@ -9,45 +9,40 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Discover-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Discover" title="Discover" modalPresentationStyle="fullScreen" id="Y6W-OH-hqX" customClass="DiscoverViewController" customModule="Gamify_v1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9aR-wb-J34">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="Games" id="wad-VG-sew"/>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-65-XP0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-65-XP0">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DEn-dZ-czL">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiscoverCell" id="DEn-dZ-czL" customClass="DiscoverTableViewCell" customModule="Gamify_v1" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DEn-dZ-czL" id="gvL-ts-BVI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-un-M3c">
-                                                    <rect key="frame" x="30" y="11.5" width="364" height="20.5"/>
+                                                    <rect key="frame" x="30" y="12" width="200" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which video is funnier?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ty-Oq-SDp">
                                                             <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="200" id="4Ja-Y7-ftU"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3k participants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W79-7b-Fiw">
-                                                            <rect key="frame" x="250" y="0.0" width="114" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -60,9 +55,68 @@
                                                 <constraint firstItem="MQQ-un-M3c" firstAttribute="centerY" secondItem="gvL-ts-BVI" secondAttribute="centerY" id="u4W-7k-dEA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="gameTitle" destination="3Ty-Oq-SDp" id="tq2-PE-C3t"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Y6W-OH-hqX" id="XaF-om-suk"/>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="bh0-nF-bK9"/>
+                                </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXs-gn-2bU">
+                                <rect key="frame" x="0.0" y="826" width="414" height="70"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="TWJ-eo-Nu9">
+                                        <rect key="frame" x="44" y="13" width="326" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-1K-A7Y" userLabel="Home">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system" title=""/>
+                                                <connections>
+                                                    <segue destination="jzr-su-Aea" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="udX-5q-t8R"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR7-eo-M3t" userLabel="Discover">
+                                                <rect key="frame" x="74" y="0.0" width="44.5" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvi-of-6BQ" userLabel="CreateGame">
+                                                <rect key="frame" x="144.5" y="0.0" width="41.5" height="31"/>
+                                                <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-Gg-Nkr" userLabel="Inbox">
+                                                <rect key="frame" x="212" y="0.0" width="46" height="31"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system" title=""/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81I-Ct-oSv" userLabel="Profile">
+                                                <rect key="frame" x="284" y="0.0" width="42" height="31"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system" title=""/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <viewLayoutGuide key="safeArea" id="jPU-ap-EtI"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="05x-Y0-Ie7"/>
+                                    <constraint firstItem="TWJ-eo-Nu9" firstAttribute="top" secondItem="GXs-gn-2bU" secondAttribute="top" constant="13" id="7Yb-pY-zl8"/>
+                                    <constraint firstItem="TWJ-eo-Nu9" firstAttribute="centerX" secondItem="GXs-gn-2bU" secondAttribute="centerX" id="xYu-cX-tm2"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -73,16 +127,33 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Be4-65-XP0" secondAttribute="trailing" id="MXc-dR-aqe"/>
                             <constraint firstItem="9aR-wb-J34" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cKJ-Kv-kSG"/>
                             <constraint firstItem="9aR-wb-J34" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fWJ-H5-zmY"/>
+                            <constraint firstItem="GXs-gn-2bU" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="gHG-8r-9WR"/>
+                            <constraint firstItem="GXs-gn-2bU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="k8f-Hi-GV3"/>
                             <constraint firstItem="Be4-65-XP0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="zCf-yj-Boj"/>
+                            <constraint firstAttribute="bottom" secondItem="GXs-gn-2bU" secondAttribute="bottom" id="zGE-Md-t3F"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="createGameButton" destination="Dvi-of-6BQ" id="KEe-1h-YtO"/>
+                        <outlet property="discoverButton" destination="WR7-eo-M3t" id="GtR-Yp-sv0"/>
+                        <outlet property="homeButton" destination="fGW-1K-A7Y" id="deN-br-gC0"/>
+                        <outlet property="inboxButton" destination="ZOZ-Gg-Nkr" id="FZA-5Y-1TQ"/>
+                        <outlet property="profileButton" destination="81I-Ct-oSv" id="iE4-eA-2ry"/>
+                        <outlet property="tableView" destination="Be4-65-XP0" id="2mi-82-zqA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="jzr-su-Aea" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="111.59420289855073" y="64.955357142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

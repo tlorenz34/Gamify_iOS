@@ -57,7 +57,7 @@
                                     <color key="baseForegroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="wfe-SO-GAA" kind="unwind" unwindAction="unwindToOne:" id="3pz-Jy-DgV"/>
+                                    <segue destination="wfe-SO-GAA" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="3pz-Jy-DgV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -138,7 +138,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="TLg-dz-1Py" kind="unwind" unwindAction="unwindToChooseGameMode:" id="8Ly-8Y-YM0"/>
+                                    <segue destination="TLg-dz-1Py" kind="unwind" animates="NO" unwindAction="unwindToChooseGameMode:" id="8Ly-8Y-YM0"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -250,7 +250,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="x.circle.fill" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="tyD-gK-Cdl" kind="unwind" unwindAction="unwindToOne:" id="hrr-TT-Jsk"/>
+                                    <segue destination="tyD-gK-Cdl" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="hrr-TT-Jsk"/>
                                 </connections>
                             </button>
                         </subviews>

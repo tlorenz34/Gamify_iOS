@@ -24,6 +24,15 @@ class VideosContainerViewController: UIViewController {
     @IBOutlet weak var menuBarView: UIView!
     
     @IBOutlet weak var createGameButton: UIButton!
+    
+    @IBOutlet weak var homeButton: UIButton!
+    
+    @IBOutlet weak var discoverButton: UIButton!
+    
+    @IBOutlet weak var inboxButton: UIButton!
+    
+    @IBOutlet weak var profileButton: UIButton!
+    
     var videosViewController: VideosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +55,10 @@ class VideosContainerViewController: UIViewController {
         performSegue(withIdentifier: "toGameMode", sender: self)
     }
     
+
+    @IBAction func tappedDiscoverButton(_ sender: UIButton) {
+        performSegue(withIdentifier: "toDiscover", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? VideosViewController{

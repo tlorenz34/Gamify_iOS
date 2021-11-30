@@ -16,6 +16,8 @@
 		B158B9B827542E560084B703 /* GameModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9B727542E560084B703 /* GameModeViewController.swift */; };
 		B158B9BA275572650084B703 /* NameGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9B9275572650084B703 /* NameGameViewController.swift */; };
 		B158B9BD275596030084B703 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B158B9BC275596030084B703 /* Discover.storyboard */; };
+		B158B9BF2755EC950084B703 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9BE2755EC950084B703 /* DiscoverViewController.swift */; };
+		B158B9C127567DE00084B703 /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9C027567DE00084B703 /* DiscoverTableViewCell.swift */; };
 		B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD5F26F8C657006A1C12 /* AppDelegate.swift */; };
 		B170CD6226F8C657006A1C12 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD6126F8C657006A1C12 /* SceneDelegate.swift */; };
 		B170CD6726F8C657006A1C12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B170CD6526F8C657006A1C12 /* Main.storyboard */; };
@@ -23,8 +25,6 @@
 		B170CD6C26F8C659006A1C12 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B170CD6A26F8C659006A1C12 /* LaunchScreen.storyboard */; };
 		B170CD7726F8C659006A1C12 /* Gamify_v1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD7626F8C659006A1C12 /* Gamify_v1Tests.swift */; };
 		B170CD8226F8C659006A1C12 /* Gamify_v1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD8126F8C659006A1C12 /* Gamify_v1UITests.swift */; };
-		B170CD9726F94D63006A1C12 /* SubmissionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD9526F94D63006A1C12 /* SubmissionCell.swift */; };
-		B170CD9826F94D63006A1C12 /* SubmissionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B170CD9626F94D63006A1C12 /* SubmissionCell.xib */; };
 		B170CDC326FD4C05006A1C12 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC226FD4C04006A1C12 /* User.swift */; };
 		B170CDC526FD4CC9006A1C12 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC426FD4CC9006A1C12 /* Content.swift */; };
 		B170CDC726FD4D51006A1C12 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC626FD4D51006A1C12 /* GameMode.swift */; };
@@ -105,6 +105,8 @@
 		B158B9B727542E560084B703 /* GameModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeViewController.swift; sourceTree = "<group>"; };
 		B158B9B9275572650084B703 /* NameGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameGameViewController.swift; sourceTree = "<group>"; };
 		B158B9BC275596030084B703 /* Discover.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
+		B158B9BE2755EC950084B703 /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		B158B9C027567DE00084B703 /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		B170CD5C26F8C657006A1C12 /* Gamify_v1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gamify_v1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B170CD5F26F8C657006A1C12 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B170CD6126F8C657006A1C12 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,8 +120,6 @@
 		B170CD7D26F8C659006A1C12 /* Gamify_v1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Gamify_v1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B170CD8126F8C659006A1C12 /* Gamify_v1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamify_v1UITests.swift; sourceTree = "<group>"; };
 		B170CD8326F8C659006A1C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B170CD9526F94D63006A1C12 /* SubmissionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionCell.swift; sourceTree = "<group>"; };
-		B170CD9626F94D63006A1C12 /* SubmissionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubmissionCell.xib; sourceTree = "<group>"; };
 		B170CDC226FD4C04006A1C12 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B170CDC426FD4CC9006A1C12 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B170CDC626FD4D51006A1C12 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
@@ -211,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				B158B9BC275596030084B703 /* Discover.storyboard */,
+				B158B9C027567DE00084B703 /* DiscoverTableViewCell.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -244,6 +245,7 @@
 				B170CD9926FA1CD5006A1C12 /* Controllers */,
 				B170CDC126FD4BA1006A1C12 /* Supporting Files */,
 				B170CD6526F8C657006A1C12 /* Main.storyboard */,
+				B170CD6A26F8C659006A1C12 /* LaunchScreen.storyboard */,
 				B170CD6826F8C659006A1C12 /* Assets.xcassets */,
 				B13685C5273CE7A500C8718A /* GoogleService-Info.plist */,
 				B170CD6D26F8C659006A1C12 /* Info.plist */,
@@ -285,6 +287,7 @@
 				B158B9B527542D000084B703 /* GameModeContentViewController.swift */,
 				B158B9B727542E560084B703 /* GameModeViewController.swift */,
 				B158B9B9275572650084B703 /* NameGameViewController.swift */,
+				B158B9BE2755EC950084B703 /* DiscoverViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -294,9 +297,7 @@
 			children = (
 				B158B9BB275595BC0084B703 /* Discover */,
 				B158B9A6275424C40084B703 /* GameMode */,
-				B170CD6A26F8C659006A1C12 /* LaunchScreen.storyboard */,
 				B1BB2794270DE52800E97916 /* PulseAnimation.swift */,
-				B170CD9C26FA20AE006A1C12 /* Submissions */,
 				B1A89AAC2715D6F9000B7F11 /* LeaderboardCellTableViewCell.swift */,
 				B1D05B702731AC620064798D /* LeaderBoardCell.swift */,
 			);
@@ -315,15 +316,6 @@
 				B1F5B1522719083E0042FF9A /* Identity.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		B170CD9C26FA20AE006A1C12 /* Submissions */ = {
-			isa = PBXGroup;
-			children = (
-				B170CD9526F94D63006A1C12 /* SubmissionCell.swift */,
-				B170CD9626F94D63006A1C12 /* SubmissionCell.xib */,
-			);
-			path = Submissions;
 			sourceTree = "<group>";
 		};
 		B170CDBC26FA287E006A1C12 /* Managers */ = {
@@ -493,7 +485,6 @@
 				B170CD6926F8C659006A1C12 /* Assets.xcassets in Resources */,
 				B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */,
 				B170CD6726F8C657006A1C12 /* Main.storyboard in Resources */,
-				B170CD9826F94D63006A1C12 /* SubmissionCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +542,7 @@
 				B1002CB12743352B00C88C30 /* TermsAndConditionsViewController.swift in Sources */,
 				B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */,
 				B170CDC726FD4D51006A1C12 /* GameMode.swift in Sources */,
+				B158B9BF2755EC950084B703 /* DiscoverViewController.swift in Sources */,
 				B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */,
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,
 				B1A89B0027165D42000B7F11 /* VideosContainerViewController.swift in Sources */,
@@ -565,8 +557,8 @@
 				B1BB2795270DE52900E97916 /* PulseAnimation.swift in Sources */,
 				B19E16622738843000983812 /* SplashViewController.swift in Sources */,
 				B1D05B712731AC620064798D /* LeaderBoardCell.swift in Sources */,
+				B158B9C127567DE00084B703 /* DiscoverTableViewCell.swift in Sources */,
 				B1F5B1532719083E0042FF9A /* Identity.swift in Sources */,
-				B170CD9726F94D63006A1C12 /* SubmissionCell.swift in Sources */,
 				B170CDCB26FD4ED6006A1C12 /* UserManager.swift in Sources */,
 				B158B9BA275572650084B703 /* NameGameViewController.swift in Sources */,
 				B1BB278D270D268400E97916 /* UploadVideoViewController.swift in Sources */,

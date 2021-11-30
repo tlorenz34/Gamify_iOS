@@ -69,24 +69,57 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2IZ-S6-RK7">
                                 <rect key="frame" x="0.0" y="826" width="414" height="70"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-z7-XSM" userLabel="CreateGame">
-                                        <rect key="frame" x="186.5" y="19.5" width="41.5" height="31"/>
-                                        <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="">
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
-                                        <connections>
-                                            <action selector="tappedCreateButton:" destination="aFe-SD-uFA" eventType="touchUpInside" id="vQ8-7g-ng5"/>
-                                            <action selector="tappedTestButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="OHp-l2-Odt"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-bJ-9nP">
+                                        <rect key="frame" x="44" y="13" width="326" height="31"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZx-wl-iNs">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system" title=""/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hHb-qV-2bp">
+                                                <rect key="frame" x="74" y="0.0" width="44.5" height="31"/>
+                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
+                                                <connections>
+                                                    <action selector="tappedDiscoverButton:" destination="aFe-SD-uFA" eventType="touchUpInside" id="0Yc-2O-G60"/>
+                                                    <segue destination="aUF-Hw-AXC" kind="show" identifier="toDiscover" animates="NO" id="sw0-De-mZv"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-z7-XSM" userLabel="CreateGame">
+                                                <rect key="frame" x="144.5" y="0.0" width="41.5" height="31"/>
+                                                <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="tappedCreateButton:" destination="aFe-SD-uFA" eventType="touchUpInside" id="vQ8-7g-ng5"/>
+                                                    <action selector="tappedTestButton:" destination="vMj-oX-O8g" eventType="touchUpInside" id="OHp-l2-Odt"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyR-BQ-Et3">
+                                                <rect key="frame" x="212" y="0.0" width="46" height="31"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system" title=""/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wNO-hA-4o9">
+                                                <rect key="frame" x="284" y="0.0" width="42" height="31"/>
+                                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system" title=""/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="mGa-z7-XSM" firstAttribute="centerY" secondItem="2IZ-S6-RK7" secondAttribute="centerY" id="T9J-2A-tjE"/>
-                                    <constraint firstItem="mGa-z7-XSM" firstAttribute="centerX" secondItem="2IZ-S6-RK7" secondAttribute="centerX" id="Y72-su-LvN"/>
+                                    <constraint firstItem="ucG-bJ-9nP" firstAttribute="centerX" secondItem="2IZ-S6-RK7" secondAttribute="centerX" id="InS-0W-TqQ"/>
                                     <constraint firstAttribute="height" constant="70" id="mVO-It-2Oy"/>
+                                    <constraint firstItem="ucG-bJ-9nP" firstAttribute="top" secondItem="2IZ-S6-RK7" secondAttribute="top" constant="13" id="ywB-yu-sa0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -109,13 +142,28 @@
                         <outlet property="button1" destination="1cH-X2-0Do" id="yQC-OQ-7SI"/>
                         <outlet property="button2" destination="JFi-8d-nZa" id="cfQ-uo-kTQ"/>
                         <outlet property="containerView" destination="A7k-Ah-gPo" id="F6A-jm-8G3"/>
+                        <outlet property="createGameButton" destination="mGa-z7-XSM" id="kJf-aw-Cib"/>
+                        <outlet property="discoverButton" destination="hHb-qV-2bp" id="Ma8-Ij-kjH"/>
+                        <outlet property="homeButton" destination="mZx-wl-iNs" id="yNu-LC-ija"/>
+                        <outlet property="inboxButton" destination="lyR-BQ-Et3" id="wyf-sF-88W"/>
                         <outlet property="menuBarView" destination="2IZ-S6-RK7" id="oqX-lF-n0R"/>
-                        <segue destination="kwS-Rb-Rys" kind="show" identifier="toGameMode" id="1mX-xE-uO0"/>
+                        <outlet property="profileButton" destination="wNO-hA-4o9" id="ecd-Gs-lIw"/>
+                        <segue destination="kwS-Rb-Rys" kind="show" identifier="toGameMode" animates="NO" id="1mX-xE-uO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yb5-G0-EW3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="52"/>
+        </scene>
+        <!--Discover-->
+        <scene sceneID="8SK-fy-Msu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Discover" referencedIdentifier="Discover" id="aUF-Hw-AXC" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="zCm-Dp-k5E"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1lo-WH-mxQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="634" y="475"/>
         </scene>
         <!--GameModeViewController-->
         <scene sceneID="jXG-kV-RSw">
@@ -825,7 +873,11 @@
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="128" height="106"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="message.fill" catalog="system" width="128" height="113"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
