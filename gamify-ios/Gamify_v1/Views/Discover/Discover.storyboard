@@ -36,13 +36,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="MQQ-un-M3c">
-                                                    <rect key="frame" x="30" y="12" width="200" height="20.5"/>
+                                                    <rect key="frame" x="30" y="12" width="177" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Which video is funnier?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ty-Oq-SDp">
-                                                            <rect key="frame" x="0.0" y="0.0" width="200" height="20.5"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="200" id="4Ja-Y7-ftU"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="177" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

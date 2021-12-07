@@ -21,7 +21,7 @@ class DiscoverViewController: UIViewController {
     
     @IBOutlet weak var profileButton: UIButton!
     
-    let temp_games = [GameMode(name: "Funniest video challenge"), GameMode(name: "Best one-liner")]
+    let temp_games = [Game(name: "Funniest video"), Game(name: "Best one-liner")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +29,6 @@ class DiscoverViewController: UIViewController {
     }
     
     @IBAction func unwindToDiscover(_ sender: UIStoryboardSegue){}
-
-    
-
-
 
 }
 

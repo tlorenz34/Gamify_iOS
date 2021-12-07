@@ -27,7 +27,7 @@
 		B170CD8226F8C659006A1C12 /* Gamify_v1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CD8126F8C659006A1C12 /* Gamify_v1UITests.swift */; };
 		B170CDC326FD4C05006A1C12 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC226FD4C04006A1C12 /* User.swift */; };
 		B170CDC526FD4CC9006A1C12 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC426FD4CC9006A1C12 /* Content.swift */; };
-		B170CDC726FD4D51006A1C12 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC626FD4D51006A1C12 /* GameMode.swift */; };
+		B170CDC726FD4D51006A1C12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC626FD4D51006A1C12 /* Game.swift */; };
 		B170CDC926FD4E41006A1C12 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDC826FD4E41006A1C12 /* Category.swift */; };
 		B170CDCB26FD4ED6006A1C12 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDCA26FD4ED5006A1C12 /* UserManager.swift */; };
 		B170CDCE26FD512A006A1C12 /* CodableFirebase in Frameworks */ = {isa = PBXBuildFile; productRef = B170CDCD26FD512A006A1C12 /* CodableFirebase */; };
@@ -122,7 +122,7 @@
 		B170CD8326F8C659006A1C12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B170CDC226FD4C04006A1C12 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		B170CDC426FD4CC9006A1C12 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
-		B170CDC626FD4D51006A1C12 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		B170CDC626FD4D51006A1C12 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		B170CDC826FD4E41006A1C12 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		B170CDCA26FD4ED5006A1C12 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		B170CDCF26FD538B006A1C12 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -310,7 +310,7 @@
 				B170CDC226FD4C04006A1C12 /* User.swift */,
 				B170CDC426FD4CC9006A1C12 /* Content.swift */,
 				B1A7F5BF27068EFB00720839 /* ContentDual.swift */,
-				B170CDC626FD4D51006A1C12 /* GameMode.swift */,
+				B170CDC626FD4D51006A1C12 /* Game.swift */,
 				B170CDC826FD4E41006A1C12 /* Category.swift */,
 				B170CDBC26FA287E006A1C12 /* Managers */,
 				B1F5B1522719083E0042FF9A /* Identity.swift */,
@@ -541,7 +541,7 @@
 				B170CDD62703A7C3006A1C12 /* GameManager.swift in Sources */,
 				B1002CB12743352B00C88C30 /* TermsAndConditionsViewController.swift in Sources */,
 				B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */,
-				B170CDC726FD4D51006A1C12 /* GameMode.swift in Sources */,
+				B170CDC726FD4D51006A1C12 /* Game.swift in Sources */,
 				B158B9BF2755EC950084B703 /* DiscoverViewController.swift in Sources */,
 				B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */,
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,

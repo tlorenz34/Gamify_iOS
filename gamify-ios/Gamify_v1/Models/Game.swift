@@ -1,5 +1,5 @@
 //
-//  Challenge.swift
+//  Game.swift
 //  Gamify_v1
 //
 //  Created by Thaddeus Lorenz on 9/23/21.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GameMode: Codable{
+struct Game: Codable{
     
     let name: String
     

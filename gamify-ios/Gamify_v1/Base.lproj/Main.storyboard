@@ -472,7 +472,7 @@
                                 </constraints>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <navigationItem title="Join Challenge" id="Pl9-33-KTm">
+                                    <navigationItem title="Join Challenge" id="Pl9-33-KTm" userLabel="Join Game">
                                         <barButtonItem key="leftBarButtonItem" title="BackButton" image="chevron.backward" catalog="system" id="Tbj-ah-C7G">
                                             <connections>
                                                 <segue destination="f9C-HA-fQK" kind="unwind" unwindAction="unwindToOne:" id="cMc-CV-lDj"/>
@@ -719,7 +719,7 @@
                                                 <rect key="frame" x="47" y="0.0" width="203" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
+                                                <color key="highlightedColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </label>
                                         </subviews>
                                     </stackView>

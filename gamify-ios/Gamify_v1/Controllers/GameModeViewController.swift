@@ -10,20 +10,15 @@ import UIKit
 class GameModeViewController: UIViewController {
 
     @IBOutlet weak var nextButton: UIButton!
-    
     @IBOutlet weak var previousButton: UIButton!
-    
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var chooseGameButton: UIButton!
-    
     weak var gameModePageViewController: GameModePageViewController?
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
 
     @IBAction func unwindToChooseGameMode(_ sender: UIStoryboardSegue){}
@@ -45,9 +40,7 @@ class GameModeViewController: UIViewController {
     if let gameModeViewController = segue.destination as? GameModePageViewController {
     gameModeViewController.pageViewControllerDelagate = self
     gameModePageViewController = gameModeViewController
-        
     }
-        
     }
     
 }

@@ -11,7 +11,7 @@ class DiscoverTableViewCell: UITableViewCell {
 
     @IBOutlet weak var gameTitle: UILabel!
     
-    func configure(with model: GameMode){
+    func configure(with model: Game){
         gameTitle.text = model.name
     }
     

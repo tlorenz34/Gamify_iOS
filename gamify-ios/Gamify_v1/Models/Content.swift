@@ -19,9 +19,9 @@ struct Content: Codable{
     
 //    let userHeadshotURL: String
 //    
-//    let challengeId: String
+//    let gameId: String
 //    
-//    let challengeName: String
+//    let gameName: String
     
     let url: String?
     

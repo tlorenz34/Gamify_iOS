@@ -11,7 +11,6 @@ class GameModeContentViewController: UIViewController {
 
     @IBOutlet weak var contentImageView: UIImageView!
     
-    
     @IBOutlet weak var titleLabel: UILabel!{
         didSet {
         titleLabel.numberOfLines = 0
@@ -30,8 +29,6 @@ class GameModeContentViewController: UIViewController {
         setupTextLabel()
         contentImageView.image = image
         view.backgroundColor = bgColor
-
-       
     }
     
     func setupTextLabel() {
@@ -41,9 +38,4 @@ class GameModeContentViewController: UIViewController {
     titleLabel.attributedText = attributedText
     titleLabel.textAlignment = .center
     }
-    
-
-    
-
-
 }
