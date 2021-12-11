@@ -67,28 +67,9 @@ class VideoViewController: UIViewController {
         joinButton.layer.cornerRadius = joinButton.frame.height / 2
 
         loadingIndicator.startAnimating()
-
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(videoDidTapped(_:) ))
-//        videoView.addGestureRecognizer(tap)
-//        videoView.isUserInteractionEnabled = true
-        // Do any additional setup after loading the view.
     }
-//    override func viewWillDisappear(_ animated: Bool) {
-//        player?.isMuted = true
-//    }
-//
-//    @objc func videoDidTapped(_ tap: UITapGestureRecognizer){
-//        if let player = player{
-//            if  player.volume > 0{
-//                player.volume = 0
-//            } else{
-//                player.volume = 1
-//            }
-//
-//        }
-//
-//    }
+        
+
 
 
     
@@ -105,7 +86,6 @@ class VideoViewController: UIViewController {
         loadingIndicator.isHidden = true
         player?.replaceCurrentItem(with: playerItem)
         Crashlytics.crashlytics().log("Function: load - VideoViewController")
-
 
     }
     

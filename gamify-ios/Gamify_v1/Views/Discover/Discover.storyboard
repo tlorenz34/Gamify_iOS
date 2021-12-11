@@ -9,6 +9,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--VideosContainerViewController-->
+        <scene sceneID="kdT-UK-pnS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="VideosContainerViewController" id="hkN-0V-jx7" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hdl-2J-PFo"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="knB-vj-86l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="109" y="-348"/>
+        </scene>
         <!--Discover-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -137,6 +147,7 @@
                         <outlet property="inboxButton" destination="ZOZ-Gg-Nkr" id="FZA-5Y-1TQ"/>
                         <outlet property="profileButton" destination="81I-Ct-oSv" id="iE4-eA-2ry"/>
                         <outlet property="tableView" destination="Be4-65-XP0" id="2mi-82-zqA"/>
+                        <segue destination="hkN-0V-jx7" kind="show" identifier="MainFeedSegue" id="lIq-fQ-2vm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

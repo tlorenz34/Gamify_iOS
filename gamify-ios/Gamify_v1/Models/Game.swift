@@ -11,6 +11,8 @@ struct Game: Codable{
     
     let name: String
     
+    let id: String
+    
     
 //    let difficulty: Int
 //    

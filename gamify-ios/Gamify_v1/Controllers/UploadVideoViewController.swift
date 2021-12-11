@@ -70,7 +70,6 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
             VideoManager.shared.uploadVideo(videoUrl: videoURL) { errorMessage in
                 print(errorMessage)
                 picker.dismiss(animated: true, completion: nil)
-                
                 self.chooseVideoButton.setTitle("Ready to upload.", for: .normal)
                 self.chooseVideoButton.setTitleColor(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1), for: .normal)
                 self.uploadButton.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
@@ -79,7 +78,5 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
             }
         }
         Crashlytics.crashlytics().log("UIImagePickerController: imagePickerController - UploadVideoViewController")
-
-        
     }
 }

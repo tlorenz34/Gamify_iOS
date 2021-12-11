@@ -33,7 +33,6 @@ class VideoManager{
             guard let thumbnail = thumbnail else {
                 return
             }
-            
             // upload thumbnail
             ImageManager.shared.uploadThumbnailToStorage(image: thumbnail) { thumbnailUrl in
                 guard thumbnailUrl != nil else {
@@ -45,17 +44,15 @@ class VideoManager{
                     guard let uploadedVideoUrl = uploadedVideoUrl  else {
                         return
                     }
-                    
-                    
                    let content = Content(
                             id: ContentManager.shared.getDocumentId(),
                             userId: UserManager.shared.currentUser.id,
                             username: UserManager.shared.currentUser.username,
                             voteCount: 0,
+                            gameId: GameManager.shared.getDocumentId(),
+                            gameName: GameManager.shared.currentGame.name,
                             url: uploadedVideoUrl.absoluteString,
                             type: "video")
-                    
-                    
                     ContentManager.shared.create(content: content, onSuccess: onSuccess)
                 }
             }
@@ -65,22 +62,6 @@ class VideoManager{
         
     
     func uploadVideoToSubmissionsStorage(url: URL, completion: @escaping ((_ url: URL?) -> Void)) {
-//
-//        let urlString = url.relativeString
-//        let urlSlices = urlString.split(separator: ".")
-//        //Create a temp directory using the file name
-//        let tempDirectoryURL = URL(fileURLWithPath: NSTemporaryDirectory(), isDirectory: true)
-//        let targetURL = tempDirectoryURL.appendingPathComponent(String(urlSlices[1])).appendingPathExtension(String(urlSlices[2]))
-//
-////        //Copy the video over
-//        do{
-//           // url.startAccessingSecurityScopedResource()
-//            try FileManager.default.copyItem(at: url, to: targetURL)
-//            //url.stopAccessingSecurityScopedResource()
-//        } catch{
-//            print(error)
-//            return
-//        }
         
         var data: Data!
         do{

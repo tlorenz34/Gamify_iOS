@@ -45,7 +45,6 @@ class ContentManager {
         db.collection(COLLECTION_CONTENT)
             .document(id)
             .getDocument { document, error in
-                
                 if let document = document {
                     let content = try! FirestoreDecoder().decode(Content.self, from: document.data()!)
                     onSuccess(content)
@@ -53,8 +52,6 @@ class ContentManager {
                 print("Document does not exist")
             }
         }
-
-
     }
     
     
