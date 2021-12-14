@@ -9,6 +9,7 @@ import Foundation
 import AVFoundation
 import Firebase
 import AVKit
+import SwiftUI
 
 class VideoManager{
     static let shared = VideoManager()

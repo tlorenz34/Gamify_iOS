@@ -37,6 +37,9 @@ class LeaderboardViewController: UIViewController {
 
       
     }
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     // Share game
     
@@ -59,19 +62,12 @@ class LeaderboardViewController: UIViewController {
         
         refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
             
-            try! Auth.auth().signOut() 
-    
-//            let vc = self.storyboard!.instantiateViewController(withIdentifier: "SignUpViewController")
-//                        self.present(vc, animated: true, completion: nil)
-//                        vc.modalPresentationStyle = .fullScreen
+            do { try Auth.auth().signOut()
+                self.dismiss(animated: true, completion: nil)
+                
+            }
+            catch { print("already logged out") }
         
-            if let storyboard = self.storyboard {
-                        let vc = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-                        self.present(vc, animated: false, completion: nil)
-                    }
-            
-
-                    
         }))
 
         refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in

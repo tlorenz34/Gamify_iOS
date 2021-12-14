@@ -29,10 +29,9 @@ class VideosContainerViewController: UIViewController {
     
     @IBOutlet weak var discoverButton: UIButton!
     
-    @IBOutlet weak var inboxButton: UIButton!
+  
     
-    @IBOutlet weak var profileButton: UIButton!
-    
+    @IBOutlet weak var orLabel: UILabel!
     var videosViewController: VideosViewController?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +40,8 @@ class VideosContainerViewController: UIViewController {
         button2.layer.cornerRadius = button2.frame.size.width / 2.0
         
         button2.backgroundColor = .gray
+        
+        createGameButton.clipsToBounds = true
         
     
         

@@ -79,7 +79,6 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-     
         let game = temp_games[indexPath.row]
         performSegue(withIdentifier: "MainFeedSegue", sender: game)
         

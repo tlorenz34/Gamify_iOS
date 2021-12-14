@@ -21,6 +21,8 @@ class UploadVideoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkPermissions()
+        self.preferredContentSize = CGSize(width: 100, height: 100)
+
     }
     
     private func checkPermissions() {

@@ -42,6 +42,11 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     var currentPageIndex = 0
     
     let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+    
+    var game: Game!
+    
+    var content: [Content] = []
+
 
     
     override func viewDidLoad() {
@@ -93,7 +98,6 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         }
         
         refreshDualsFromDb()
-        Crashlytics.crashlytics().log("Function: displayNextDual - VideosViewController")
 
     }
     
@@ -107,7 +111,6 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         self.currentPageIndex = 0
         self.vcs[currentPageIndex].resumeVideo()
         self.containerDelegate?.updatedPageIndex(index: currentPageIndex)
-        Crashlytics.crashlytics().log("Function: loadDual - VideosViewController")
 
     }
     
@@ -135,7 +138,6 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             
             
         }
-        Crashlytics.crashlytics().log("Function: refreshDualsFromDb - VideosViewController")
 
     }
     
@@ -147,7 +149,6 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             containerDelegate?.updatedPageIndex(index: currentPageIndex)
             self.vcs[currentPageIndex].resumeVideo()
         }
-        Crashlytics.crashlytics().log("Function: pageViewController - VideosViewController")
 
     }
 
@@ -161,7 +162,6 @@ extension VideosViewController: UIPageViewControllerDataSource{
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! VideoViewController) else {
-            Crashlytics.crashlytics().log("vcs.firstIndex: VideosViewController")
 
                    return nil
                }
@@ -169,13 +169,11 @@ extension VideosViewController: UIPageViewControllerDataSource{
            let previousIndex = viewControllerIndex - 1
            
            guard previousIndex >= 0 else {
-               Crashlytics.crashlytics().log(">= 0: previousIndex - VideosViewController")
 
                return nil
            }
            
            guard vcs.count > previousIndex else {
-               Crashlytics.crashlytics().log("vcs.count > previousIndex: VideosViewController")
                return nil
            }
         
@@ -209,14 +207,16 @@ extension VideosViewController : VideosViewControllerDelegate{
 
     func winnerDidSelect(content: Content) {
         
-        if UserManager.shared.currentUser == nil{
-            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
-        } else{
-
-            displayNextDual()
-            
-            ContentManager.shared.addVote(contentId: content.id)
-        }
+//        if UserManager.shared.currentUser == nil{
+//            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+//        } else{
+//
+//            displayNextDual()
+//
+//            ContentManager.shared.addVote(contentId: content.id)
+//        }
+        displayNextDual()
+        ContentManager.shared.addVote(contentId: content.id)
     }
         
        

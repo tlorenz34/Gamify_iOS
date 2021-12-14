@@ -75,8 +75,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXs-gn-2bU">
                                 <rect key="frame" x="0.0" y="826" width="414" height="70"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="TWJ-eo-Nu9">
-                                        <rect key="frame" x="44" y="13" width="326" height="31"/>
+                                    <stackView opaque="NO" contentMode="center" distribution="equalSpacing" spacing="53" translatesAutoresizingMaskIntoConstraints="NO" id="TWJ-eo-Nu9">
+                                        <rect key="frame" x="87" y="13" width="240" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGW-1K-A7Y" userLabel="Home">
                                                 <rect key="frame" x="0.0" y="0.0" width="48" height="31"/>
@@ -84,34 +84,22 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="house.fill" catalog="system" title=""/>
                                                 <connections>
-                                                    <segue destination="jzr-su-Aea" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="udX-5q-t8R"/>
+                                                    <segue destination="jzr-su-Aea" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="Sb1-Q4-VUo"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WR7-eo-M3t" userLabel="Discover">
-                                                <rect key="frame" x="74" y="0.0" width="44.5" height="31"/>
-                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dvi-of-6BQ" userLabel="CreateGame">
-                                                <rect key="frame" x="144.5" y="0.0" width="41.5" height="31"/>
+                                                <rect key="frame" x="101" y="0.0" width="41.5" height="31"/>
                                                 <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system" title="">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-Gg-Nkr" userLabel="Inbox">
-                                                <rect key="frame" x="212" y="0.0" width="46" height="31"/>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZOZ-Gg-Nkr" userLabel="Discover">
+                                                <rect key="frame" x="195.5" y="0.0" width="44.5" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="message.fill" catalog="system" title=""/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81I-Ct-oSv" userLabel="Profile">
-                                                <rect key="frame" x="284" y="0.0" width="42" height="31"/>
-                                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" image="person.fill" catalog="system" title=""/>
+                                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system" title=""/>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -142,10 +130,8 @@
                     </view>
                     <connections>
                         <outlet property="createGameButton" destination="Dvi-of-6BQ" id="KEe-1h-YtO"/>
-                        <outlet property="discoverButton" destination="WR7-eo-M3t" id="GtR-Yp-sv0"/>
                         <outlet property="homeButton" destination="fGW-1K-A7Y" id="deN-br-gC0"/>
                         <outlet property="inboxButton" destination="ZOZ-Gg-Nkr" id="FZA-5Y-1TQ"/>
-                        <outlet property="profileButton" destination="81I-Ct-oSv" id="iE4-eA-2ry"/>
                         <outlet property="tableView" destination="Be4-65-XP0" id="2mi-82-zqA"/>
                         <segue destination="hkN-0V-jx7" kind="show" identifier="MainFeedSegue" id="lIq-fQ-2vm"/>
                     </connections>
@@ -159,8 +145,6 @@
     <resources>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -9,6 +9,7 @@ import Foundation
 
 
 struct ContentDual {
+    
     var content1: Content!
     
     var content2: Content!

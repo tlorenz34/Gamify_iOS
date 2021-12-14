@@ -26,6 +26,7 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var termsAndConditionsButton: UIButton!
     
+    @IBOutlet weak var closeButton: UIButton!
     var termAccepted = false
     
     override func viewDidLoad() {
@@ -107,6 +108,12 @@ class SignUpViewController: UIViewController {
     
     @IBAction func tappedTerms(_ sender: UIButton) {
         performSegue(withIdentifier: "toTermsConditions", sender: nil)
+    }
+    
+    @IBAction func tappedClose(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "VideosContainerViewController")
+        self.present(vc, animated: true)
     }
     
     

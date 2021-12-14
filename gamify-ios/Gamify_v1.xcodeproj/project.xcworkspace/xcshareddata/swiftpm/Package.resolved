@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "BLTNBoard",
+        "repositoryURL": "https://github.com/alexisakers/BulletinBoard.git",
+        "state": {
+          "branch": null,
+          "revision": "e8ba81d25e41e5d24d6a4f404ed28443d728723b",
+          "version": "5.0.0"
+        }
+      },
+      {
         "package": "CodableFirebase",
         "repositoryURL": "https://github.com/alickbass/CodableFirebase.git",
         "state": {

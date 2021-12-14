@@ -19,6 +19,11 @@ class ContentManager {
     
     static let CONTENT_LIMIT = 50
     
+    private let submissionsCollectionKey = "content"
+    private var baseQuery: Query {
+        return db.collection(submissionsCollectionKey)
+    }
+    
     // Generates a random but valid document id
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID

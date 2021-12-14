@@ -10,6 +10,7 @@ import AVFoundation
 import Foundation
 import MessageUI
 import Firebase
+import BLTNBoard
 
 class VideoViewController: UIViewController {
 
@@ -53,6 +54,7 @@ class VideoViewController: UIViewController {
             appDelegate.audioPlayer = newValue
         }
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,6 +70,8 @@ class VideoViewController: UIViewController {
 
         loadingIndicator.startAnimating()
     }
+    
+  
         
 
 
@@ -90,7 +94,13 @@ class VideoViewController: UIViewController {
     }
     
     @IBAction func tappedJoinButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "toUpload", sender: nil)
+        if UserManager.shared.currentUser == nil{
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        } else{
+
+           performSegue(withIdentifier: "toUpload", sender: nil)
+
+        }
     }
     
     @IBAction func tappedAboutButton(_ sender: Any) {
@@ -117,23 +127,29 @@ class VideoViewController: UIViewController {
     }
     
     
+   
     @IBAction func voteButtonTapped(_ sender: UIButton) {
-    
+        
         let ANIMATION_DURATION = 1.2
         
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
         impactMed.impactOccurred()
-        let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 1000, postion: sender.center)
+        let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 200, postion: sender.center)
         pulse.animationDuration = ANIMATION_DURATION
         pulse.backgroundColor =  #colorLiteral(red: 0.4823529412, green: 0.3803921569, blue: 1, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
         self.player?.isMuted = true
+        self.player?.pause()
         DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_DURATION) {
             self.delegate?.winnerDidSelect(content: self.content!)
-        
         }
-        
     }
+    
+
+        
+        
+        
+    
     
     
     // Report or flag content that is inappropriate
