@@ -164,10 +164,10 @@
             </objects>
             <point key="canvasLocation" x="1589.8550724637682" y="794.86607142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Share Game View Controller-->
         <scene sceneID="JFE-qx-grR">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="Kqo-ep-995" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="Kqo-ep-995" customClass="ShareGameViewController" customModule="Gamify_v1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yKq-Dp-2i7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -211,6 +211,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" title="Share">
                                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="tappedShare:" destination="Kqo-ep-995" eventType="touchUpInside" id="7J5-fX-ajb"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -236,6 +239,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sy5-JG-5oS"/>
+                    <connections>
+                        <outlet property="congratsLabel" destination="V7D-mj-CYW" id="lQd-Rq-SSs"/>
+                        <outlet property="exitButton" destination="tU2-wD-L1O" id="BCT-dh-25F"/>
+                        <outlet property="shareButton" destination="W9W-Qs-vaD" id="8Qi-7c-tVP"/>
+                        <outlet property="shareLinkLabel" destination="6qb-PQ-RWC" id="iKH-jq-1eF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bad-bt-gLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="tyD-gK-Cdl" userLabel="Exit" sceneMemberID="exit"/>

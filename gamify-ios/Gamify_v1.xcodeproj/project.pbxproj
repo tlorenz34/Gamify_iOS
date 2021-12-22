@@ -76,6 +76,7 @@
 		B1E463E4273ED617002CB233 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = B1E463E3273ED617002CB233 /* FirebaseStorageSwift-Beta */; };
 		B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5B150271907490042FF9A /* IdentityManager.swift */; };
 		B1F5B1532719083E0042FF9A /* Identity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F5B1522719083E0042FF9A /* Identity.swift */; };
+		B1FA6A27277371EA00EB0EAE /* ShareGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA6A26277371E900EB0EAE /* ShareGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,6 +145,7 @@
 		B1D05B702731AC620064798D /* LeaderBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderBoardCell.swift; sourceTree = "<group>"; };
 		B1F5B150271907490042FF9A /* IdentityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityManager.swift; sourceTree = "<group>"; };
 		B1F5B1522719083E0042FF9A /* Identity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identity.swift; sourceTree = "<group>"; };
+		B1FA6A26277371E900EB0EAE /* ShareGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				B158B9B727542E560084B703 /* GameModeViewController.swift */,
 				B158B9B9275572650084B703 /* NameGameViewController.swift */,
 				B158B9BE2755EC950084B703 /* DiscoverViewController.swift */,
+				B1FA6A26277371E900EB0EAE /* ShareGameViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 				B1BB2795270DE52900E97916 /* PulseAnimation.swift in Sources */,
 				B19E16622738843000983812 /* SplashViewController.swift in Sources */,
 				B1D05B712731AC620064798D /* LeaderBoardCell.swift in Sources */,
+				B1FA6A27277371EA00EB0EAE /* ShareGameViewController.swift in Sources */,
 				B158B9C127567DE00084B703 /* DiscoverTableViewCell.swift in Sources */,
 				B1F5B1532719083E0042FF9A /* Identity.swift in Sources */,
 				B170CDCB26FD4ED6006A1C12 /* UserManager.swift in Sources */,
