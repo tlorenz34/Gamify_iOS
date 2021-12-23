@@ -16,7 +16,7 @@ class VideoManager{
     
     let loadingIndicatorView = UIActivityIndicatorView()
 
-    
+    var game: Game?
     
     /**
      Adds a new `Content` and dismisses view controller.

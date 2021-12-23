@@ -24,14 +24,15 @@ class DiscoverViewController: UIViewController {
     @IBOutlet weak var profileButton: UIButton!
     
     var game = [Game]()
-
     
     var temp_games = [Game(name: "Funniest video", id: ""), Game(name: "Best one-liner", id: "")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         loadData()
-
     }
     
     @IBAction func unwindToDiscover(_ sender: UIStoryboardSegue){}
@@ -46,10 +47,15 @@ class DiscoverViewController: UIViewController {
             } else {
                 for document in querySnapshot!.documents {
                 
-                    var label = document.get("gameName") as! String
-
+                    let label = document.get("gameName") as! String
+                    var submissions = 0
+                    
+                    if let subs = document.get("submissions") as? Int
+                    {
+                        submissions = subs
+                    }
                     //print("\(document.documentID) => \(document.data())")
-                    self.temp_games.append(Game(name: label, id: "\(document.documentID)"))
+                    self.temp_games.append(Game(name: label, id: "\(document.documentID)", numberOfSubmissions: submissions))
                 }
                 self.tableView.reloadData()
             }
@@ -80,7 +86,8 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let game = temp_games[indexPath.row]
-        performSegue(withIdentifier: "MainFeedSegue", sender: game)
+        GameManager.shared.currentGame = game
+        performSegue(withIdentifier: "MainFeedSegue", sender: self)
         
     }
     

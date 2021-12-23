@@ -59,6 +59,7 @@ class IdentityManager{
     func logout(){
         try! Auth.auth().signOut()
         UserDefaults.standard.set(false, forKey: KEY_IS_LOGGED_IN)
+        UserManager.shared.currentUser = nil
 //        NotificationCenter.default.post(name: .Logout, object: nil)
     }
     

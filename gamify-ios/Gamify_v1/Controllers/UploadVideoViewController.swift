@@ -15,7 +15,9 @@ class UploadVideoViewController: UIViewController {
     @IBOutlet weak var chooseVideoButton: UIButton!
     
     @IBOutlet weak var uploadButton: UIBarButtonItem!
+    @IBOutlet weak var noUploadsMessage: UILabel!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     override func viewDidLoad() {
@@ -23,6 +25,18 @@ class UploadVideoViewController: UIViewController {
         checkPermissions()
         self.preferredContentSize = CGSize(width: 100, height: 100)
 
+        if let curGame = GameManager.shared.currentGame
+        {
+            noUploadsMessage.isHidden = curGame.numberOfSubmissions != 0
+        }
+        if let game = GameManager.shared.currentGame
+        {
+            navigationBar.topItem?.title = game.name
+        }
+        else
+        {
+            navigationBar.topItem?.title = "Join Challenge"
+        }
     }
     
     private func checkPermissions() {
@@ -77,6 +91,7 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
                 self.uploadButton.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 16) ]
                 self.uploadButton.setTitleTextAttributes(attributes, for: .normal)
+                GameManager.shared.updateSubmissionCount(id: GameManager.shared.currentGame.id)
             }
         }
         Crashlytics.crashlytics().log("UIImagePickerController: imagePickerController - UploadVideoViewController")

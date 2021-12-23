@@ -43,5 +43,28 @@ class GameManager{
             }
         }
     }
+    
+    //update
+    func updateSubmissionCount(id: String)
+    {
+        db.collection(COLLECTION_CONTENT).document(id).getDocument() { (document, err) in
+            if let document = document {
+                if let submission = document.get("submissions") as? Int
+                {
+                    document.reference.updateData([
+                        "submissions": submission+1
+                    ])
+                    GameManager.shared.currentGame.numberOfSubmissions = submission+1
+                }
+                else
+                {
+                    document.reference.updateData([
+                        "submissions": 1
+                    ])
+                    GameManager.shared.currentGame.numberOfSubmissions = 1
+                }
+            }
+        }
+    }
 
 }

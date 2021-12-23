@@ -71,12 +71,6 @@ class VideoViewController: UIViewController {
         loadingIndicator.startAnimating()
     }
     
-  
-        
-
-
-
-    
     func load(content: Content){
         self.content = content
         let playerItem = AVPlayerItem(url: URL(string: content.url!)!)
@@ -89,29 +83,43 @@ class VideoViewController: UIViewController {
         loadingIndicator.stopAnimating()
         loadingIndicator.isHidden = true
         player?.replaceCurrentItem(with: playerItem)
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(muteVideo(sender:)))
+        tapGesture.numberOfTapsRequired = 1
+        videoView.isUserInteractionEnabled = true
+        videoView.addGestureRecognizer(tapGesture)
         Crashlytics.crashlytics().log("Function: load - VideoViewController")
-
+    }
+    
+    @objc func muteVideo(sender: UITapGestureRecognizer) {
+        if let isMuted = self.player?.isMuted
+        {
+            self.player?.isMuted = !isMuted
+        }
     }
     
     @IBAction func tappedJoinButton(_ sender: UIButton) {
         if UserManager.shared.currentUser == nil{
+            self.player?.isMuted = true
+            pauseVideo()
             UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
         } else{
-
-           performSegue(withIdentifier: "toUpload", sender: nil)
-
+            self.player?.isMuted = true
+            pauseVideo()
+            performSegue(withIdentifier: "toUpload", sender: nil)
+            
         }
     }
     
     @IBAction func tappedAboutButton(_ sender: Any) {
-    
-        player?.pause()
+        pauseVideo()
         player?.isMuted = true
         performSegue(withIdentifier: "toLeaderboard", sender: nil)
         
     }
     
     @IBAction func tappedTestButton(_ sender: UIButton) {
+        self.player?.isMuted = true
+        pauseVideo()
         performSegue(withIdentifier: "toGameModeVC", sender: self)
     }
     
@@ -144,12 +152,6 @@ class VideoViewController: UIViewController {
             self.delegate?.winnerDidSelect(content: self.content!)
         }
     }
-    
-
-        
-        
-        
-    
     
     
     // Report or flag content that is inappropriate

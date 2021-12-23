@@ -61,9 +61,10 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             vc.delegate = self
         }
         
-        DispatchQueue.main.async {
+        /*DispatchQueue.main.async {
             self.refreshDualsFromDb()
-        }
+        }*/
+        
         refreshDualsFromDb()
         
         self.scrollToPage(index: currentPageIndex)
@@ -75,36 +76,42 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
           }
         }
         
-
-        
-        
     }
 
 
     func scrollToPage(index: Int){
+        let lastIndex = (index == 0 ? 1: 0)
+        vcs[lastIndex].player?.isMuted = true
+        vcs[lastIndex].player?.pause()
         setViewControllers([vcs[index]], direction: .forward, animated: false, completion: nil)
+        vcs[index].player?.isMuted = false
+        vcs[index].player?.play()
     }
     
     
     // Shows the next dual (pair of videos)
     func displayNextDual(){
-        
-        
+        self.vcs[1].player?.pause()
+        self.vcs[1].player?.isMuted = true
+        self.vcs[1].player?.pause()
+        self.vcs[1].player?.isMuted = true
         currentDualIndex += 1
         if currentDualIndex < randomDuals.count{
             let dual = randomDuals[currentDualIndex]
             self.loadDual(dual)
-            
         }
-        
-        refreshDualsFromDb()
-
+        else
+        {
+            refreshDualsFromDb()
+        }
     }
     
     func loadDual(_ dual: ContentDual){
         
         self.vcs[0].load(content: dual.content1)
         self.vcs[1].load(content: dual.content2)
+        self.vcs[1].player?.pause()
+        self.vcs[1].player?.isMuted = true
         
         setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
         

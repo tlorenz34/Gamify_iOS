@@ -28,11 +28,13 @@ class LeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         ContentManager.shared.listTopContent { content in
             self.topContent = content
             self.tableView.reloadData()
         }
-
 
 
       
@@ -61,12 +63,8 @@ class LeaderboardViewController: UIViewController {
 
         
         refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
-            
-            do { try Auth.auth().signOut()
-                self.dismiss(animated: true, completion: nil)
-                
-            }
-            catch { print("already logged out") }
+            IdentityManager.shared.logout()
+            self.dismiss(animated: true, completion: nil)
         
         }))
 
@@ -78,7 +76,7 @@ class LeaderboardViewController: UIViewController {
 
 }
 
-extension LeaderboardViewController: UITableViewDataSource{
+extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topContent.count
     }
