@@ -8,7 +8,7 @@
 import UIKit
 import Firebase
 
-class LeaderboardViewController: UIViewController {
+class LeaderboardViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -28,8 +28,8 @@ class LeaderboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         
         ContentManager.shared.listTopContent { content in
             self.topContent = content
@@ -74,14 +74,10 @@ class LeaderboardViewController: UIViewController {
         }))
     }
     
-
-}
-
-extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return topContent.count
     }
-    
+        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardCell") as! LeaderBoardCell
         
@@ -92,4 +88,5 @@ extension LeaderboardViewController: UITableViewDataSource, UITableViewDelegate{
         
         return cell
     }
+
 }

@@ -109,7 +109,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         vcs[lastIndex].player?.isMuted = true
         vcs[lastIndex].player?.pause()
         setViewControllers([vcs[index]], direction: .forward, animated: false, completion: nil)
-        vcs[index].player?.isMuted = false
+        vcs[index].player?.isMuted = UserDefaults.standard.bool(forKey: "muted")
         vcs[index].player?.play()
     }
     
@@ -118,7 +118,6 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     func displayNextDual(){
         self.vcs[1].player?.pause()
         self.vcs[1].player?.isMuted = true
-        self.vcs[1].player?.pause()
         self.vcs[1].player?.isMuted = true
         currentDualIndex += 1
         if currentDualIndex < randomDuals.count{

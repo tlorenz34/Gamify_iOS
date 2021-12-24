@@ -57,9 +57,12 @@ class VideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        videoView.frame = view.frame
-        
+        do {
+              try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+          } catch let error {
+              print("Error in AVAudio Session\(error.localizedDescription)")
+          }
+        videoView.frame = view.frame        
         view.addSubview(videoView)
         view.sendSubviewToBack(videoView)
         
@@ -72,6 +75,10 @@ class VideoViewController: UIViewController {
     }
     
     func load(content: Content){
+        for vw in videoView.subviews
+        {
+            vw.removeFromSuperview()
+        }
         self.content = content
         let playerItem = AVPlayerItem(url: URL(string: content.url!)!)
         self.player = AVQueuePlayer(items: [playerItem])
@@ -83,6 +90,7 @@ class VideoViewController: UIViewController {
         loadingIndicator.stopAnimating()
         loadingIndicator.isHidden = true
         player?.replaceCurrentItem(with: playerItem)
+        self.player?.isMuted = UserDefaults.standard.bool(forKey: "mute")
         let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(muteVideo(sender:)))
         tapGesture.numberOfTapsRequired = 1
         videoView.isUserInteractionEnabled = true
@@ -94,6 +102,7 @@ class VideoViewController: UIViewController {
         if let isMuted = self.player?.isMuted
         {
             self.player?.isMuted = !isMuted
+            UserDefaults.standard.set(!isMuted, forKey: "mute")
         }
     }
     
@@ -137,7 +146,6 @@ class VideoViewController: UIViewController {
     
    
     @IBAction func voteButtonTapped(_ sender: UIButton) {
-        
         let ANIMATION_DURATION = 1.2
         
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
