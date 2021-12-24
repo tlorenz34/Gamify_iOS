@@ -18,7 +18,6 @@ class UploadVideoViewController: UIViewController {
     @IBOutlet weak var noUploadsMessage: UILabel!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var backButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
