@@ -13,6 +13,7 @@ struct Game: Codable{
     
     let id: String
     
+    var numberOfSubmissions: Int = 0
     
 //    let difficulty: Int
 //    

@@ -43,7 +43,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     
     let activityView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
     
-    var game: Game!
+    var lastGame: Game?
     
     var content: [Content] = []
 
@@ -52,6 +52,10 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.delegate = self
 
         // vc -> single VideoViewController
@@ -61,11 +65,34 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             vc.delegate = self
         }
         
-        DispatchQueue.main.async {
-            self.refreshDualsFromDb()
+        if let game = GameManager.shared.currentGame
+        {
+            if game.numberOfSubmissions >= 2
+            {
+                refreshDualsFromDb()
+            }
+            else
+            {
+                let alertController = UIAlertController(title: "No Uploads Yet", message: "Be the first to Upload!", preferredStyle: .alert)
+                let uploadAction = UIAlertAction(title: "Upload", style: .default) { (action) in
+                    alertController.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "toUpload", sender: self)
+                }
+                alertController.addAction(uploadAction)
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                present(alertController, animated: true, completion: nil)
+            }
+
         }
-        refreshDualsFromDb()
+        else
+        {
+            refreshDualsFromDb()
+        }
         
+        /*DispatchQueue.main.async {
+            self.refreshDualsFromDb()
+        }*/
+    
         self.scrollToPage(index: currentPageIndex)
         dataSource = self
         
@@ -74,37 +101,41 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             scrollView.delegate = self
           }
         }
-        
-
-        
-        
     }
 
 
     func scrollToPage(index: Int){
+        let lastIndex = (index == 0 ? 1: 0)
+        vcs[lastIndex].player?.isMuted = true
+        vcs[lastIndex].player?.pause()
         setViewControllers([vcs[index]], direction: .forward, animated: false, completion: nil)
+        vcs[index].player?.isMuted = UserDefaults.standard.bool(forKey: "muted")
+        vcs[index].player?.play()
     }
     
     
     // Shows the next dual (pair of videos)
     func displayNextDual(){
-        
-        
+        self.vcs[1].player?.pause()
+        self.vcs[1].player?.isMuted = true
+        self.vcs[1].player?.isMuted = true
         currentDualIndex += 1
         if currentDualIndex < randomDuals.count{
             let dual = randomDuals[currentDualIndex]
             self.loadDual(dual)
-            
         }
-        
-        refreshDualsFromDb()
-
+        else
+        {
+            refreshDualsFromDb()
+        }
     }
     
     func loadDual(_ dual: ContentDual){
         
         self.vcs[0].load(content: dual.content1)
         self.vcs[1].load(content: dual.content2)
+        self.vcs[1].player?.pause()
+        self.vcs[1].player?.isMuted = true
         
         setViewControllers([self.vcs.first!], direction: .forward, animated: false, completion: nil)
         
@@ -117,9 +148,16 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     // Loads from database feed of duals
     func refreshDualsFromDb(){
         // Don't load data if we haven't reached the end
-        
-        if currentDualIndex < originalDuals.count && !originalDuals.isEmpty{
-            return
+        if let game = GameManager.shared.currentGame
+        {
+            if currentDualIndex < originalDuals.count && !originalDuals.isEmpty && lastGame?.name == game.name{
+                return
+            }
+            else
+            {
+                originalDuals = []
+                self.lastGame = game
+            }
         }
         
         ContentManager.shared.list(after: originalDuals.last?.content2.id) { duals in
@@ -138,6 +176,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             
             
         }
+
 
     }
     

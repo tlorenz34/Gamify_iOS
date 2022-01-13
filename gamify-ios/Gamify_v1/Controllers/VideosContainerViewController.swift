@@ -29,7 +29,8 @@ class VideosContainerViewController: UIViewController {
     
     @IBOutlet weak var discoverButton: UIButton!
     
-  
+      
+    @IBOutlet weak var gameNameLabel: UILabel!
     
     @IBOutlet weak var orLabel: UILabel!
     var videosViewController: VideosViewController?
@@ -43,8 +44,15 @@ class VideosContainerViewController: UIViewController {
         
         createGameButton.clipsToBounds = true
         
-    
-        
+        if let game = GameManager.shared.currentGame
+        {
+            gameNameLabel.text = game.name
+        }
+        else
+        {
+            gameNameLabel.text = "Which one is funnier?"
+        }
+
     }
  
     @IBAction func tappedButton(_ sender: UIButton) {

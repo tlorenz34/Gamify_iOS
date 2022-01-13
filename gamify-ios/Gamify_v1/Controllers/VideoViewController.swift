@@ -57,9 +57,12 @@ class VideoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        videoView.frame = view.frame
-        
+        do {
+              try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+          } catch let error {
+              print("Error in AVAudio Session\(error.localizedDescription)")
+          }
+        videoView.frame = view.frame        
         view.addSubview(videoView)
         view.sendSubviewToBack(videoView)
         
@@ -71,13 +74,11 @@ class VideoViewController: UIViewController {
         loadingIndicator.startAnimating()
     }
     
-  
-        
-
-
-
-    
     func load(content: Content){
+        for vw in videoView.subviews
+        {
+            vw.removeFromSuperview()
+        }
         self.content = content
         let playerItem = AVPlayerItem(url: URL(string: content.url!)!)
         self.player = AVQueuePlayer(items: [playerItem])
@@ -89,29 +90,45 @@ class VideoViewController: UIViewController {
         loadingIndicator.stopAnimating()
         loadingIndicator.isHidden = true
         player?.replaceCurrentItem(with: playerItem)
+        self.player?.isMuted = UserDefaults.standard.bool(forKey: "mute")
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(muteVideo(sender:)))
+        tapGesture.numberOfTapsRequired = 1
+        videoView.isUserInteractionEnabled = true
+        videoView.addGestureRecognizer(tapGesture)
         Crashlytics.crashlytics().log("Function: load - VideoViewController")
-
+    }
+    
+    @objc func muteVideo(sender: UITapGestureRecognizer) {
+        if let isMuted = self.player?.isMuted
+        {
+            self.player?.isMuted = !isMuted
+            UserDefaults.standard.set(!isMuted, forKey: "mute")
+        }
     }
     
     @IBAction func tappedJoinButton(_ sender: UIButton) {
         if UserManager.shared.currentUser == nil{
+            self.player?.isMuted = true
+            pauseVideo()
             UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
         } else{
-
-           performSegue(withIdentifier: "toUpload", sender: nil)
-
+            self.player?.isMuted = true
+            pauseVideo()
+            performSegue(withIdentifier: "toUpload", sender: nil)
+            
         }
     }
     
     @IBAction func tappedAboutButton(_ sender: Any) {
-    
-        player?.pause()
+        pauseVideo()
         player?.isMuted = true
         performSegue(withIdentifier: "toLeaderboard", sender: nil)
         
     }
     
     @IBAction func tappedTestButton(_ sender: UIButton) {
+        self.player?.isMuted = true
+        pauseVideo()
         performSegue(withIdentifier: "toGameModeVC", sender: self)
     }
     
@@ -129,7 +146,6 @@ class VideoViewController: UIViewController {
     
    
     @IBAction func voteButtonTapped(_ sender: UIButton) {
-        
         let ANIMATION_DURATION = 1.2
         
         let impactMed = UIImpactFeedbackGenerator(style: .soft)
@@ -144,12 +160,6 @@ class VideoViewController: UIViewController {
             self.delegate?.winnerDidSelect(content: self.content!)
         }
     }
-    
-
-        
-        
-        
-    
     
     
     // Report or flag content that is inappropriate

@@ -26,12 +26,6 @@ class LeaderBoardCell: UITableViewCell {
 
         
     }
-    @IBOutlet weak var roundedCellView: UIView! {
-        didSet {
-            roundedCellView.layer.cornerRadius = 20
-            roundedCellView.layer.masksToBounds = true
-        }
-    }
 
 }
 

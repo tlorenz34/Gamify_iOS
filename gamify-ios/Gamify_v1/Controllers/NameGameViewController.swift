@@ -31,10 +31,10 @@ class NameGameViewController: UIViewController {
         let db = Firestore.firestore()
         let game = [
             "gameId": gameId,
-            "gameName": gameName
-        ]
+            "gameName": gameName,
+            "gameType": "Video",
+            "submissions": 0
+        ] as [String : Any]
         db.collection("game").addDocument(data: game)
-
-
     }
 }
