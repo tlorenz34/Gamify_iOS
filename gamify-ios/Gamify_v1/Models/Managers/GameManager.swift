@@ -15,6 +15,8 @@ class GameManager{
     let db = Firestore.firestore()
     
     var currentGame: Game!
+    
+    var firstGame: Game!
 
     let COLLECTION_CONTENT = "game"
 

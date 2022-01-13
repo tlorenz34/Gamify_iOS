@@ -73,10 +73,10 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             }
             else
             {
-                let alertController = UIAlertController(title: "No Uploads Yet", message: "Be the first to Upload!", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Waiting...must have two players to begin.", message: "Be the first to Upload!", preferredStyle: .alert)
                 let uploadAction = UIAlertAction(title: "Upload", style: .default) { (action) in
                     alertController.dismiss(animated: true, completion: nil)
-                    self.performSegue(withIdentifier: "toUpload", sender: self)
+                    self.performSegue(withIdentifier: "toUpload", sender: nil)
                 }
                 alertController.addAction(uploadAction)
                 alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
