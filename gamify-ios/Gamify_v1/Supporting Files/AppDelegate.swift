@@ -30,9 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         handler = Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user{
                 UserManager.shared.loadCurrentUser(userId: user.uid)
-//                NotificationCenter.default.post(name: .signedInNotification, object: nil)
-//            } else{
-//                NotificationCenter.default.post(name: .signOutNotification, object: nil)
+                NotificationCenter.default.post(name: .signedInNotification, object: nil)
+            } else{
+                NotificationCenter.default.post(name: .signOutNotification, object: nil)
             }
             
             UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")

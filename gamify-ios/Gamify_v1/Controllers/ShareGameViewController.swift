@@ -22,9 +22,9 @@ class ShareGameViewController: UIViewController {
 
     }
     @IBAction func tappedShare(_ sender: UIButton) {
-        let url = "https://testflight.apple.com/join/mcloUhHb"
+        let url = "https://apps.apple.com/us/app/gamify-social-mini-games/id1590780699"
         
-        let ac = UIActivityViewController(activityItems: ["Download Gamify and join the funniest video game. Vote on your favorite submissions to determine the winner.", url], applicationActivities: nil)        
+        let ac = UIActivityViewController(activityItems: ["Hey - I have an invite to Gamify and want you to join. Here is the invite-only link to start creating mini-games with your friends.", url], applicationActivities: nil)        
         self.present(ac, animated: true)
     }
     
