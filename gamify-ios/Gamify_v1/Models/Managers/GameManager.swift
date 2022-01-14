@@ -15,6 +15,8 @@ class GameManager{
     let db = Firestore.firestore()
     
     var currentGame: Game!
+    
+    var firstGame: Game!
 
     let COLLECTION_CONTENT = "game"
 
@@ -40,6 +42,29 @@ class GameManager{
                     onSuccess(game)
             } else {
                 print("Document does not exist")
+            }
+        }
+    }
+    
+    //update
+    func updateSubmissionCount(id: String)
+    {
+        db.collection(COLLECTION_CONTENT).document(id).getDocument() { (document, err) in
+            if let document = document {
+                if let submission = document.get("submissions") as? Int
+                {
+                    document.reference.updateData([
+                        "submissions": submission+1
+                    ])
+                    GameManager.shared.currentGame.numberOfSubmissions = submission+1
+                }
+                else
+                {
+                    document.reference.updateData([
+                        "submissions": 1
+                    ])
+                    GameManager.shared.currentGame.numberOfSubmissions = 1
+                }
             }
         }
     }

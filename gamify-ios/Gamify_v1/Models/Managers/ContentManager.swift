@@ -62,19 +62,23 @@ class ContentManager {
     
     // Given array of content, return an array of duals
     func convertContentToDuals(content: [Content]) -> [ContentDual]{
+        let blocked = UserManager.shared.currentUser?.blockUserIds ?? [""]
         var duals = [ContentDual]()
         
         var latestDual = ContentDual()
         
         for c in content {
-            if latestDual.content1 == nil{
-                latestDual.content1 = c
-            } else if latestDual.content2 == nil{
-                latestDual.content2 = c
-                duals.append(latestDual)
-            } else{
-                latestDual = ContentDual()
-                latestDual.content1 = c
+            if !blocked.contains(where: ({$0 == c.userId}))
+            {
+                if latestDual.content1 == nil{
+                    latestDual.content1 = c
+                } else if latestDual.content2 == nil{
+                    latestDual.content2 = c
+                    duals.append(latestDual)
+                } else{
+                    latestDual = ContentDual()
+                    latestDual.content1 = c
+                }
             }
         }
         
@@ -83,7 +87,7 @@ class ContentManager {
             
             repeat {
                 let random = content.randomElement()!
-                if random.id != latestDual.content1.id{
+                if random.id != latestDual.content1.id && !blocked.contains(where: ({$0 == random.userId})) {
                     latestDual.content2 = random
                 }
                 
@@ -99,19 +103,19 @@ class ContentManager {
     
     
     func listTopContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
-        db.collection(COLLECTION_CONTENT)
-            .limit(to: 10)
-            .order(by: "voteCount", descending: true)
-            .getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                
-                let content = querySnapshot!.documents.map{
-                    try! FirestoreDecoder().decode(Content.self, from: $0.data())
-                }
-             
-                DispatchQueue.main.async {
+        if let game = GameManager.shared.currentGame
+        {
+            db.collection(COLLECTION_CONTENT)
+                .limit(to: 10)
+                .order(by: "voteCount", descending: true).whereField("gameName", in: [game.name])
+                .getDocuments { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    
+                    let content = querySnapshot!.documents.map{
+                        try! FirestoreDecoder().decode(Content.self, from: $0.data())
+                    }
                     onSuccess(content)
                 }
             }
@@ -154,20 +158,25 @@ class ContentManager {
                 }
             }
         }
+        var gameName = "funniest"
+        if let game = GameManager.shared.currentGame
+        {
+            gameName = game.name
+        }
         
         if let contentId = contentId{
             db.collection(COLLECTION_CONTENT)
                 .document(contentId)
                 .getDocument { snapshot, err in
                     self.db.collection(COLLECTION_CONTENT)
-                        .whereField("userId", notIn: UserManager.shared.currentUser?.blockUserIds ?? [""])
+                        .whereField("gameName", in: [gameName])
                         .start(afterDocument: snapshot!)
                         .limit(to: ContentManager.CONTENT_LIMIT)
                         .getDocuments(completion: process)
                 }
         } else{
             db.collection(COLLECTION_CONTENT)
-                .whereField("userId", notIn: UserManager.shared.currentUser?.blockUserIds ?? [""])
+                .whereField("gameName", in: [gameName])
                 .limit(to: ContentManager.CONTENT_LIMIT)
                 .getDocuments(completion: process)
         }

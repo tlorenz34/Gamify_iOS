@@ -15,23 +15,18 @@ class LeaderBoardCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     
     @IBOutlet weak var votesLabel: UILabel!
+        
     
-    @IBOutlet weak var playVideoButton: UIButton!
-    
+    @IBOutlet weak var playButton: UIButton!
     func updateUI(position: Int, content: Content){
         positionLabel.text = "\(String(describing: position.ordinal!))"
         
-        usernameLabel.text = content.username
+     //   usernameLabel.text = content.username
         votesLabel.text = "\(content.voteCount) votes"
-
+        playButton.setTitle("\(content.username)", for: .normal)
         
     }
-    @IBOutlet weak var roundedCellView: UIView! {
-        didSet {
-            roundedCellView.layer.cornerRadius = 20
-            roundedCellView.layer.masksToBounds = true
-        }
-    }
+
 
 }
 
@@ -46,4 +41,5 @@ extension Int {
         return ordinalFormatter.string(from: NSNumber(value: self))
     }
 }
+
 

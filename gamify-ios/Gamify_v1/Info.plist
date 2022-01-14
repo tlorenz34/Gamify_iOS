@@ -25,7 +25,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We need access to your camera roll in order to allow you to upload content (i.e., clicking &quot;Join&quot; and uploading content to participate in a game).</string>
+	<string>We need access to your camera roll in order to allow you to upload content (i.e., clicking "Join" and uploading content to participate in a game).</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
