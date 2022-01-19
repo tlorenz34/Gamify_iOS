@@ -67,6 +67,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         
         if let game = GameManager.shared.currentGame
         {
+
             if game.numberOfSubmissions >= 2
             {
                 refreshDualsFromDb()
@@ -86,6 +87,9 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         }
         else
         {
+            
+            
+            
             refreshDualsFromDb()
         }
         
@@ -173,11 +177,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
                 
                 self.loadDual(dual)
             }
-            
-            
         }
-
-
     }
     
 
@@ -188,11 +188,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
             containerDelegate?.updatedPageIndex(index: currentPageIndex)
             self.vcs[currentPageIndex].resumeVideo()
         }
-
     }
-
-    
-
 }
 
 extension VideosViewController: UIPageViewControllerDataSource{

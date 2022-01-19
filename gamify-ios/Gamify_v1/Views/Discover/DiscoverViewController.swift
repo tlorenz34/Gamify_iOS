@@ -18,9 +18,7 @@ class DiscoverViewController: UIViewController {
     @IBOutlet weak var discoverButton: UIButton!
     
     @IBOutlet weak var createGameButton: UIButton!
-    
-    @IBOutlet weak var inboxButton: UIButton!
-    
+        
     @IBOutlet weak var profileButton: UIButton!
     
     var game = [Game]()
@@ -28,6 +26,7 @@ class DiscoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -35,7 +34,11 @@ class DiscoverViewController: UIViewController {
     }
     
     @IBAction func unwindToDiscover(_ sender: UIStoryboardSegue){}
+
     
+    @IBAction func tappedProfile(_ sender: UIButton) {
+        performSegue(withIdentifier: "toProfile", sender: self)
+    }
     
     func loadData() {
         
@@ -88,6 +91,9 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource{
         GameManager.shared.currentGame = game
         performSegue(withIdentifier: "MainFeedSegue", sender: self)
         
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 140
     }
     
     

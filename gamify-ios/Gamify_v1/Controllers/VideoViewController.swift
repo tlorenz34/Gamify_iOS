@@ -95,7 +95,6 @@ class VideoViewController: UIViewController {
         tapGesture.numberOfTapsRequired = 1
         videoView.isUserInteractionEnabled = true
         videoView.addGestureRecognizer(tapGesture)
-        Crashlytics.crashlytics().log("Function: load - VideoViewController")
     }
     
     @objc func muteVideo(sender: UITapGestureRecognizer) {
@@ -152,7 +151,7 @@ class VideoViewController: UIViewController {
         impactMed.impactOccurred()
         let pulse = PulseAnimation(numberOfPulse: 1.0, radius: 200, postion: sender.center)
         pulse.animationDuration = ANIMATION_DURATION
-        pulse.backgroundColor =  #colorLiteral(red: 0.4823529412, green: 0.3803921569, blue: 1, alpha: 1)
+        pulse.backgroundColor =  #colorLiteral(red: 1, green: 0.2901960784, blue: 0.3137254902, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
         self.player?.isMuted = true
         self.player?.pause()

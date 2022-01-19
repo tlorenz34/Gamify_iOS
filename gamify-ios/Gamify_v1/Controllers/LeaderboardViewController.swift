@@ -114,6 +114,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBOutlet weak var settingsButton: UIButton!
     
+    @IBOutlet weak var yourRankingLabel: UILabel!
     
     @IBOutlet weak var playButton: UIButton!
     let refreshAlert = UIAlertController(title: "Do you want to log out?", message: "You will not be able to vote or compete anymore.", preferredStyle: UIAlertController.Style.alert)
@@ -123,22 +124,16 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getMultiple()
+
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
 
-
-        
         ContentManager.shared.listTopContent { content in
             self.topContent = content
             self.tableView.reloadData()
-
-            
-
         }
-
-
-      
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,8 +157,6 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func tappedSettings(_ sender: UIButton) {
         present(refreshAlert, animated: true, completion: nil)
-
-        
         refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
             IdentityManager.shared.logout()
             self.dismiss(animated: true, completion: nil)
@@ -186,6 +179,39 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
                 playVideo(url: URL(string: topContent[rowIndex].url!)!)
             }
         }
+    }
+    func getMultiple(){
+        let db = Firestore.firestore()
+        let currentGame = GameManager.shared.currentGame.name
+        switch currentGame{
+        case currentGame:
+            db.collection("content").whereField("gameName", isEqualTo: "\(GameManager.shared.currentGame.name)").order(by: "voteCount", descending: true)
+              .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for (index, document) in querySnapshot!.documents.enumerated() {
+                        let tempIndex = (index + 1) as NSNumber
+                        let usernameProper = document.get("username")
+                        guard let currentUser = UserManager.shared.currentUser.username else{
+                            return
+                        }
+                        if usernameProper as! String == "\(currentUser)"{
+                            let formatter = NumberFormatter()
+                            formatter.numberStyle = .ordinal
+                        let first = formatter.string(from: tempIndex)!
+                            self.yourRankingLabel.text = "\(first)"
+                            break
+                        }
+                    }
+                }
+            }
+            return
+        default:
+            self.yourRankingLabel.text = "No uploads."
+            return
+        }
+
     }
     
     func playVideo(url: URL) {

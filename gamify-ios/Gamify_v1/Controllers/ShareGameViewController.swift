@@ -19,7 +19,7 @@ class ShareGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+ 
     }
     @IBAction func tappedShare(_ sender: UIButton) {
         let url = "https://apps.apple.com/us/app/gamify-social-mini-games/id1590780699"

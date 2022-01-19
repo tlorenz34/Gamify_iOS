@@ -48,7 +48,7 @@ class VideoManager{
                    let content = Content(
                             id: ContentManager.shared.getDocumentId(),
                             userId: UserManager.shared.currentUser.id,
-                            username: UserManager.shared.currentUser.username,
+                            username: UserManager.shared.currentUser.username!,
                             voteCount: 0,
                             gameId: GameManager.shared.getDocumentId(),
                             gameName: GameManager.shared.currentGame.name,

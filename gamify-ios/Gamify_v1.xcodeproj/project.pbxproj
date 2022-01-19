@@ -10,6 +10,10 @@
 		B1002CB12743352B00C88C30 /* TermsAndConditionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1002CB02743352B00C88C30 /* TermsAndConditionsViewController.swift */; };
 		B1298F62273AC20200E8DB70 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1298F61273AC20200E8DB70 /* LoginViewController.swift */; };
 		B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B13685C5273CE7A500C8718A /* GoogleService-Info.plist */; };
+		B13A698B27912FF5006C7611 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A698A27912FF5006C7611 /* ProfileViewController.swift */; };
+		B13A698D27913006006C7611 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B13A698C27913006006C7611 /* Profile.storyboard */; };
+		B13A698F27914404006C7611 /* ProfileSubmissionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A698E27914404006C7611 /* ProfileSubmissionsTableViewCell.swift */; };
+		B13A699127914D6F006C7611 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13A699027914D6F006C7611 /* TableViewCell.swift */; };
 		B158B9AA275425610084B703 /* GameMode.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B158B9A9275425610084B703 /* GameMode.storyboard */; };
 		B158B9B427542BBE0084B703 /* GameModePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9B327542BBE0084B703 /* GameModePageViewController.swift */; };
 		B158B9B627542D000084B703 /* GameModeContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B158B9B527542D000084B703 /* GameModeContentViewController.swift */; };
@@ -38,6 +42,14 @@
 		B170CDDA2703E5AA006A1C12 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDD92703E5AA006A1C12 /* VideoViewController.swift */; };
 		B170CDDC2703EA21006A1C12 /* VideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B170CDDB2703EA21006A1C12 /* VideosViewController.swift */; };
 		B19E16622738843000983812 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19E16612738843000983812 /* SplashViewController.swift */; };
+		B1A102BB279624B700D80B66 /* SAConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A102BA279624B700D80B66 /* SAConfettiView.swift */; };
+		B1A102C42796264800D80B66 /* triangle.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102BD2796264800D80B66 /* triangle.png */; };
+		B1A102C52796264800D80B66 /* triangle 3.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102BE2796264800D80B66 /* triangle 3.png */; };
+		B1A102C62796264800D80B66 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102BF2796264800D80B66 /* star.png */; };
+		B1A102C72796264800D80B66 /* diamond.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102C02796264800D80B66 /* diamond.png */; };
+		B1A102C82796264800D80B66 /* confetti.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102C12796264800D80B66 /* confetti.png */; };
+		B1A102C92796264800D80B66 /* star 3.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102C22796264800D80B66 /* star 3.png */; };
+		B1A102CA2796264800D80B66 /* diamond 3.png in Resources */ = {isa = PBXBuildFile; fileRef = B1A102C32796264800D80B66 /* diamond 3.png */; };
 		B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A7F5BF27068EFB00720839 /* ContentDual.swift */; };
 		B1A89AAF2715D836000B7F11 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */; };
 		B1A89B0027165D42000B7F11 /* VideosContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AFF27165D42000B7F11 /* VideosContainerViewController.swift */; };
@@ -100,6 +112,10 @@
 		B1002CB02743352B00C88C30 /* TermsAndConditionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAndConditionsViewController.swift; sourceTree = "<group>"; };
 		B1298F61273AC20200E8DB70 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B13685C5273CE7A500C8718A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B13A698A27912FF5006C7611 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		B13A698C27913006006C7611 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		B13A698E27914404006C7611 /* ProfileSubmissionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSubmissionsTableViewCell.swift; sourceTree = "<group>"; };
+		B13A699027914D6F006C7611 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		B158B9A9275425610084B703 /* GameMode.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameMode.storyboard; sourceTree = "<group>"; };
 		B158B9B327542BBE0084B703 /* GameModePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModePageViewController.swift; sourceTree = "<group>"; };
 		B158B9B527542D000084B703 /* GameModeContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModeContentViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +150,14 @@
 		B170CDDB2703EA21006A1C12 /* VideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosViewController.swift; sourceTree = "<group>"; };
 		B181912E273C8DD9002B2E38 /* Gamify_v1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Gamify_v1.entitlements; sourceTree = "<group>"; };
 		B19E16612738843000983812 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		B1A102BA279624B700D80B66 /* SAConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SAConfettiView.swift; sourceTree = "<group>"; };
+		B1A102BD2796264800D80B66 /* triangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = triangle.png; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/triangle.png"; sourceTree = "<group>"; };
+		B1A102BE2796264800D80B66 /* triangle 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "triangle 3.png"; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/triangle 3.png"; sourceTree = "<group>"; };
+		B1A102BF2796264800D80B66 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/star.png"; sourceTree = "<group>"; };
+		B1A102C02796264800D80B66 /* diamond.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = diamond.png; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/diamond.png"; sourceTree = "<group>"; };
+		B1A102C12796264800D80B66 /* confetti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = confetti.png; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/confetti.png"; sourceTree = "<group>"; };
+		B1A102C22796264800D80B66 /* star 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "star 3.png"; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/star 3.png"; sourceTree = "<group>"; };
+		B1A102C32796264800D80B66 /* diamond 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "diamond 3.png"; path = "../../../../../Tourney/tourney-ios/Tourney/Resources/SAConfettiView/Assets/diamond 3.png"; sourceTree = "<group>"; };
 		B1A7F5BF27068EFB00720839 /* ContentDual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDual.swift; sourceTree = "<group>"; };
 		B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		B1A89AFF27165D42000B7F11 /* VideosContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosContainerViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +225,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B13A698927912FD5006C7611 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				B13A698C27913006006C7611 /* Profile.storyboard */,
+				B13A698A27912FF5006C7611 /* ProfileViewController.swift */,
+				B13A698E27914404006C7611 /* ProfileSubmissionsTableViewCell.swift */,
+				B13A699027914D6F006C7611 /* TableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		B158B9A6275424C40084B703 /* GameMode */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +249,7 @@
 			children = (
 				B158B9BC275596030084B703 /* Discover.storyboard */,
 				B158B9C027567DE00084B703 /* DiscoverTableViewCell.swift */,
+				B158B9BE2755EC950084B703 /* DiscoverViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -289,7 +325,6 @@
 				B158B9B527542D000084B703 /* GameModeContentViewController.swift */,
 				B158B9B727542E560084B703 /* GameModeViewController.swift */,
 				B158B9B9275572650084B703 /* NameGameViewController.swift */,
-				B158B9BE2755EC950084B703 /* DiscoverViewController.swift */,
 				B1FA6A26277371E900EB0EAE /* ShareGameViewController.swift */,
 			);
 			path = Controllers;
@@ -298,6 +333,7 @@
 		B170CD9A26FA1CDF006A1C12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B13A698927912FD5006C7611 /* Profile */,
 				B158B9BB275595BC0084B703 /* Discover */,
 				B158B9A6275424C40084B703 /* GameMode */,
 				B1BB2794270DE52800E97916 /* PulseAnimation.swift */,
@@ -340,8 +376,24 @@
 			children = (
 				B170CD5F26F8C657006A1C12 /* AppDelegate.swift */,
 				B170CD6126F8C657006A1C12 /* SceneDelegate.swift */,
+				B1A102BA279624B700D80B66 /* SAConfettiView.swift */,
+				B1A102BC2796261C00D80B66 /* Assets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1A102BC2796261C00D80B66 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B1A102C12796264800D80B66 /* confetti.png */,
+				B1A102C32796264800D80B66 /* diamond 3.png */,
+				B1A102C02796264800D80B66 /* diamond.png */,
+				B1A102C22796264800D80B66 /* star 3.png */,
+				B1A102BF2796264800D80B66 /* star.png */,
+				B1A102BE2796264800D80B66 /* triangle 3.png */,
+				B1A102BD2796264800D80B66 /* triangle.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -484,11 +536,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B158B9BD275596030084B703 /* Discover.storyboard in Resources */,
+				B1A102C92796264800D80B66 /* star 3.png in Resources */,
+				B1A102C62796264800D80B66 /* star.png in Resources */,
 				B170CD6C26F8C659006A1C12 /* LaunchScreen.storyboard in Resources */,
+				B1A102C52796264800D80B66 /* triangle 3.png in Resources */,
 				B158B9AA275425610084B703 /* GameMode.storyboard in Resources */,
 				B170CD6926F8C659006A1C12 /* Assets.xcassets in Resources */,
 				B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */,
+				B1A102C42796264800D80B66 /* triangle.png in Resources */,
+				B1A102CA2796264800D80B66 /* diamond 3.png in Resources */,
+				B13A698D27913006006C7611 /* Profile.storyboard in Resources */,
 				B170CD6726F8C657006A1C12 /* Main.storyboard in Resources */,
+				B1A102C72796264800D80B66 /* diamond.png in Resources */,
+				B1A102C82796264800D80B66 /* confetti.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +603,7 @@
 				B170CDC926FD4E41006A1C12 /* Category.swift in Sources */,
 				B158B9B427542BBE0084B703 /* GameModePageViewController.swift in Sources */,
 				B170CDD62703A7C3006A1C12 /* GameManager.swift in Sources */,
+				B1A102BB279624B700D80B66 /* SAConfettiView.swift in Sources */,
 				B1002CB12743352B00C88C30 /* TermsAndConditionsViewController.swift in Sources */,
 				B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */,
 				B170CDC726FD4D51006A1C12 /* Game.swift in Sources */,
@@ -550,6 +611,7 @@
 				B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */,
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,
 				B1A89B0027165D42000B7F11 /* VideosContainerViewController.swift in Sources */,
+				B13A698F27914404006C7611 /* ProfileSubmissionsTableViewCell.swift in Sources */,
 				B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */,
 				B170CDC526FD4CC9006A1C12 /* Content.swift in Sources */,
 				B170CDD026FD538B006A1C12 /* SignUpViewController.swift in Sources */,
@@ -563,10 +625,12 @@
 				B1D05B712731AC620064798D /* LeaderBoardCell.swift in Sources */,
 				B1FA6A27277371EA00EB0EAE /* ShareGameViewController.swift in Sources */,
 				B158B9C127567DE00084B703 /* DiscoverTableViewCell.swift in Sources */,
+				B13A699127914D6F006C7611 /* TableViewCell.swift in Sources */,
 				B1F5B1532719083E0042FF9A /* Identity.swift in Sources */,
 				B170CDCB26FD4ED6006A1C12 /* UserManager.swift in Sources */,
 				B158B9BA275572650084B703 /* NameGameViewController.swift in Sources */,
 				B1BB278D270D268400E97916 /* UploadVideoViewController.swift in Sources */,
+				B13A698B27912FF5006C7611 /* ProfileViewController.swift in Sources */,
 				B170CDC326FD4C05006A1C12 /* User.swift in Sources */,
 				B1A89AAF2715D836000B7F11 /* LeaderboardViewController.swift in Sources */,
 			);

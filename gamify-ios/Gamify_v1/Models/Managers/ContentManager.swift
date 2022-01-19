@@ -27,7 +27,6 @@ class ContentManager {
     // Generates a random but valid document id
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID
-        
     }
         
     // Create
@@ -38,7 +37,6 @@ class ContentManager {
             .document(content.id)
             .setData(data){ err in
             Crashlytics.crashlytics().log("Function: create content - ContentManager")
-
             onSuccess(err?.localizedDescription)
         }
 
@@ -95,9 +93,6 @@ class ContentManager {
             
             duals.append(latestDual)
         }
-           
-
-        
         return duals
     }
     
@@ -112,7 +107,6 @@ class ContentManager {
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
-                    
                     let content = querySnapshot!.documents.map{
                         try! FirestoreDecoder().decode(Content.self, from: $0.data())
                     }
@@ -122,6 +116,43 @@ class ContentManager {
         }
 
     }
+    func listCurrentUserContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
+        db.collection(COLLECTION_CONTENT).whereField("username", isEqualTo: "\(UserManager.shared.currentUser.username!)").getDocuments { (querySnapshot, err) in
+        if let err = err{
+            print("error getting documents \(err)")
+            
+        } else {
+            let content = querySnapshot!.documents.map{
+                try! FirestoreDecoder().decode(Content.self, from: $0.data())
+            }
+            onSuccess(content)
+        }
+    }
+//        if let game = GameManager.shared.currentGame
+//        {
+//            db.collection(COLLECTION_CONTENT)
+//                .limit(to: 10)
+//                .order(by: "voteCount", descending: true).whereField("gameName", in: [game.name])
+//                .getDocuments { (querySnapshot, err) in
+//                if let err = err {
+//                    print("Error getting documents: \(err)")
+//                } else {
+//                    let content = querySnapshot!.documents.map{
+//                        try! FirestoreDecoder().decode(Content.self, from: $0.data())
+//                    }
+//                    onSuccess(content)
+//                }
+//            }
+//        }
+
+    }
+ 
+   
+
+
+    
+
+
     
     func addVote(contentId: String) {
         print("addVote called")
@@ -208,3 +239,4 @@ class ContentManager {
 // We don't really know if it's in a background or main thread
 
 // Grand Central Dispatch
+

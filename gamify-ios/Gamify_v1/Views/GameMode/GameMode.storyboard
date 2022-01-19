@@ -28,7 +28,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gLR-zW-Hv3">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="50"/>
-                                        <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="1" green="0.2901960784" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="Qer-kp-QDq"/>
                                             <constraint firstAttribute="width" constant="250" id="bKu-QA-Syo"/>
@@ -51,9 +51,9 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="duw-71-aVo">
-                                <rect key="frame" x="10" y="54" width="44" height="31"/>
+                                <rect key="frame" x="10" y="54" width="47.5" height="38"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="x.circle.fill" catalog="system" title="">
+                                <buttonConfiguration key="configuration" style="plain" image="Left" title="">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -62,7 +62,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SOj-yC-fsl" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6kQ-iy-Ffa"/>
                             <constraint firstItem="gid-G0-6Ia" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8ju-UQ-N8x"/>
@@ -133,17 +133,17 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwH-uP-qcQ">
-                                <rect key="frame" x="10" y="54" width="36" height="31"/>
+                                <rect key="frame" x="10" y="54" width="47.5" height="38"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="Left" title=""/>
                                 <connections>
                                     <segue destination="TLg-dz-1Py" kind="unwind" animates="NO" unwindAction="unwindToChooseGameMode:" id="8Ly-8Y-YM0"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="c2w-by-4Yd"/>
-                        <color key="backgroundColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="755-Fa-gLd" firstAttribute="top" secondItem="c2w-by-4Yd" secondAttribute="top" constant="153" id="Md0-Tt-V8A"/>
                             <constraint firstItem="VwH-uP-qcQ" firstAttribute="leading" secondItem="c2w-by-4Yd" secondAttribute="leading" constant="10" id="c3a-q2-e7c"/>
@@ -172,58 +172,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2E2-kF-6pE">
-                                <rect key="frame" x="82" y="74" width="250" height="270"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="89" translatesAutoresizingMaskIntoConstraints="NO" id="tJT-7Z-hrv">
+                                <rect key="frame" x="82" y="74" width="250" height="269"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="113" translatesAutoresizingMaskIntoConstraints="NO" id="cBs-Vc-JsE">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="270"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="vn0-kf-k2S">
-                                                <rect key="frame" x="1.5" y="0.0" width="247.5" height="107"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats! Your game is now live." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-mj-CYW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="247.5" height="20.5"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="71" translatesAutoresizingMaskIntoConstraints="NO" id="rck-mB-Jv1">
-                                                        <rect key="frame" x="0.0" y="86.5" width="247.5" height="20.5"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share link and invite friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-PQ-RWC">
-                                                                <rect key="frame" x="19" y="0.0" width="209" height="20.5"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-Qs-vaD">
-                                                <rect key="frame" x="0.0" y="220" width="250" height="50"/>
-                                                <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="250" id="j3o-SQ-IRG"/>
-                                                    <constraint firstAttribute="height" constant="50" id="uuW-HR-BKI"/>
-                                                </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Share">
-                                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </buttonConfiguration>
-                                                <connections>
-                                                    <action selector="tappedShare:" destination="Kqo-ep-995" eventType="touchUpInside" id="7J5-fX-ajb"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congrats! Your game is now live." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7D-mj-CYW">
+                                        <rect key="frame" x="1.5" y="0.0" width="247.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Share link and invite friends" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qb-PQ-RWC">
+                                        <rect key="frame" x="20.5" y="109.5" width="209" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9W-Qs-vaD">
+                                        <rect key="frame" x="0.0" y="219" width="250" height="50"/>
+                                        <color key="backgroundColor" red="0.94117647059999998" green="0.94901960780000005" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="j3o-SQ-IRG"/>
+                                            <constraint firstAttribute="height" constant="50" id="uuW-HR-BKI"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Share">
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="tappedShare:" destination="Kqo-ep-995" eventType="touchUpInside" id="7J5-fX-ajb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tU2-wD-L1O">
-                                <rect key="frame" x="10" y="54" width="44" height="31"/>
+                                <rect key="frame" x="10" y="54" width="38" height="28"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="x.circle.fill" catalog="system" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="exit" title=""/>
                                 <connections>
                                     <segue destination="tyD-gK-Cdl" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="hrr-TT-Jsk"/>
                                 </connections>
@@ -233,9 +218,9 @@
                         <color key="backgroundColor" red="0.2784313725" green="0.86666666670000003" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="tU2-wD-L1O" firstAttribute="leading" secondItem="9JC-7p-IP6" secondAttribute="leading" constant="10" id="0Et-tP-nnx"/>
-                            <constraint firstItem="2E2-kF-6pE" firstAttribute="centerX" secondItem="yKq-Dp-2i7" secondAttribute="centerX" id="4u6-Kf-xsO"/>
+                            <constraint firstItem="tJT-7Z-hrv" firstAttribute="centerX" secondItem="yKq-Dp-2i7" secondAttribute="centerX" id="4xW-N2-XtD"/>
+                            <constraint firstItem="tJT-7Z-hrv" firstAttribute="top" secondItem="9JC-7p-IP6" secondAttribute="top" constant="30" id="Cwh-rW-d7U"/>
                             <constraint firstItem="tU2-wD-L1O" firstAttribute="top" secondItem="9JC-7p-IP6" secondAttribute="top" constant="10" id="hTv-J6-W7D"/>
-                            <constraint firstItem="2E2-kF-6pE" firstAttribute="top" secondItem="9JC-7p-IP6" secondAttribute="top" constant="30" id="kOl-i4-L0p"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Sy5-JG-5oS"/>
@@ -308,9 +293,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="Left" width="23.5" height="24"/>
+        <image name="exit" width="14" height="14"/>
         <image name="video.fill" catalog="system" width="128" height="82"/>
-        <image name="x.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
