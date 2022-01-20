@@ -89,12 +89,19 @@ class VideosContainerViewController: UIViewController {
         performSegue(withIdentifier: "toProfile", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? VideosViewController{
-            vc.containerDelegate = self
-            videosViewController = vc
+        super.prepare(for: segue, sender: sender)
+        if let videosVC = segue.destination as? VideosViewController {
+            videosVC.containerDelegate = self
+            videosViewController = videosVC
         }
     }
 
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        if let videosVC = videosViewController {
+            videosVC.vcs[videosVC.currentPageIndex].pauseVideo()
+        }
+        super.performSegue(withIdentifier: identifier, sender: sender)
+    }
 }
 
 extension VideosContainerViewController: VideosContainerViewControllerDelegate{

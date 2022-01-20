@@ -35,8 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             } else{
                 NotificationCenter.default.post(name: .signOutNotification, object: nil)
             }
-            
-            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+            DispatchQueue.main.async {
+                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+            }
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(signOutAction(_:)), name: .signOutNotification, object: nil)
@@ -48,14 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     @objc func signOutAction(_ notification: Notification) {
-       
-        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        DispatchQueue.main.async {
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        }
     }
     
     @objc func signedInAction(_ notification: Notification) {
-        
-        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
-       
+        DispatchQueue.main.async {
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+        }
     }
     
     // MARK: UISceneSession Lifecycle
