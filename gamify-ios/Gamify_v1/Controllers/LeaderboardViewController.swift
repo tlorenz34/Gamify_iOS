@@ -182,10 +182,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     }
     func getMultiple(){
         let db = Firestore.firestore()
-        let currentGame = GameManager.shared.currentGame.name
-        switch currentGame{
-        case currentGame:
-            db.collection("content").whereField("gameName", isEqualTo: "\(GameManager.shared.currentGame.name)").order(by: "voteCount", descending: true)
+        if let currentGame = GameManager.shared.currentGame?.name {
+            db.collection("content").whereField("gameName", isEqualTo: "\(currentGame)").order(by: "voteCount", descending: true)
               .getDocuments() { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
@@ -206,10 +204,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
             }
-            return
-        default:
+        } else {
             self.yourRankingLabel.text = "No uploads."
-            return
         }
 
     }
