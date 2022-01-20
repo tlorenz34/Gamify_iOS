@@ -180,34 +180,20 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
     }
-    func getMultiple(){
-        let db = Firestore.firestore()
-        if let currentGame = GameManager.shared.currentGame?.name {
-            db.collection("content").whereField("gameName", isEqualTo: "\(currentGame)").order(by: "voteCount", descending: true)
-              .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for (index, document) in querySnapshot!.documents.enumerated() {
-                        let tempIndex = (index + 1) as NSNumber
-                        let usernameProper = document.get("username")
-                        guard let currentUser = UserManager.shared.currentUser?.username else{
-                            return
-                        }
-                        if usernameProper as! String == "\(currentUser)"{
-                            let formatter = NumberFormatter()
-                            formatter.numberStyle = .ordinal
-                        let first = formatter.string(from: tempIndex)!
-                            self.yourRankingLabel.text = "\(first)"
-                            break
-                        }
-                    }
-                }
-            }
-        } else {
-            self.yourRankingLabel.text = "No uploads."
-        }
 
+    func getMultiple(){
+        guard let gameName = GameManager.shared.currentGame?.name else {
+            self.yourRankingLabel.text = "No uploads."
+            return
+        }
+        GameManager.shared.getRankingString(gameName: gameName) { result in
+            switch result {
+            case .success(let ranking):
+                self.yourRankingLabel.text = ranking
+            case .failure(let error):
+                self.yourRankingLabel.text = error.localizedDescription
+            }
+        }
     }
     
     func playVideo(url: URL) {
