@@ -51,7 +51,7 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+
         
     }
     
@@ -94,16 +94,16 @@ class VideosViewController: UIPageViewController, UIPageViewControllerDelegate {
         }
         
         /*DispatchQueue.main.async {
-            self.refreshDualsFromDb()
-        }*/
-    
+         self.refreshDualsFromDb()
+         }*/
+
         self.scrollToPage(index: currentPageIndex)
         dataSource = self
         
         for v in view.subviews {
-          if let scrollView = v as? UIScrollView {
-            scrollView.delegate = self
-          }
+            if let scrollView = v as? UIScrollView {
+                scrollView.delegate = self
+            }
         }
     }
 
@@ -198,40 +198,40 @@ extension VideosViewController: UIPageViewControllerDataSource{
         
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! VideoViewController) else {
 
-                   return nil
-               }
-           
-           let previousIndex = viewControllerIndex - 1
-           
-           guard previousIndex >= 0 else {
+            return nil
+        }
 
-               return nil
-           }
-           
-           guard vcs.count > previousIndex else {
-               return nil
-           }
+        let previousIndex = viewControllerIndex - 1
+
+        guard previousIndex >= 0 else {
+
+            return nil
+        }
+
+        guard vcs.count > previousIndex else {
+            return nil
+        }
         
-           return vcs[previousIndex]
+        return vcs[previousIndex]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! VideoViewController) else {
-                   return nil
-               }
-           
-           let nextIndex = viewControllerIndex + 1
+            return nil
+        }
 
-           guard vcs.count != nextIndex else {
-               return nil
-           }
-           
-           guard vcs.count > nextIndex else {
-               return nil
-           }
+        let nextIndex = viewControllerIndex + 1
+
+        guard vcs.count != nextIndex else {
+            return nil
+        }
+
+        guard vcs.count > nextIndex else {
+            return nil
+        }
         
-           
-           return vcs[nextIndex]
+
+        return vcs[nextIndex]
     }
     
 }
@@ -268,10 +268,10 @@ extension VideosViewController: UIScrollViewDelegate{
         }
         
     }
-   
+
 }
-        
-    
+
+
 
 
 /**
