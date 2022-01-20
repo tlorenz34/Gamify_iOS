@@ -102,6 +102,10 @@ class VideosContainerViewController: UIViewController {
         }
         super.performSegue(withIdentifier: identifier, sender: sender)
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        gameNameLabel.text = GameManager.shared.currentGame?.name ?? "Funniest"
+    }
 }
 
 extension VideosContainerViewController: VideosContainerViewControllerDelegate{
