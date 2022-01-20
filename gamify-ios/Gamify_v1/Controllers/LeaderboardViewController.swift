@@ -182,11 +182,9 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     }
 
     func getMultiple(){
-        guard let gameName = GameManager.shared.currentGame?.name else {
-            self.yourRankingLabel.text = "No uploads."
-            return
-        }
+        let gameName = GameManager.shared.currentGame?.name ?? "funniest"
         GameManager.shared.getRankingString(gameName: gameName) { result in
+            print(result)
             switch result {
             case .success(let ranking):
                 self.yourRankingLabel.text = ranking

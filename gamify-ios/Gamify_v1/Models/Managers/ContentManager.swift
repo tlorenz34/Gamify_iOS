@@ -98,12 +98,11 @@ class ContentManager {
     
     
     func listTopContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
-        if let game = GameManager.shared.currentGame
-        {
-            db.collection(COLLECTION_CONTENT)
-                .limit(to: 10)
-                .order(by: "voteCount", descending: true).whereField("gameName", in: [game.name])
-                .getDocuments { (querySnapshot, err) in
+        let gameName = GameManager.shared.currentGame?.name ?? "funniest"
+        db.collection(COLLECTION_CONTENT)
+            .limit(to: 10)
+            .order(by: "voteCount", descending: true).whereField("gameName", in: [gameName])
+            .getDocuments { (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
@@ -113,8 +112,6 @@ class ContentManager {
                     onSuccess(content)
                 }
             }
-        }
-
     }
     func listCurrentUserContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
         db.collection(COLLECTION_CONTENT).whereField("username", isEqualTo: "\(UserManager.shared.currentUser!.username!)").getDocuments { (querySnapshot, err) in
