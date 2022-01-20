@@ -19,10 +19,8 @@ class ProfileSubmissionsTableViewCell: UITableViewCell {
 
     func configure(content: Content){
         playSubmissionButton.setTitle("\(content.gameName)", for: .normal)
-        GameManager.shared.getRankingString(gameName: content.gameName) { [weak ratingLabel] result in
-            if case let .success(ranking) = result {
-                ratingLabel?.text = ranking
-            }
+        GameManager.shared.getRankingString(gameName: content.gameName) { [weak ratingLabel] ranking in
+            ratingLabel?.text = ranking
         }
         ratingLabel.text = "\(content.voteCount) votes"
     }

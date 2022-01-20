@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
                     strongSelf.performSegue(withIdentifier: "toMainFeed", sender: nil)
 
                 } else {
-                    print("Auth error", error)
+                    print("Auth error", error as Any)
                     self!.present(self!.refreshAlert, animated: true, completion: nil)
 
 

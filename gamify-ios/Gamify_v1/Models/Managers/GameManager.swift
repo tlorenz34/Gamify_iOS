@@ -73,9 +73,9 @@ class GameManager{
         case failed(String)
     }
 
-    func getRankingString(gameName: String, completion: @escaping (Result<String, Error>) -> ()) {
+    func getRankingString(gameName: String, completion: @escaping (String) -> ()) {
         guard let currentUser = UserManager.shared.currentUser?.username else {
-            completion(.failure(RankingError.failed("Not logged in.")))
+            completion("Not logged in.")
             return
         }
         Firestore.firestore().collection("content")
@@ -83,7 +83,7 @@ class GameManager{
             .order(by: "voteCount", descending: true)
             .getDocuments() { (querySnapshot, err) in
                 if let err = err {
-                    completion(.failure(err))
+                    completion(err.localizedDescription)
                     return
                 }
                 for (i, document) in querySnapshot!.documents.enumerated() {
@@ -92,11 +92,11 @@ class GameManager{
                         let formatter = NumberFormatter()
                         formatter.numberStyle = .ordinal
                         let result = formatter.string(from: NSNumber(value: i+1))!
-                        completion(.success(result))
+                        completion(result)
                         return
                     }
                 }
-                completion(.failure(RankingError.failed("No uploads.")))
+                completion("No uploads.")
             }
     }
 

@@ -183,14 +183,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
 
     func getMultiple(){
         let gameName = GameManager.shared.currentGame?.name ?? "funniest"
-        GameManager.shared.getRankingString(gameName: gameName) { result in
-            print(result)
-            switch result {
-            case .success(let ranking):
-                self.yourRankingLabel.text = ranking
-            case .failure(let error):
-                self.yourRankingLabel.text = error.localizedDescription
-            }
+        GameManager.shared.getRankingString(gameName: gameName) { ranking in
+            self.yourRankingLabel.text = ranking
         }
     }
     
