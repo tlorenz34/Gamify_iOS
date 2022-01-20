@@ -191,7 +191,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
                     for (index, document) in querySnapshot!.documents.enumerated() {
                         let tempIndex = (index + 1) as NSNumber
                         let usernameProper = document.get("username")
-                        guard let currentUser = UserManager.shared.currentUser.username else{
+                        guard let currentUser = UserManager.shared.currentUser?.username else{
                             return
                         }
                         if usernameProper as! String == "\(currentUser)"{

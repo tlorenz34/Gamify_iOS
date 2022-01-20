@@ -41,17 +41,18 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        if UserManager.shared.currentUser.username == nil{
+        if UserManager.shared.currentUser == nil{
             return
         }
         //let currentUser = UserManager.shared.currentUser.username
-        switch UserManager.shared.currentUser.username {
-        case "\(UserManager.shared.currentUser.username!)":
-            print("You're signed in.")
-            usernameLabel.text = "\(UserManager.shared.currentUser.username!)"
-        case nil:
-            print("no one")
-        default:
+        if let currentUser = UserManager.shared.currentUser {
+            if let username = currentUser.username {
+                print("You're signed in.")
+                usernameLabel.text = username
+            } else {
+                print("no one")
+            }
+        } else {
             print("You don't have an account")
             usernameLabel.text = "You don't have an account."
         }

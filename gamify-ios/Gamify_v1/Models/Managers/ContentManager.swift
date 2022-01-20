@@ -117,7 +117,7 @@ class ContentManager {
 
     }
     func listCurrentUserContent(onSuccess: @escaping (_ content: [Content]) -> Void) {
-        db.collection(COLLECTION_CONTENT).whereField("username", isEqualTo: "\(UserManager.shared.currentUser.username!)").getDocuments { (querySnapshot, err) in
+        db.collection(COLLECTION_CONTENT).whereField("username", isEqualTo: "\(UserManager.shared.currentUser!.username!)").getDocuments { (querySnapshot, err) in
         if let err = err{
             print("error getting documents \(err)")
             

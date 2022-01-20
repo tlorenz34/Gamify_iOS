@@ -16,7 +16,7 @@ class UserManager{
     
     static let shared = UserManager()
     
-    var currentUser: User!
+    var currentUser: User?
     
     var userRef: DatabaseReference {
         Database.database().reference().child("users").ref
@@ -46,14 +46,18 @@ class UserManager{
     }
     
     func block(id: String, onSuccess: @escaping (_ errorMessage: String?) -> Void) {
+        guard let currentUser = UserManager.shared.currentUser else {
+            onSuccess("Not signed in")
+            return
+        }
         Firestore.firestore().collection(COLLECTION_USER)
-            .document(UserManager.shared.currentUser.id)
+            .document(currentUser.id)
             .updateData(["blockUserIds": FieldValue.arrayUnion([id])]){ err in
-                
-                if UserManager.shared.currentUser.blockUserIds == nil{
-                    UserManager.shared.currentUser.blockUserIds = [id]
+
+                if UserManager.shared.currentUser?.blockUserIds == nil {
+                    UserManager.shared.currentUser?.blockUserIds = [id]
                 } else{
-                    UserManager.shared.currentUser.blockUserIds!.append(id)
+                    UserManager.shared.currentUser?.blockUserIds!.append(id)
                 }
                 Crashlytics.crashlytics().log("Function: block - UserManager")
 
