@@ -45,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(signedInAction(_:)), name: .signedInNotification, object: nil)
         
         FirebaseConfiguration.shared.setLoggerLevel(.min)
+
+        // Default to funniest game
+        GameManager.shared.get(id: "iOvZQWf3uibmqMtmw9N2") { game in
+            GameManager.shared.currentGame = game
+        }
         
         return true
     }
