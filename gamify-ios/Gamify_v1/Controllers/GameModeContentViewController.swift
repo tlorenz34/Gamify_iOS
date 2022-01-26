@@ -28,7 +28,6 @@ class GameModeContentViewController: UIViewController {
         
         setupTextLabel()
         contentImageView.image = image
-        view.backgroundColor = bgColor
     }
     
     func setupTextLabel() {

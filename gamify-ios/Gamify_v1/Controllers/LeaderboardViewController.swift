@@ -122,6 +122,9 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     var topContent = [Content]()
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMultiple()
@@ -129,6 +132,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+
 
         ContentManager.shared.listTopContent { content in
             self.topContent = content
@@ -138,6 +143,10 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        let gameName = GameManager.shared.currentGame?.name ?? "funniest"
+
+        navigationBar.topItem!.title = "\(gameName)"
+
     }
     
     // Share game

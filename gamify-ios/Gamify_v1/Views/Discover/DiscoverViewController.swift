@@ -21,16 +21,25 @@ class DiscoverViewController: UIViewController {
         
     @IBOutlet weak var profileButton: UIButton!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     var game = [Game]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+
+      
     }
     
     override func viewDidAppear(_ animated: Bool) {
         loadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar.prefersLargeTitles = true
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+
+        
     }
     
     @IBAction func unwindToDiscover(_ sender: UIStoryboardSegue){}

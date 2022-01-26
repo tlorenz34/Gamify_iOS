@@ -42,12 +42,15 @@
                                 <textAttributes key="titleTextAttributes">
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </textAttributes>
+                                <textAttributes key="largeTitleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Games" largeTitleDisplayMode="always" id="wad-VG-sew"/>
+                                    <navigationItem title="New Games" largeTitleDisplayMode="always" id="wad-VG-sew"/>
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Be4-65-XP0">
-                                <rect key="frame" x="0.0" y="188" width="414" height="605"/>
+                                <rect key="frame" x="0.0" y="108" width="414" height="685"/>
                                 <color key="backgroundColor" red="0.062745098039215685" green="0.062745098039215685" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="separatorColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -157,12 +160,6 @@
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="bh0-nF-bK9"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-Wi-ule">
-                                <rect key="frame" x="25" y="139.5" width="59" height="33.5"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LcL-s3-m61">
                                 <rect key="frame" x="0.0" y="801" width="414" height="95"/>
                                 <subviews>
@@ -250,15 +247,12 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="fY6-Wi-ule" firstAttribute="top" secondItem="9aR-wb-J34" secondAttribute="bottom" constant="51.5" id="Ays-S8-14K"/>
                             <constraint firstItem="9aR-wb-J34" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JsJ-S2-ZLM"/>
-                            <constraint firstItem="Be4-65-XP0" firstAttribute="top" secondItem="9aR-wb-J34" secondAttribute="bottom" constant="100" id="KIJ-VZ-kIM"/>
-                            <constraint firstItem="Be4-65-XP0" firstAttribute="top" secondItem="fY6-Wi-ule" secondAttribute="bottom" constant="15" id="LYD-Qu-qCk"/>
+                            <constraint firstItem="Be4-65-XP0" firstAttribute="top" secondItem="9aR-wb-J34" secondAttribute="bottom" constant="20" id="KIJ-VZ-kIM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Be4-65-XP0" secondAttribute="trailing" id="MXc-dR-aqe"/>
                             <constraint firstItem="Be4-65-XP0" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" constant="-69" id="VWd-ru-YBO"/>
                             <constraint firstAttribute="bottom" secondItem="LcL-s3-m61" secondAttribute="bottom" id="biQ-mJ-GJF"/>
                             <constraint firstItem="9aR-wb-J34" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="cKJ-Kv-kSG"/>
-                            <constraint firstItem="fY6-Wi-ule" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="25" id="egE-a1-x3k"/>
                             <constraint firstItem="9aR-wb-J34" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fWJ-H5-zmY"/>
                             <constraint firstAttribute="trailing" secondItem="LcL-s3-m61" secondAttribute="trailing" id="qPz-SN-HEj"/>
                             <constraint firstItem="LcL-s3-m61" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rSL-63-dr6"/>
@@ -266,6 +260,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="9aR-wb-J34" id="fnj-Pd-Eep"/>
                         <outlet property="tableView" destination="Be4-65-XP0" id="2mi-82-zqA"/>
                         <segue destination="hkN-0V-jx7" kind="show" identifier="MainFeedSegue" animates="NO" id="lIq-fQ-2vm"/>
                         <segue destination="YLD-sf-UWx" kind="show" identifier="toProfile" animates="NO" id="OGL-gi-Ibn"/>

@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +18,8 @@
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SOj-yC-fsl">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <segue destination="SiB-ib-vFl" kind="embed" id="Pvq-0Q-RIH"/>
                                 </connections>
@@ -62,7 +63,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" red="0.062745098040000002" green="0.062745098040000002" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="SOj-yC-fsl" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="6kQ-iy-Ffa"/>
                             <constraint firstItem="gid-G0-6Ia" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="8ju-UQ-N8x"/>
@@ -76,6 +77,7 @@
                     </view>
                     <connections>
                         <outlet property="chooseGameButton" destination="gLR-zW-Hv3" id="AFc-fN-0jA"/>
+                        <outlet property="containerView" destination="SOj-yC-fsl" id="tBX-gn-o0W"/>
                         <outlet property="pageControl" destination="9mo-5j-yO6" id="dfa-bs-P6u"/>
                         <segue destination="s4R-mj-8ku" kind="show" identifier="toNameGame" id="lCO-cA-fe7"/>
                     </connections>
@@ -118,12 +120,12 @@
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qtP-zg-Lza">
                                         <rect key="frame" x="15" y="255" width="250" height="50"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="1" green="0.2901960784" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="29u-yM-k3S"/>
                                             <constraint firstAttribute="width" constant="250" id="8jz-nr-ijk"/>
                                         </constraints>
-                                        <color key="tintColor" red="0.4823529412" green="0.3803921569" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Create"/>
                                         <connections>
@@ -252,11 +254,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="93" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-bW-NAv">
-                                <rect key="frame" x="82" y="94" width="250" height="419.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="O7L-bW-NAv">
+                                <rect key="frame" x="82" y="194" width="250" height="379"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="video.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-35-dmF">
-                                        <rect key="frame" x="0.0" y="2.5" width="250" height="295.5"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="videoIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-35-dmF">
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="OAq-HR-Y1V"/>
@@ -264,11 +266,11 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xM-p5-vwX">
-                                        <rect key="frame" x="0.0" y="393" width="250" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="350" width="250" height="29"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="590-df-Ktw"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -276,10 +278,10 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="bvj-aw-Cz5"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.098039215690000001" blue="0.16862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="O7L-bW-NAv" firstAttribute="centerX" secondItem="oaX-oH-q7A" secondAttribute="centerX" id="TWP-3a-YTb"/>
-                            <constraint firstItem="O7L-bW-NAv" firstAttribute="top" secondItem="bvj-aw-Cz5" secondAttribute="top" constant="50" id="mTd-Ng-2RQ"/>
+                            <constraint firstItem="O7L-bW-NAv" firstAttribute="top" secondItem="bvj-aw-Cz5" secondAttribute="top" constant="150" id="mTd-Ng-2RQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -295,9 +297,6 @@
     <resources>
         <image name="Left" width="23.5" height="24"/>
         <image name="exit" width="14" height="14"/>
-        <image name="video.fill" catalog="system" width="128" height="82"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="videoIcon" width="31.5" height="31.5"/>
     </resources>
 </document>
