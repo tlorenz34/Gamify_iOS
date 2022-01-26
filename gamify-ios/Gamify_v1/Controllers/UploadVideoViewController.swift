@@ -90,9 +90,13 @@ extension UploadVideoViewController: UINavigationControllerDelegate, UIImagePick
                 self.uploadButton.tintColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
                 let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 16) ]
                 self.uploadButton.setTitleTextAttributes(attributes, for: .normal)
-                GameManager.shared.updateSubmissionCount(id: GameManager.shared.currentGame.id)
+                    
+                if GameManager.shared.currentGame == nil{
+                    GameManager.shared.updateSubmissionCount(id: "daF18QnnvKHAIJy0IeYQ")
+                } else{
+                    GameManager.shared.updateSubmissionCount(id: GameManager.shared.currentGame.id)
+                }
             }
         }
-        Crashlytics.crashlytics().log("UIImagePickerController: imagePickerController - UploadVideoViewController")
     }
 }

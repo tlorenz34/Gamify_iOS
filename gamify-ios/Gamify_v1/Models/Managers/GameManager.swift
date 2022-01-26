@@ -19,6 +19,10 @@ class GameManager{
     var firstGame: Game!
 
     let COLLECTION_CONTENT = "game"
+    
+
+ 
+  
 
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID
@@ -45,6 +49,7 @@ class GameManager{
             }
         }
     }
+
     
     //update
     func updateSubmissionCount(id: String)
@@ -56,6 +61,7 @@ class GameManager{
                     document.reference.updateData([
                         "submissions": submission+1
                     ])
+                    
                     GameManager.shared.currentGame.numberOfSubmissions = submission+1
                 }
                 else
@@ -63,6 +69,7 @@ class GameManager{
                     document.reference.updateData([
                         "submissions": 1
                     ])
+                   
                     GameManager.shared.currentGame.numberOfSubmissions = 1
                 }
             }

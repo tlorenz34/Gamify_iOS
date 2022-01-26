@@ -26,6 +26,9 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     
+    @IBOutlet weak var shareButton: UIButton!
+    
+    
     @IBOutlet weak var testButton: UIButton!
     var audioPlayer = AVAudioPlayer()
     
@@ -133,6 +136,15 @@ class VideoViewController: UIViewController {
     
     func resumeVideo() {
         player?.play()
+    }
+    
+    @IBAction func tappedShareButton(_ sender: UIButton) {
+        let url = "https://apps.apple.com/us/app/gamify-social-mini-games/id1590780699"
+        
+        let ac = UIActivityViewController(activityItems: ["Hey - I have an invite to Gamify and want you to join. Here is the invite-only link to start creating mini-games with your friends.", url], applicationActivities: nil)
+       // ac.excludedActivityTypes = [.postToFacebook]
+        
+        self.present(ac, animated: true)
     }
     
     

@@ -104,7 +104,7 @@ class VideosContainerViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        gameNameLabel.text = GameManager.shared.currentGame?.name ?? "Funniest"
+        gameNameLabel.text = GameManager.shared.currentGame?.name ?? "funniest"
     }
 }
 

@@ -26,7 +26,6 @@ class UserManager{
         get(id: userId) { user in
             self.currentUser = user
         }
-        Crashlytics.crashlytics().log("Function: loadCurrentUser - UserManager")
 
     }
     
@@ -38,7 +37,6 @@ class UserManager{
         Firestore.firestore().collection(COLLECTION_USER)
             .document(user.id)
             .setData(data) { err in
-                Crashlytics.crashlytics().log("Function: create user - UserManager")
 
             onSuccess(err?.localizedDescription)
         }
@@ -79,8 +77,6 @@ class UserManager{
                 print("Document does not exist")
             }
         }
-        Crashlytics.crashlytics().log("Function: get id - UserManager")
-
 
     }
     
