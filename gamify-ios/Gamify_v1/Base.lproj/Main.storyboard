@@ -456,16 +456,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgc-1l-KY7">
-                                <rect key="frame" x="185" y="818" width="44" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="44" id="XQn-jS-E7C"/>
-                                    <constraint firstAttribute="height" constant="44" id="eMr-TA-WIY"/>
-                                </constraints>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="gear" catalog="system"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Top 10 Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-qU-At3">
                                 <rect key="frame" x="20" y="141.5" width="259" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
@@ -501,11 +491,9 @@
                         <constraints>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="trailing" secondItem="USc-kD-hCO" secondAttribute="trailing" id="0Kw-hW-SXd"/>
                             <constraint firstItem="jky-ye-BkW" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" id="1Ca-R6-w6g"/>
-                            <constraint firstItem="dgc-1l-KY7" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="121" id="277-Ic-662"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" id="5VI-kA-1xA"/>
                             <constraint firstItem="YwC-Ay-hy8" firstAttribute="top" secondItem="jky-ye-BkW" secondAttribute="bottom" constant="5" id="7Uy-Vg-4Qp"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="8kD-PC-tO6"/>
-                            <constraint firstItem="dgc-1l-KY7" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="121" id="D57-Zj-E5q"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" id="QSJ-GP-RFz"/>
                             <constraint firstItem="kqm-NI-MJn" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" constant="20" id="Qeh-EX-gaK"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="top" secondItem="jky-ye-BkW" secondAttribute="bottom" constant="100" id="RDP-S9-1LR"/>
@@ -513,7 +501,6 @@
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="trailing" secondItem="USc-kD-hCO" secondAttribute="trailing" id="m8V-Di-ZBi"/>
                             <constraint firstItem="jky-ye-BkW" firstAttribute="top" secondItem="USc-kD-hCO" secondAttribute="top" id="myG-CZ-8BA"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="top" secondItem="VfE-qU-At3" secondAttribute="bottom" constant="13" id="nBf-Td-UM6"/>
-                            <constraint firstItem="dgc-1l-KY7" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="nxT-0v-w75"/>
                             <constraint firstAttribute="bottom" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="199" id="t5g-Rl-iOe"/>
                             <constraint firstItem="YwC-Ay-hy8" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="tx2-Hr-dju"/>
                             <constraint firstItem="kqm-NI-MJn" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="7" id="yDE-Ll-9VQ"/>
@@ -524,7 +511,6 @@
                     <connections>
                         <outlet property="backButton" destination="lXv-oO-u0F" id="7gu-DA-Ebg"/>
                         <outlet property="navigationBar" destination="jky-ye-BkW" id="2kG-rP-Es8"/>
-                        <outlet property="settingsButton" destination="dgc-1l-KY7" id="TkI-Ab-bF1"/>
                         <outlet property="shareButton" destination="csa-o0-Uwn" id="rx0-7R-PHJ"/>
                         <outlet property="tableView" destination="PSn-lq-oVM" id="LLZ-H7-FyV"/>
                         <outlet property="yourRankingLabel" destination="vqf-Ux-96b" id="2jf-wH-T7E"/>
@@ -995,7 +981,6 @@
         <image name="Share" width="36.5" height="36"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="createIcon" width="72" height="72"/>
-        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="leaderboard" width="100" height="100"/>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="play.fill" catalog="system" width="116" height="128"/>

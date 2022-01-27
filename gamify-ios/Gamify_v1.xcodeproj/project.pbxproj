@@ -45,6 +45,12 @@
 		B1A7F5C027068EFB00720839 /* ContentDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A7F5BF27068EFB00720839 /* ContentDual.swift */; };
 		B1A89AAF2715D836000B7F11 /* LeaderboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */; };
 		B1A89B0027165D42000B7F11 /* VideosContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89AFF27165D42000B7F11 /* VideosContainerViewController.swift */; };
+		B1B3205E27A2F1000004968B /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3205D27A2F1000004968B /* Onboarding.swift */; };
+		B1B3206127A2F1E40004968B /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3206027A2F1E40004968B /* OnboardingViewController.swift */; };
+		B1B3206427A2F2B10004968B /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B1B3206327A2F2B10004968B /* Lottie */; };
+		B1B3206727A2F3320004968B /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1B3206527A2F3320004968B /* Onboarding.storyboard */; };
+		B1B3206927A2F3640004968B /* OnboardingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B3206827A2F3640004968B /* OnboardingCollectionViewCell.xib */; };
+		B1B3206B27A2F3A20004968B /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B3206A27A2F3A20004968B /* OnboardingCollectionViewCell.swift */; };
 		B1BB278D270D268400E97916 /* UploadVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB278C270D268400E97916 /* UploadVideoViewController.swift */; };
 		B1BB278F270D274300E97916 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB278E270D274200E97916 /* StorageManager.swift */; };
 		B1BB2791270D2ABC00E97916 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BB2790270D2ABC00E97916 /* ImageManager.swift */; };
@@ -145,6 +151,11 @@
 		B1A7F5BF27068EFB00720839 /* ContentDual.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDual.swift; sourceTree = "<group>"; };
 		B1A89AAE2715D836000B7F11 /* LeaderboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardViewController.swift; sourceTree = "<group>"; };
 		B1A89AFF27165D42000B7F11 /* VideosContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosContainerViewController.swift; sourceTree = "<group>"; };
+		B1B3205D27A2F1000004968B /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		B1B3206027A2F1E40004968B /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		B1B3206627A2F3320004968B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../../../onboardingFlow/onboardingFlow/Base.lproj/Onboarding.storyboard; sourceTree = "<group>"; };
+		B1B3206827A2F3640004968B /* OnboardingCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = OnboardingCollectionViewCell.xib; path = ../../../../../onboardingFlow/onboardingFlow/OnboardingCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1B3206A27A2F3A20004968B /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1BB278C270D268400E97916 /* UploadVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadVideoViewController.swift; sourceTree = "<group>"; };
 		B1BB278E270D274200E97916 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		B1BB2790270D2ABC00E97916 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
@@ -170,6 +181,7 @@
 				B1E463B2273ED617002CB233 /* FirebaseAnalytics in Frameworks */,
 				B170CDCE26FD512A006A1C12 /* CodableFirebase in Frameworks */,
 				B1E463D8273ED617002CB233 /* FirebaseMLModelDownloader in Frameworks */,
+				B1B3206427A2F2B10004968B /* Lottie in Frameworks */,
 				B1E463B8273ED617002CB233 /* FirebaseAppCheck in Frameworks */,
 				B1E463B6273ED617002CB233 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				B1E463BC273ED617002CB233 /* FirebaseAuth in Frameworks */,
@@ -317,6 +329,7 @@
 		B170CD9A26FA1CDF006A1C12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1B3205F27A2F1810004968B /* Onboarding */,
 				B13A698927912FD5006C7611 /* Profile */,
 				B158B9BB275595BC0084B703 /* Discover */,
 				B158B9A6275424C40084B703 /* GameMode */,
@@ -336,6 +349,7 @@
 				B170CDC826FD4E41006A1C12 /* Category.swift */,
 				B170CDBC26FA287E006A1C12 /* Managers */,
 				B1F5B1522719083E0042FF9A /* Identity.swift */,
+				B1B3205D27A2F1000004968B /* Onboarding.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,6 +376,17 @@
 				B170CD6126F8C657006A1C12 /* SceneDelegate.swift */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1B3205F27A2F1810004968B /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				B1B3206027A2F1E40004968B /* OnboardingViewController.swift */,
+				B1B3206527A2F3320004968B /* Onboarding.storyboard */,
+				B1B3206827A2F3640004968B /* OnboardingCollectionViewCell.xib */,
+				B1B3206A27A2F3A20004968B /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +435,7 @@
 				B1E463E1273ED617002CB233 /* FirebaseStorageCombine-Community */,
 				B1E463E3273ED617002CB233 /* FirebaseStorageSwift-Beta */,
 				B1D5A1F52769051800E48579 /* BLTNBoard */,
+				B1B3206327A2F2B10004968B /* Lottie */,
 			);
 			productName = Gamify_v1;
 			productReference = B170CD5C26F8C657006A1C12 /* Gamify_v1.app */;
@@ -486,6 +512,7 @@
 				B170CDCC26FD512A006A1C12 /* XCRemoteSwiftPackageReference "CodableFirebase" */,
 				B1E463B0273ED617002CB233 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				B1D5A1F42769051800E48579 /* XCRemoteSwiftPackageReference "BulletinBoard" */,
+				B1B3206227A2F2B10004968B /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = B170CD5D26F8C657006A1C12 /* Products */;
 			projectDirPath = "";
@@ -508,8 +535,10 @@
 				B158B9AA275425610084B703 /* GameMode.storyboard in Resources */,
 				B170CD6926F8C659006A1C12 /* Assets.xcassets in Resources */,
 				B13685C6273CE7A500C8718A /* GoogleService-Info.plist in Resources */,
+				B1B3206927A2F3640004968B /* OnboardingCollectionViewCell.xib in Resources */,
 				B13A698D27913006006C7611 /* Profile.storyboard in Resources */,
 				B170CD6726F8C657006A1C12 /* Main.storyboard in Resources */,
+				B1B3206727A2F3320004968B /* Onboarding.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -562,12 +591,15 @@
 				B1BB278F270D274300E97916 /* StorageManager.swift in Sources */,
 				B1298F62273AC20200E8DB70 /* LoginViewController.swift in Sources */,
 				B170CDC926FD4E41006A1C12 /* Category.swift in Sources */,
+				B1B3205E27A2F1000004968B /* Onboarding.swift in Sources */,
 				B158B9B427542BBE0084B703 /* GameModePageViewController.swift in Sources */,
 				B170CDD62703A7C3006A1C12 /* GameManager.swift in Sources */,
 				B1002CB12743352B00C88C30 /* TermsAndConditionsViewController.swift in Sources */,
+				B1B3206B27A2F3A20004968B /* OnboardingCollectionViewCell.swift in Sources */,
 				B1BB2793270D2B2100E97916 /* VideoManager.swift in Sources */,
 				B170CDC726FD4D51006A1C12 /* Game.swift in Sources */,
 				B158B9BF2755EC950084B703 /* DiscoverViewController.swift in Sources */,
+				B1B3206127A2F1E40004968B /* OnboardingViewController.swift in Sources */,
 				B1F5B151271907490042FF9A /* IdentityManager.swift in Sources */,
 				B170CD6026F8C657006A1C12 /* AppDelegate.swift in Sources */,
 				B1A89B0027165D42000B7F11 /* VideosContainerViewController.swift in Sources */,
@@ -642,6 +674,14 @@
 				B170CD6B26F8C659006A1C12 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		B1B3206527A2F3320004968B /* Onboarding.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1B3206627A2F3320004968B /* Base */,
+			);
+			name = Onboarding.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -942,6 +982,14 @@
 				minimumVersion = 0.2.2;
 			};
 		};
+		B1B3206227A2F2B10004968B /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		B1D5A1F42769051800E48579 /* XCRemoteSwiftPackageReference "BulletinBoard" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/alexisakers/BulletinBoard.git";
@@ -965,6 +1013,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B170CDCC26FD512A006A1C12 /* XCRemoteSwiftPackageReference "CodableFirebase" */;
 			productName = CodableFirebase;
+		};
+		B1B3206327A2F2B10004968B /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1B3206227A2F2B10004968B /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 		B1D5A1F52769051800E48579 /* BLTNBoard */ = {
 			isa = XCSwiftPackageProductDependency;

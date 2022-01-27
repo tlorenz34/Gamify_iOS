@@ -53,10 +53,14 @@ class ProfileViewController: UIViewController {
                 usernameLabel.text = username
             } else {
                 print("no one")
+                numberOfCoinsLabel.text = "-"
+                usernameLabel.text = "No account"
+
             }
         } else {
             print("You don't have an account")
             usernameLabel.text = "You don't have an account."
+            numberOfCoinsLabel.text = "-"
         }
         ContentManager.shared.listCurrentUserContent { content in
             self.mySubmissions = content
