@@ -164,18 +164,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     // SETTINGS and LOG OUT
 
     
-    @IBAction func tappedSettings(_ sender: UIButton) {
-        present(refreshAlert, animated: true, completion: nil)
-        refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
-            IdentityManager.shared.logout()
-            self.dismiss(animated: true, completion: nil)
-        
-        }))
 
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-    }
     
 
 

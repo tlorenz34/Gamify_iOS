@@ -28,6 +28,26 @@
             </objects>
             <point key="canvasLocation" x="843" y="65"/>
         </scene>
+        <!--GameModeViewController-->
+        <scene sceneID="Ere-SC-dgP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GameMode" referencedIdentifier="GameModeViewController" id="Kvb-gS-682" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2T0-tq-Vo5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AKj-ZE-1dp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="886" y="131"/>
+        </scene>
+        <!--VideosContainerViewController-->
+        <scene sceneID="38m-Q9-IaY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="VideosContainerViewController" id="uMd-6r-kYB" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="xsF-hy-dTT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="whJ-fL-IKM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="848" y="203"/>
+        </scene>
         <!--Discover-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -179,6 +199,7 @@
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="voteIcon" title=""/>
                                                         <connections>
+                                                            <action selector="toHome:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="loA-TR-gUt"/>
                                                             <segue destination="MU2-hC-3Jf" kind="unwind" animates="NO" unwindAction="unwindToOne:" id="wGv-Q1-aI7"/>
                                                         </connections>
                                                     </button>
@@ -205,6 +226,9 @@
                                                 <buttonConfiguration key="configuration" style="plain" image="createIcon" title="">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="tappedCreate:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Bxt-7J-YhM"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Bqw-jY-KN5">
                                                 <rect key="frame" x="240" y="14" width="90" height="20"/>
@@ -229,6 +253,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="More" title=""/>
+                                                        <connections>
+                                                            <action selector="tappedLogOut:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D4J-jp-MCG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -264,6 +291,8 @@
                         <outlet property="tableView" destination="Be4-65-XP0" id="2mi-82-zqA"/>
                         <segue destination="hkN-0V-jx7" kind="show" identifier="MainFeedSegue" animates="NO" id="lIq-fQ-2vm"/>
                         <segue destination="YLD-sf-UWx" kind="show" identifier="toProfile" animates="NO" id="OGL-gi-Ibn"/>
+                        <segue destination="Kvb-gS-682" kind="show" identifier="toGameMode" animates="NO" id="CLy-lj-5j9"/>
+                        <segue destination="uMd-6r-kYB" kind="show" identifier="toMain" animates="NO" id="ddZ-Sw-FL2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

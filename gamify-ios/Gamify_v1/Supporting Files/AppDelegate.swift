@@ -45,6 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(signedInAction(_:)), name: .signedInNotification, object: nil)
         
         FirebaseConfiguration.shared.setLoggerLevel(.min)
+
+        // Default to funniest game
+        GameManager.shared.db
+            .collection("game")
+            .document("iOvZQWf3uibmqMtmw9N2")
+            .getDocument { document, error in
+                let label = document!.get("gameName") as! String
+                let submissions = document!.get("submissions") as? Int ?? 0
+                GameManager.shared.currentGame = Game(name: label, id: document!.documentID, numberOfSubmissions: submissions)
+            }
         
         return true
     }

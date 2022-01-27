@@ -153,6 +153,9 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="More" title=""/>
+                                                        <connections>
+                                                            <action selector="tappedLogOut:" destination="aFe-SD-uFA" eventType="touchUpInside" id="E1w-qF-Hvp"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -462,9 +465,6 @@
                                 </constraints>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="gear" catalog="system"/>
-                                <connections>
-                                    <action selector="tappedSettings:" destination="Q9p-k6-lXU" eventType="touchUpInside" id="ihh-YP-avm"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Top 10 Leaderboard" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VfE-qU-At3">
                                 <rect key="frame" x="20" y="141.5" width="259" height="33.5"/>
@@ -473,7 +473,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="firstBaseline" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kqm-NI-MJn">
-                                <rect key="frame" x="20" y="710" width="221" height="33.5"/>
+                                <rect key="frame" x="20" y="704" width="221" height="33.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your ranking: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkv-GW-tgu">
                                         <rect key="frame" x="0.0" y="0.0" width="177" height="33.5"/>
@@ -490,7 +490,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Submit a video based on the prompt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YwC-Ay-hy8">
-                                <rect key="frame" x="69" y="93" width="277" height="20.5"/>
+                                <rect key="frame" x="69" y="93" width="276.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.52156862749999999" green="0.52156862749999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -502,7 +502,6 @@
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="trailing" secondItem="USc-kD-hCO" secondAttribute="trailing" id="0Kw-hW-SXd"/>
                             <constraint firstItem="jky-ye-BkW" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" id="1Ca-R6-w6g"/>
                             <constraint firstItem="dgc-1l-KY7" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="121" id="277-Ic-662"/>
-                            <constraint firstItem="USc-kD-hCO" firstAttribute="trailing" secondItem="YwC-Ay-hy8" secondAttribute="trailing" constant="68" id="4r7-8d-n0N"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" id="5VI-kA-1xA"/>
                             <constraint firstItem="YwC-Ay-hy8" firstAttribute="top" secondItem="jky-ye-BkW" secondAttribute="bottom" constant="5" id="7Uy-Vg-4Qp"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="8kD-PC-tO6"/>
@@ -511,13 +510,13 @@
                             <constraint firstItem="kqm-NI-MJn" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" constant="20" id="Qeh-EX-gaK"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="top" secondItem="jky-ye-BkW" secondAttribute="bottom" constant="100" id="RDP-S9-1LR"/>
                             <constraint firstItem="VfE-qU-At3" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" constant="20" id="Sbf-GQ-wDj"/>
-                            <constraint firstItem="YwC-Ay-hy8" firstAttribute="leading" secondItem="USc-kD-hCO" secondAttribute="leading" constant="69" id="fSv-bN-YdH"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="trailing" secondItem="USc-kD-hCO" secondAttribute="trailing" id="m8V-Di-ZBi"/>
                             <constraint firstItem="jky-ye-BkW" firstAttribute="top" secondItem="USc-kD-hCO" secondAttribute="top" id="myG-CZ-8BA"/>
                             <constraint firstItem="PSn-lq-oVM" firstAttribute="top" secondItem="VfE-qU-At3" secondAttribute="bottom" constant="13" id="nBf-Td-UM6"/>
                             <constraint firstItem="dgc-1l-KY7" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="nxT-0v-w75"/>
                             <constraint firstAttribute="bottom" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="199" id="t5g-Rl-iOe"/>
-                            <constraint firstItem="kqm-NI-MJn" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="13" id="yDE-Ll-9VQ"/>
+                            <constraint firstItem="YwC-Ay-hy8" firstAttribute="centerX" secondItem="TJA-ds-9N8" secondAttribute="centerX" id="tx2-Hr-dju"/>
+                            <constraint firstItem="kqm-NI-MJn" firstAttribute="top" secondItem="PSn-lq-oVM" secondAttribute="bottom" constant="7" id="yDE-Ll-9VQ"/>
                             <constraint firstItem="jky-ye-BkW" firstAttribute="trailing" secondItem="USc-kD-hCO" secondAttribute="trailing" id="ykO-a0-Eht"/>
                         </constraints>
                     </view>
@@ -810,7 +809,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ab-JF-wCl">
                                                 <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
-                                                <color key="backgroundColor" red="0.94117647059999998" green="0.98431372549999996" blue="0.96470588239999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="24" id="7cV-CV-LxO"/>
                                                     <constraint firstAttribute="width" secondItem="6Ab-JF-wCl" secondAttribute="height" multiplier="1:1" id="aVs-Z9-EF3"/>
