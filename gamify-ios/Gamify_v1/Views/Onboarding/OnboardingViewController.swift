@@ -24,11 +24,12 @@ class OnboardingViewController: UIViewController, UICollectionViewDataSource, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        pages = [Page(animationName: "castVote", title: "Vote", description: "Compare and vote on your favorite submissions."),
-                 Page(animationName: "animation2", title: "Discover", description: "Find games to join by going to the Discover section."),
-                 Page(animationName: "animation3", title: "Join", description: "Join games and check out the leaderboard."),
-                 Page(animationName: "animation4", title: "Create", description: "Create a public game and share with everyone."),
-                 Page(animationName: "coin", title: "Earn", description: "Earn coins for the number of votes that you receive.")
+        pages = [
+            Page(animationName: "animation3", title: "Join", description: "Join public games and challenges"),
+            Page(animationName: "animation2", title: "Discover", description: "Check out new games created by others"),
+            Page(animationName: "castVote", title: "Vote", description: "Compare and vote on your favorite submissions"),
+            Page(animationName: "animation4", title: "Create", description: "Create a public game and share with everyone"),
+            Page(animationName: "coin", title: "Earn", description: "Earn coins for the number of votes that you receive")
                  ]
         
         // to make the button rounded
