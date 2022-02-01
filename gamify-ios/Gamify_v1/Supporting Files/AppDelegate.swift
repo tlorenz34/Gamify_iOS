@@ -27,35 +27,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        
-        handler = Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user{
-                UserManager.shared.loadCurrentUser(userId: user.uid)
-                NotificationCenter.default.post(name: .signedInNotification, object: nil)
-            } else{
-                NotificationCenter.default.post(name: .signOutNotification, object: nil)
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+            
+            
+            handler = Auth.auth().addStateDidChangeListener { auth, user in
+                if let user = user{
+                    UserManager.shared.loadCurrentUser(userId: user.uid)
+
+                    NotificationCenter.default.post(name: .signedInNotification, object: nil)
+                } else{
+                    NotificationCenter.default.post(name: .signOutNotification, object: nil)
+                }
+                DispatchQueue.main.async {
+                    UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+                }
             }
             
-            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+            NotificationCenter.default.addObserver(self, selector: #selector(signOutAction(_:)), name: .signOutNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(signedInAction(_:)), name: .signedInNotification, object: nil)
+            
+            FirebaseConfiguration.shared.setLoggerLevel(.min)
+
+            // Default to funniest game
+            GameManager.shared.db
+                .collection("game")
+                .document("iOvZQWf3uibmqMtmw9N2")
+                .getDocument { document, error in
+                    let label = document!.get("gameName") as! String
+                    let submissions = document!.get("submissions") as? Int ?? 0
+                    GameManager.shared.currentGame = Game(name: label, id: document!.documentID, numberOfSubmissions: submissions)
+                }
+            
+            return true
+            
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            DispatchQueue.main.async {
+                UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Onboarding", bundle: nil).instantiateViewController(withIdentifier: "OnboardingViewController")
+            }
+            
+            return true
+
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(signOutAction(_:)), name: .signOutNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(signedInAction(_:)), name: .signedInNotification, object: nil)
-        
-        FirebaseConfiguration.shared.setLoggerLevel(.min)
-        
-        return true
+
     }
 
     @objc func signOutAction(_ notification: Notification) {
-       
-        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        DispatchQueue.main.async {
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
+        }
     }
     
     @objc func signedInAction(_ notification: Notification) {
-        
-        UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
-       
+        DispatchQueue.main.async {
+            UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VideosContainerViewController")
+        }
     }
     
     // MARK: UISceneSession Lifecycle

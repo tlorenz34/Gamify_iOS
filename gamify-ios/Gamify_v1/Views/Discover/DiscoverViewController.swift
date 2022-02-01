@@ -21,16 +21,26 @@ class DiscoverViewController: UIViewController {
         
     @IBOutlet weak var profileButton: UIButton!
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
     var game = [Game]()
+    
+    let refreshAlert = UIAlertController(title: "Do you want to log out?", message: "You will not be able to vote or compete anymore.", preferredStyle: UIAlertController.Style.alert)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.prefersLargeTitles = true
+
+      
     }
     
     override func viewDidAppear(_ animated: Bool) {
         loadData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        navigationBar.prefersLargeTitles = true
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+ 
     }
     
     @IBAction func unwindToDiscover(_ sender: UIStoryboardSegue){}
@@ -38,6 +48,27 @@ class DiscoverViewController: UIViewController {
     
     @IBAction func tappedProfile(_ sender: UIButton) {
         performSegue(withIdentifier: "toProfile", sender: self)
+    }
+    
+    @IBAction func tappedLogOut(_ sender: UIButton) {
+        present(refreshAlert, animated: true, completion: nil)
+        refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
+            IdentityManager.shared.logout()
+            self.dismiss(animated: true, completion: nil)
+        
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+    }
+    @IBAction func toHome(_ sender: UIButton) {
+        performSegue(withIdentifier: "toMain", sender: self)
+    }
+    
+    @IBAction func tappedCreate(_ sender: UIButton) {
+        performSegue(withIdentifier: "toGameMode", sender: self)
+
     }
     
     func loadData() {

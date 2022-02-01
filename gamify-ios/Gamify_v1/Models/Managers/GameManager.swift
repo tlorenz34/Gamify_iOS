@@ -19,6 +19,10 @@ class GameManager{
     var firstGame: Game!
 
     let COLLECTION_CONTENT = "game"
+    
+
+ 
+  
 
     func getDocumentId() -> String{
         return db.collection(COLLECTION_CONTENT).document().documentID
@@ -45,6 +49,7 @@ class GameManager{
             }
         }
     }
+
     
     //update
     func updateSubmissionCount(id: String)
@@ -56,6 +61,7 @@ class GameManager{
                     document.reference.updateData([
                         "submissions": submission+1
                     ])
+                    
                     GameManager.shared.currentGame.numberOfSubmissions = submission+1
                 }
                 else
@@ -63,11 +69,42 @@ class GameManager{
                     document.reference.updateData([
                         "submissions": 1
                     ])
+                   
                     GameManager.shared.currentGame.numberOfSubmissions = 1
                 }
             }
         }
     }
- 
+
+    enum RankingError: Error {
+        case failed(String)
+    }
+
+    func getRankingString(gameName: String, completion: @escaping (String) -> ()) {
+        guard let currentUser = UserManager.shared.currentUser?.username else {
+            completion("Not logged in.")
+            return
+        }
+        Firestore.firestore().collection("content")
+            .whereField("gameName", isEqualTo: gameName)
+            .order(by: "voteCount", descending: true)
+            .getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    completion(err.localizedDescription)
+                    return
+                }
+                for (i, document) in querySnapshot!.documents.enumerated() {
+                    let usernameProper = document.get("username")
+                    if usernameProper as? String == currentUser {
+                        let formatter = NumberFormatter()
+                        formatter.numberStyle = .ordinal
+                        let result = formatter.string(from: NSNumber(value: i+1))!
+                        completion(result)
+                        return
+                    }
+                }
+                completion("No uploads.")
+            }
+    }
 
 }

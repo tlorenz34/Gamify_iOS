@@ -29,6 +29,8 @@ class VideoManager{
      */
     func uploadVideo(videoUrl: URL, onSuccess: @escaping (String?) -> Void) {
         // make thumbnail from video
+
+        
         ImageManager.shared.getThumbnailImageFromVideoUrl(videoURL: videoUrl) { thumbnail in
             
             guard let thumbnail = thumbnail else {
@@ -45,13 +47,14 @@ class VideoManager{
                     guard let uploadedVideoUrl = uploadedVideoUrl  else {
                         return
                     }
+                    
                    let content = Content(
                             id: ContentManager.shared.getDocumentId(),
-                            userId: UserManager.shared.currentUser.id,
-                            username: UserManager.shared.currentUser.username!,
+                            userId: UserManager.shared.currentUser!.id,
+                            username: UserManager.shared.currentUser!.username!,
                             voteCount: 0,
                             gameId: GameManager.shared.getDocumentId(),
-                            gameName: GameManager.shared.currentGame.name,
+                            gameName: GameManager.shared.currentGame?.name ?? "funniest",
                             url: uploadedVideoUrl.absoluteString,
                             type: "video")
                     ContentManager.shared.create(content: content, onSuccess: onSuccess)

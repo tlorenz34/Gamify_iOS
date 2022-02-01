@@ -16,6 +16,8 @@ class GameModeViewController: UIViewController {
     weak var gameModePageViewController: GameModePageViewController?
 
     
+    @IBOutlet weak var containerView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,5 +53,16 @@ pageControl.numberOfPages = numberOfPage
 }
 func turnPageController(to index: Int) {
     pageControl.currentPage = index
+    switch pageControl.currentPage{
+    case 0:
+        chooseGameButton.isEnabled = true
+    case 1:
+       // chooseGameButton.isEnabled = false
+        chooseGameButton.isEnabled = false
+        
+    default:
+        chooseGameButton.isEnabled = true
+    }
+    print("CURRENT: \(pageControl.currentPage)")
 }
 }

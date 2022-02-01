@@ -8,26 +8,20 @@
 import UIKit
 
 class ProfileSubmissionsTableViewCell: UITableViewCell {
-
     @IBOutlet weak var playSubmissionButton: UIButton!
-    
-    
+    @IBOutlet weak var ratingLabel: UILabel!
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         playSubmissionButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-
-
     }
+
     func configure(content: Content){
-        
         playSubmissionButton.setTitle("\(content.gameName)", for: .normal)
-
-    
+        GameManager.shared.getRankingString(gameName: content.gameName) { [weak ratingLabel] ranking in
+            ratingLabel?.text = ranking
+        }
+        ratingLabel.text = "\(content.voteCount) votes"
     }
-    
-    
-
 }

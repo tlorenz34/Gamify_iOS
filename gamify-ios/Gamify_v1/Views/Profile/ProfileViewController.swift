@@ -37,23 +37,30 @@ class ProfileViewController: UIViewController {
     
     var leaderboard = LeaderboardViewController()
     
+    let refreshAlert = UIAlertController(title: "Do you want to log out?", message: "You will not be able to vote or compete anymore.", preferredStyle: UIAlertController.Style.alert)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        if UserManager.shared.currentUser.username == nil{
+        if UserManager.shared.currentUser == nil{
             return
         }
         //let currentUser = UserManager.shared.currentUser.username
-        switch UserManager.shared.currentUser.username {
-        case "\(UserManager.shared.currentUser.username!)":
-            print("You're signed in.")
-            usernameLabel.text = "\(UserManager.shared.currentUser.username!)"
-        case nil:
-            print("no one")
-        default:
+        if let currentUser = UserManager.shared.currentUser {
+            if let username = currentUser.username {
+                print("You're signed in.")
+                usernameLabel.text = username
+            } else {
+                print("no one")
+                numberOfCoinsLabel.text = "-"
+                usernameLabel.text = "No account"
+
+            }
+        } else {
             print("You don't have an account")
             usernameLabel.text = "You don't have an account."
+            numberOfCoinsLabel.text = "-"
         }
         ContentManager.shared.listCurrentUserContent { content in
             self.mySubmissions = content
@@ -95,6 +102,18 @@ class ProfileViewController: UIViewController {
         present(vc, animated: true) { vc.player?.play() }
     }
     
+    @IBAction func tappedLogOut(_ sender: UIButton) {
+        present(refreshAlert, animated: true, completion: nil)
+        refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
+            IdentityManager.shared.logout()
+            self.dismiss(animated: true, completion: nil)
+        
+        }))
+
+        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+            self.dismiss(animated: true, completion: nil)
+        }))
+    }
 }
 extension ProfileViewController: UITableViewDelegate{
     

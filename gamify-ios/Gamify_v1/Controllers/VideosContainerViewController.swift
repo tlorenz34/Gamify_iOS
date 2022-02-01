@@ -40,6 +40,8 @@ class VideosContainerViewController: UIViewController {
     
     var totalVotes = 0
     var tempArray = [Any]()
+    
+    let refreshAlert = UIAlertController(title: "Do you want to log out?", message: "You will not be able to vote or compete anymore.", preferredStyle: UIAlertController.Style.alert)
 
 
     override func viewDidLoad() {
@@ -88,13 +90,36 @@ class VideosContainerViewController: UIViewController {
     @IBAction func tappedProfileButton(_ sender: UIButton) {
         performSegue(withIdentifier: "toProfile", sender: self)
     }
+    @IBAction func tappedLogOut(_ sender: UIButton) {
+            present(refreshAlert, animated: true, completion: nil)
+            refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
+                IdentityManager.shared.logout()
+                self.dismiss(animated: true, completion: nil)
+            
+            }))
+
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let vc = segue.destination as? VideosViewController{
-            vc.containerDelegate = self
-            videosViewController = vc
+        super.prepare(for: segue, sender: sender)
+        if let videosVC = segue.destination as? VideosViewController {
+            videosVC.containerDelegate = self
+            videosViewController = videosVC
         }
     }
 
+    override func performSegue(withIdentifier identifier: String, sender: Any?) {
+        if let videosVC = videosViewController {
+            videosVC.vcs[videosVC.currentPageIndex].pauseVideo()
+        }
+        super.performSegue(withIdentifier: identifier, sender: sender)
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        gameNameLabel.text = GameManager.shared.currentGame?.name ?? "funniest"
+    }
 }
 
 extension VideosContainerViewController: VideosContainerViewControllerDelegate{

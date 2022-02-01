@@ -26,6 +26,9 @@ class VideoViewController: UIViewController {
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     
+    @IBOutlet weak var shareButton: UIButton!
+    
+    
     @IBOutlet weak var testButton: UIButton!
     var audioPlayer = AVAudioPlayer()
     
@@ -75,6 +78,7 @@ class VideoViewController: UIViewController {
     }
     
     func load(content: Content){
+        pauseVideo()
         for vw in videoView.subviews
         {
             vw.removeFromSuperview()
@@ -98,35 +102,27 @@ class VideoViewController: UIViewController {
     }
     
     @objc func muteVideo(sender: UITapGestureRecognizer) {
-        if let isMuted = self.player?.isMuted
-        {
-            self.player?.isMuted = !isMuted
-            UserDefaults.standard.set(!isMuted, forKey: "mute")
-        }
+        let isMuted = UserDefaults.standard.bool(forKey: "mute")
+        self.player?.isMuted = !isMuted
+        UserDefaults.standard.set(!isMuted, forKey: "mute")
     }
     
     @IBAction func tappedJoinButton(_ sender: UIButton) {
-        if UserManager.shared.currentUser == nil{
-            self.player?.isMuted = true
+        if UserManager.shared.currentUser == nil {
             pauseVideo()
             UIApplication.shared.windows.first!.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SignUpViewController")
-        } else{
-            self.player?.isMuted = true
+        } else {
             pauseVideo()
             performSegue(withIdentifier: "toUpload", sender: nil)
-            
         }
     }
     
     @IBAction func tappedAboutButton(_ sender: Any) {
         pauseVideo()
-        player?.isMuted = true
         performSegue(withIdentifier: "toLeaderboard", sender: nil)
-        
     }
     
     @IBAction func tappedTestButton(_ sender: UIButton) {
-        self.player?.isMuted = true
         pauseVideo()
         performSegue(withIdentifier: "toGameModeVC", sender: self)
     }
@@ -134,12 +130,21 @@ class VideoViewController: UIViewController {
     @IBAction func unwindToOne(_ sender: UIStoryboardSegue){}
     
     
-    func pauseVideo(){
+    func pauseVideo() {
         player?.pause()
     }
     
-    func resumeVideo(){
+    func resumeVideo() {
         player?.play()
+    }
+    
+    @IBAction func tappedShareButton(_ sender: UIButton) {
+        let url = "https://apps.apple.com/us/app/gamify-social-mini-games/id1590780699"
+        
+        let ac = UIActivityViewController(activityItems: ["Hey - I have an invite to Gamify and want you to join. Here is the invite-only link to start creating mini-games with your friends.", url], applicationActivities: nil)
+       // ac.excludedActivityTypes = [.postToFacebook]
+        
+        self.present(ac, animated: true)
     }
     
     
@@ -153,8 +158,7 @@ class VideoViewController: UIViewController {
         pulse.animationDuration = ANIMATION_DURATION
         pulse.backgroundColor =  #colorLiteral(red: 1, green: 0.2901960784, blue: 0.3137254902, alpha: 1)
         self.view.layer.insertSublayer(pulse, below: self.view.layer)
-        self.player?.isMuted = true
-        self.player?.pause()
+        pauseVideo()
         DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_DURATION) {
             self.delegate?.winnerDidSelect(content: self.content!)
         }

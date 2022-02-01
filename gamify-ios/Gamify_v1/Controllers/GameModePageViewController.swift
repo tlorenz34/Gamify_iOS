@@ -35,6 +35,7 @@ class GameModePageViewController: UIPageViewController {
         if let firstViewController = contentViewController(at: 0) {
         setViewControllers([firstViewController], direction: .forward, animated: true, completion: nil)
         }
+        
     
 
         

@@ -122,6 +122,9 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     var topContent = [Content]()
     
+    @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getMultiple()
@@ -129,6 +132,8 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+
+
 
         ContentManager.shared.listTopContent { content in
             self.topContent = content
@@ -138,6 +143,10 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        let gameName = GameManager.shared.currentGame?.name ?? "funniest"
+
+        navigationBar.topItem!.title = "\(gameName)"
+
     }
     
     // Share game
@@ -155,18 +164,7 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
     // SETTINGS and LOG OUT
 
     
-    @IBAction func tappedSettings(_ sender: UIButton) {
-        present(refreshAlert, animated: true, completion: nil)
-        refreshAlert.addAction(UIAlertAction(title: "Sign Out", style: .default, handler: { (action: UIAlertAction!) in
-            IdentityManager.shared.logout()
-            self.dismiss(animated: true, completion: nil)
-        
-        }))
 
-        refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-    }
     
 
 
@@ -180,38 +178,12 @@ class LeaderboardViewController: UIViewController, UITableViewDataSource, UITabl
             }
         }
     }
-    func getMultiple(){
-        let db = Firestore.firestore()
-        let currentGame = GameManager.shared.currentGame.name
-        switch currentGame{
-        case currentGame:
-            db.collection("content").whereField("gameName", isEqualTo: "\(GameManager.shared.currentGame.name)").order(by: "voteCount", descending: true)
-              .getDocuments() { (querySnapshot, err) in
-                if let err = err {
-                    print("Error getting documents: \(err)")
-                } else {
-                    for (index, document) in querySnapshot!.documents.enumerated() {
-                        let tempIndex = (index + 1) as NSNumber
-                        let usernameProper = document.get("username")
-                        guard let currentUser = UserManager.shared.currentUser.username else{
-                            return
-                        }
-                        if usernameProper as! String == "\(currentUser)"{
-                            let formatter = NumberFormatter()
-                            formatter.numberStyle = .ordinal
-                        let first = formatter.string(from: tempIndex)!
-                            self.yourRankingLabel.text = "\(first)"
-                            break
-                        }
-                    }
-                }
-            }
-            return
-        default:
-            self.yourRankingLabel.text = "No uploads."
-            return
-        }
 
+    func getMultiple(){
+        let gameName = GameManager.shared.currentGame?.name ?? "funniest"
+        GameManager.shared.getRankingString(gameName: gameName) { ranking in
+            self.yourRankingLabel.text = ranking
+        }
     }
     
     func playVideo(url: URL) {
